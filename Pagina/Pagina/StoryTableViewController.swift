@@ -7,12 +7,21 @@
 //
 
 import UIKit
+import Firebase
 
 class StoryTableViewController: UITableViewController {
 
+    var ref: DatabaseReference!
+    
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        // Firebase dbs reference
+        ref = Database.database().reference()
+        
+        
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
@@ -34,19 +43,16 @@ class StoryTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 0
+        return 5
     }
 
-    /*
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
-
-        // Configure the cell...
+        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath) as! StoryTableViewCell;
+        cell.titleLabel?.text = "1984";
 
         return cell
     }
-    */
-
     /*
     // Override to support conditional editing of the table view.
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
