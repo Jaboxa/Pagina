@@ -16,6 +16,7 @@
 		0064CFC92028815800729474 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0064CFC82028815800729474 /* GoogleService-Info.plist */; };
 		0064CFCB2028923800729474 /* StoryTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0064CFCA2028923800729474 /* StoryTableViewController.swift */; };
 		0064CFCF2029AEC500729474 /* StoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0064CFCE2029AEC500729474 /* StoryTableViewCell.swift */; };
+		CEDED2572029D8B7008CC7B4 /* CreateAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEDED2562029D8B7008CC7B4 /* CreateAccountViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +33,7 @@
 		3A38A726B53E05453205AEEB /* Pods-Pagina.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Pagina.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Pagina/Pods-Pagina.debug.xcconfig"; sourceTree = "<group>"; };
 		972F3314908C4CF37D3864DA /* Pods_Pagina.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Pagina.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		AB41F3B2A275C179F57C9683 /* Pods-Pagina.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Pagina.release.xcconfig"; path = "Pods/Target Support Files/Pods-Pagina/Pods-Pagina.release.xcconfig"; sourceTree = "<group>"; };
+		CEDED2562029D8B7008CC7B4 /* CreateAccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAccountViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -69,6 +71,7 @@
 			children = (
 				0064CFB620287F9100729474 /* AppDelegate.swift */,
 				0064CFB820287F9100729474 /* ViewController.swift */,
+				CEDED2562029D8B7008CC7B4 /* CreateAccountViewController.swift */,
 				0064CFBA20287F9100729474 /* Main.storyboard */,
 				0064CFBD20287F9100729474 /* Assets.xcassets */,
 				0064CFBF20287F9100729474 /* LaunchScreen.storyboard */,
@@ -233,6 +236,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CEDED2572029D8B7008CC7B4 /* CreateAccountViewController.swift in Sources */,
 				0064CFCB2028923800729474 /* StoryTableViewController.swift in Sources */,
 				0064CFB920287F9100729474 /* ViewController.swift in Sources */,
 				0064CFB720287F9100729474 /* AppDelegate.swift in Sources */,
