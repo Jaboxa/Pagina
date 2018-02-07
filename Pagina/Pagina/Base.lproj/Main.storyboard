@@ -49,7 +49,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hFv-b7-yLC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1218.4000000000001" y="120.98950524737631"/>
+            <point key="canvasLocation" x="-1271" y="325"/>
         </scene>
         <!--Login-->
         <scene sceneID="oXL-ly-rzR">
@@ -60,7 +60,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="Iii-9m-By2">
-                                <rect key="frame" x="10" y="114" width="355" height="131"/>
+                                <rect key="frame" x="10" y="114" width="355" height="151.5"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Email" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8t1-uD-i5z">
                                         <rect key="frame" x="0.0" y="0.0" width="41" height="20.5"/>
@@ -86,8 +86,14 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" secureTextEntry="YES" textContentType="password"/>
                                     </textField>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="varningstext" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h1P-SH-Gh1">
+                                        <rect key="frame" x="0.0" y="101" width="355" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" red="1" green="0.0" blue="0.074743433489999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8kB-0i-BJW">
-                                        <rect key="frame" x="0.0" y="101" width="355" height="30"/>
+                                        <rect key="frame" x="0.0" y="121.5" width="355" height="30"/>
                                         <state key="normal" title="Login"/>
                                         <connections>
                                             <action selector="login:" destination="Kfv-cf-FWX" eventType="touchUpInside" id="E2x-19-MFG"/>
@@ -96,15 +102,17 @@
                                 </subviews>
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="8kB-0i-BJW" secondAttribute="trailing" id="1sS-VO-MVG"/>
+                                    <constraint firstItem="h1P-SH-Gh1" firstAttribute="leading" secondItem="Iii-9m-By2" secondAttribute="leading" id="4gN-FX-BsY"/>
                                     <constraint firstItem="64W-NM-A7L" firstAttribute="leading" secondItem="Iii-9m-By2" secondAttribute="leading" id="9Sp-ap-WD3"/>
                                     <constraint firstItem="9k4-PL-kUs" firstAttribute="leading" secondItem="Iii-9m-By2" secondAttribute="leading" id="SHp-v4-keQ"/>
                                     <constraint firstItem="8kB-0i-BJW" firstAttribute="leading" secondItem="Iii-9m-By2" secondAttribute="leading" id="Uas-hf-f2X"/>
                                     <constraint firstAttribute="trailing" secondItem="9k4-PL-kUs" secondAttribute="trailing" id="VC2-RN-eky"/>
                                     <constraint firstAttribute="trailing" secondItem="64W-NM-A7L" secondAttribute="trailing" id="fWN-jS-t4A"/>
+                                    <constraint firstAttribute="trailing" secondItem="h1P-SH-Gh1" secondAttribute="trailing" id="mSc-tk-XXd"/>
                                 </constraints>
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="spI-Fa-6nT">
-                                <rect key="frame" x="104" y="253" width="166" height="30"/>
+                                <rect key="frame" x="104" y="273.5" width="166" height="30"/>
                                 <state key="normal" title="Create new account"/>
                                 <connections>
                                     <segue destination="lQz-AP-ukM" kind="show" identifier="createAccountSegue" id="Ura-9O-Zx7"/>
@@ -128,12 +136,13 @@
                         <outlet property="emailTextField" destination="64W-NM-A7L" id="osv-f2-vFL"/>
                         <outlet property="passwordLabel" destination="tDg-Ct-ZWg" id="94f-EH-5ay"/>
                         <outlet property="passwordTextField" destination="9k4-PL-kUs" id="REN-Tp-0kc"/>
+                        <outlet property="warningTextLabel" destination="h1P-SH-Gh1" id="3Lr-ec-y2q"/>
                         <segue destination="EWj-Ph-TVh" kind="presentation" identifier="StoryTableViewSegue" id="Zwe-lb-Xq3"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Kg5-IB-VNW" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2226.4000000000001" y="-282.00899550224892"/>
+            <point key="canvasLocation" x="-2226" y="-454"/>
         </scene>
         <!--Create Account View Controller-->
         <scene sceneID="QRC-qk-6Yp">

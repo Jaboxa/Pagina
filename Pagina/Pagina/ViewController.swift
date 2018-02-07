@@ -15,18 +15,34 @@ class ViewController: UIViewController {
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordLabel: UILabel!
     @IBOutlet weak var passwordTextField: UITextField!
+    @IBOutlet weak var warningTextLabel: UILabel!
     
     @IBAction func login(_ sender: Any) {
 
         Auth.auth().signIn(withEmail: emailTextField.text!, password: passwordTextField.text!) { (user, error) in
+            
+            if user != nil{
+                self.performSegue(withIdentifier: "StoryTableViewSegue",
+                                  sender: Any?.self);
+                self.warningTextLabel.isHidden = true;
+            }
+            if let err = error {
+                self.warningTextLabel.isHidden = false
+                self.warningTextLabel.text = err.localizedDescription
+            }else{
+                self.warningTextLabel.isHidden = false;
+                self.warningTextLabel.text = "unknown errror";
+            }
     }
     }
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
-    
-        // Do any additional setup after loading the view, typically from a nib.
+        // set warning label stuff
+        warningTextLabel.isHidden = true
+        warningTextLabel.lineBreakMode = .byWordWrapping
+        warningTextLabel.numberOfLines = 3
 
         }
     
@@ -35,7 +51,6 @@ class ViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
 
 }
 

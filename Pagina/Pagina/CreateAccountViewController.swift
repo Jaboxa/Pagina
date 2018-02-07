@@ -22,16 +22,17 @@ class CreateAccountViewController: UIViewController {
     @IBOutlet weak var createPasswordTextField: UITextField!
     
     @IBAction func createAccountButton(_ sender: Any) {
-        print("Nudå")
         Auth.auth().createUser(withEmail: createEmailTextField.text!, password: createPasswordTextField.text!) { (user, error) in
             
-            if let theUser = user {
-                print(theUser.email!)
+            if user != nil {
+                self.navigationController?.popViewController(animated: true)
+                self.warningTextLabel.isHidden = true;
             }else if let err = error{
                 self.warningTextLabel.isHidden = false;
                 self.warningTextLabel.text = err.localizedDescription;
             }else{
-                print("unknown errror");
+                self.warningTextLabel.isHidden = false;
+                self.warningTextLabel.text = "unknown errror";
             }
             
         }
@@ -42,7 +43,10 @@ class CreateAccountViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
  
+        //set warning label stuff
         self.warningTextLabel.isHidden = true;
+        self.warningTextLabel.lineBreakMode = .byWordWrapping
+        self.warningTextLabel.numberOfLines = 3
     }
 
     override func didReceiveMemoryWarning() {
