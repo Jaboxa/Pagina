@@ -170,7 +170,7 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                                     </textField>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="varningstext" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xm6-yz-s7W">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="varningstext" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xm6-yz-s7W">
                                         <rect key="frame" x="0.0" y="101" width="355" height="20.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -188,11 +188,13 @@
                                     <constraint firstItem="AD0-nm-Boc" firstAttribute="leading" secondItem="nwc-k9-Buo" secondAttribute="leading" id="8AT-Pa-uPH"/>
                                     <constraint firstAttribute="trailing" secondItem="Xm6-yz-s7W" secondAttribute="trailing" id="At1-Xj-9go"/>
                                     <constraint firstItem="Xm6-yz-s7W" firstAttribute="leading" secondItem="nwc-k9-Buo" secondAttribute="leading" id="BCd-bD-0bG"/>
+                                    <constraint firstAttribute="trailing" secondItem="Xm6-yz-s7W" secondAttribute="trailing" id="FOm-r2-iae"/>
                                     <constraint firstItem="UlC-Cl-Qbw" firstAttribute="leading" secondItem="nwc-k9-Buo" secondAttribute="leading" id="Fp9-99-V5L"/>
                                     <constraint firstAttribute="trailing" secondItem="UlC-Cl-Qbw" secondAttribute="trailing" id="G2Y-06-wxW"/>
                                     <constraint firstItem="u32-7f-PF7" firstAttribute="leading" secondItem="nwc-k9-Buo" secondAttribute="leading" id="Xl6-mJ-GEt"/>
                                     <constraint firstAttribute="trailing" secondItem="AD0-nm-Boc" secondAttribute="trailing" id="YmH-KV-Q2Z"/>
                                     <constraint firstAttribute="trailing" secondItem="u32-7f-PF7" secondAttribute="trailing" id="cdI-Gr-tMt"/>
+                                    <constraint firstItem="Xm6-yz-s7W" firstAttribute="leading" secondItem="nwc-k9-Buo" secondAttribute="leading" id="ovP-9u-UHn"/>
                                 </constraints>
                             </stackView>
                         </subviews>
@@ -209,6 +211,7 @@
                         <outlet property="createEmailTextField" destination="AD0-nm-Boc" id="IBd-Me-w6h"/>
                         <outlet property="createPasswordLabel" destination="GQb-5b-1QC" id="4OA-yI-geY"/>
                         <outlet property="createPasswordTextField" destination="UlC-Cl-Qbw" id="s9k-pD-3Eg"/>
+                        <outlet property="warningTextLabel" destination="Xm6-yz-s7W" id="SMu-53-BSD"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GIu-Rq-l92" userLabel="First Responder" sceneMemberID="firstResponder"/>

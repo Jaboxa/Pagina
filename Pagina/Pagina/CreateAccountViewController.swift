@@ -12,6 +12,7 @@ import FirebaseAuth
 
 class CreateAccountViewController: UIViewController {
 
+    @IBOutlet weak var warningTextLabel: UILabel!
     @IBOutlet weak var createEmailLabel: UILabel!
     
     @IBOutlet weak var createEmailTextField: UITextField!
@@ -27,7 +28,8 @@ class CreateAccountViewController: UIViewController {
             if let theUser = user {
                 print(theUser.email!)
             }else if let err = error{
-                print(err.localizedDescription);
+                self.warningTextLabel.isHidden = false;
+                self.warningTextLabel.text = err.localizedDescription;
             }else{
                 print("unknown errror");
             }
@@ -37,15 +39,10 @@ class CreateAccountViewController: UIViewController {
         
     }
     
-    
-    
-    
-    
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-print("Appeöldskfdjsl")
-        // Do any additional setup after loading the view.
+ 
+        self.warningTextLabel.isHidden = true;
     }
 
     override func didReceiveMemoryWarning() {
