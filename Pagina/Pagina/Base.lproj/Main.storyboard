@@ -19,10 +19,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="2Yf-mv-sQ1" customClass="StoryTableViewCell" customModule="Pagina" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="storyCell" id="2Yf-mv-sQ1" customClass="StoryTableViewCell" customModule="Pagina" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="2Yf-mv-sQ1" id="ZK0-SW-5fk">
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="2Yf-mv-sQ1" id="ZK0-SW-5fk" customClass="StoryTableViewCell" customModule="Pagina" customModuleProvider="target">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
@@ -36,7 +36,7 @@
                                     </subviews>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <outlet property="titleLable" destination="DDb-fn-k5D" id="fUD-2z-LbW"/>
+                                    <outlet property="titleLabel" destination="DDb-fn-k5D" id="Z8n-4o-0EW"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -45,11 +45,96 @@
                             <outlet property="delegate" destination="EWj-Ph-TVh" id="4Fi-At-Lbu"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Pagina" id="BxZ-Ym-yex"/>
+                    <navigationItem key="navigationItem" title="Pagina" id="Vfi-o7-AqX"/>
+                    <connections>
+                        <outlet property="storyTableView" destination="8rY-oe-3zh" id="t8L-xl-Dbn"/>
+                        <segue destination="U6G-gW-zBQ" kind="show" identifier="chapterTableSegue" id="RWi-T3-4ut"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hFv-b7-yLC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1271" y="325"/>
+            <point key="canvasLocation" x="-1431" y="286"/>
+        </scene>
+        <!--Title-->
+        <scene sceneID="iGb-wo-035">
+            <objects>
+                <tableViewController id="U6G-gW-zBQ" customClass="ChapterTableViewController" customModule="Pagina" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="3o3-VX-ZOv">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ChapterCell" id="Otd-XH-Gyi" customClass="ChapterTableViewCell" customModule="Pagina" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Otd-XH-Gyi" id="gj0-Up-C8A">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Chaper Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IFc-hI-HWH">
+                                            <rect key="frame" x="16" y="11" width="157" height="21"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="ChapterTitleLabel" destination="IFc-hI-HWH" id="AYq-4a-nwK"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="U6G-gW-zBQ" id="Tmx-sC-XA8"/>
+                            <outlet property="delegate" destination="U6G-gW-zBQ" id="G74-oz-5wt"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Title" id="8Og-zZ-R2W"/>
+                    <connections>
+                        <outlet property="chapterNavbarTitle" destination="8Og-zZ-R2W" id="1sZ-Pl-Qy7"/>
+                        <outlet property="chapterTableView" destination="3o3-VX-ZOv" id="xKn-wP-77Z"/>
+                        <segue destination="YS2-jm-nUl" kind="show" identifier="StoryEditSegue" id="QW2-om-xlS"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="F6o-zU-Cl9" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-580" y="285.60719640179911"/>
+        </scene>
+        <!--Title-->
+        <scene sceneID="8pN-Yz-sQV">
+            <objects>
+                <viewController id="YS2-jm-nUl" customClass="StoryEditViewController" customModule="Pagina" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="VJN-2V-Lgf">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="fMY-dx-wif">
+                                <rect key="frame" x="0.0" y="64" width="375" height="410"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="NmJ-hM-GQd" firstAttribute="bottom" secondItem="fMY-dx-wif" secondAttribute="bottom" constant="193" id="3Hc-y6-of9"/>
+                            <constraint firstItem="fMY-dx-wif" firstAttribute="top" secondItem="NmJ-hM-GQd" secondAttribute="top" id="WLi-a3-ekS"/>
+                            <constraint firstItem="fMY-dx-wif" firstAttribute="leading" secondItem="NmJ-hM-GQd" secondAttribute="leading" id="fnR-9U-a9W"/>
+                            <constraint firstItem="fMY-dx-wif" firstAttribute="trailing" secondItem="NmJ-hM-GQd" secondAttribute="trailing" id="yto-Mz-n3p"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="NmJ-hM-GQd"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Title" id="CYB-oR-Aif"/>
+                    <connections>
+                        <outlet property="navbarTitle" destination="CYB-oR-Aif" id="VIf-6R-8v1"/>
+                        <outlet property="storyEditTextView" destination="fMY-dx-wif" id="hLO-7Y-F07"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="vF0-BB-AD7" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="231" y="286"/>
         </scene>
         <!--Login-->
         <scene sceneID="oXL-ly-rzR">
@@ -137,7 +222,7 @@
                         <outlet property="passwordLabel" destination="tDg-Ct-ZWg" id="94f-EH-5ay"/>
                         <outlet property="passwordTextField" destination="9k4-PL-kUs" id="REN-Tp-0kc"/>
                         <outlet property="warningTextLabel" destination="h1P-SH-Gh1" id="3Lr-ec-y2q"/>
-                        <segue destination="EWj-Ph-TVh" kind="presentation" identifier="StoryTableViewSegue" id="Zwe-lb-Xq3"/>
+                        <segue destination="yN2-Wl-ypf" kind="presentation" identifier="StoryTableViewSegue" id="IU6-EA-b4w"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Kg5-IB-VNW" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -225,7 +310,23 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GIu-Rq-l92" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1447" y="-528"/>
+            <point key="canvasLocation" x="-1431" y="-455"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="18S-Ys-IIC">
+            <objects>
+                <navigationController id="yN2-Wl-ypf" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="6fa-lg-ASi">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="EWj-Ph-TVh" kind="relationship" relationship="rootViewController" id="Cg1-fp-VFX"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dmx-bf-lk9" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-2226" y="286"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="TdQ-3a-Wsc">
@@ -236,12 +337,12 @@
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
-                        <segue destination="Kfv-cf-FWX" kind="relationship" relationship="rootViewController" id="OJX-yJ-ANO"/>
+                        <segue destination="Kfv-cf-FWX" kind="relationship" relationship="rootViewController" id="v3U-50-WO4"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0CD-u3-h0G" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2942" y="121"/>
+            <point key="canvasLocation" x="-3135" y="-455"/>
         </scene>
     </scenes>
 </document>

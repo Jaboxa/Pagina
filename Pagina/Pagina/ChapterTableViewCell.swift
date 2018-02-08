@@ -1,15 +1,18 @@
 //
-//  TableViewCell.swift
+//  ChapterTableViewCell.swift
 //  Pagina
 //
-//  Created by Alice Darner on 2018-02-06.
+//  Created by user on 2/8/18.
 //  Copyright © 2018 dogbird. All rights reserved.
 //
 
 import UIKit
+import Firebase
 
-class TableViewCell: UITableViewCell {
-
+class ChapterTableViewCell: UITableViewCell {
+    
+    @IBOutlet weak var ChapterTitleLabel: UILabel!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
