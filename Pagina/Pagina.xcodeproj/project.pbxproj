@@ -14,8 +14,8 @@
 		0064CFBE20287F9100729474 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0064CFBD20287F9100729474 /* Assets.xcassets */; };
 		0064CFC120287F9100729474 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0064CFBF20287F9100729474 /* LaunchScreen.storyboard */; };
 		0064CFC92028815800729474 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0064CFC82028815800729474 /* GoogleService-Info.plist */; };
-		0064CFDA202B34AF00729474 /* StoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0064CFD8202B34AF00729474 /* StoryTableViewCell.swift */; };
-		0064CFDB202B34AF00729474 /* StoryTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0064CFD9202B34AF00729474 /* StoryTableViewController.swift */; };
+		0064CFDE202C5A9400729474 /* StoryTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0064CFDC202C5A9300729474 /* StoryTableViewController.swift */; };
+		0064CFDF202C5A9400729474 /* StoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0064CFDD202C5A9400729474 /* StoryTableViewCell.swift */; };
 		CEDED2572029D8B7008CC7B4 /* CreateAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEDED2562029D8B7008CC7B4 /* CreateAccountViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -28,8 +28,8 @@
 		0064CFC020287F9100729474 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		0064CFC220287F9100729474 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0064CFC82028815800729474 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
-		0064CFD8202B34AF00729474 /* StoryTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = StoryTableViewCell.swift; path = ../../../../../../Desktop/receptappen/ReciPie/ReciPie/StoryTableViewCell.swift; sourceTree = "<group>"; };
-		0064CFD9202B34AF00729474 /* StoryTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = StoryTableViewController.swift; path = ../../../../../../Desktop/receptappen/ReciPie/ReciPie/StoryTableViewController.swift; sourceTree = "<group>"; };
+		0064CFDC202C5A9300729474 /* StoryTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoryTableViewController.swift; sourceTree = "<group>"; };
+		0064CFDD202C5A9400729474 /* StoryTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoryTableViewCell.swift; sourceTree = "<group>"; };
 		3A38A726B53E05453205AEEB /* Pods-Pagina.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Pagina.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Pagina/Pods-Pagina.debug.xcconfig"; sourceTree = "<group>"; };
 		972F3314908C4CF37D3864DA /* Pods_Pagina.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Pagina.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		AB41F3B2A275C179F57C9683 /* Pods-Pagina.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Pagina.release.xcconfig"; path = "Pods/Target Support Files/Pods-Pagina/Pods-Pagina.release.xcconfig"; sourceTree = "<group>"; };
@@ -72,8 +72,8 @@
 				0064CFB620287F9100729474 /* AppDelegate.swift */,
 				0064CFB820287F9100729474 /* ViewController.swift */,
 				CEDED2562029D8B7008CC7B4 /* CreateAccountViewController.swift */,
-				0064CFD8202B34AF00729474 /* StoryTableViewCell.swift */,
-				0064CFD9202B34AF00729474 /* StoryTableViewController.swift */,
+				0064CFDD202C5A9400729474 /* StoryTableViewCell.swift */,
+				0064CFDC202C5A9300729474 /* StoryTableViewController.swift */,
 				0064CFBA20287F9100729474 /* Main.storyboard */,
 				0064CFBD20287F9100729474 /* Assets.xcassets */,
 				0064CFBF20287F9100729474 /* LaunchScreen.storyboard */,
@@ -236,11 +236,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0064CFDB202B34AF00729474 /* StoryTableViewController.swift in Sources */,
 				CEDED2572029D8B7008CC7B4 /* CreateAccountViewController.swift in Sources */,
+				0064CFDE202C5A9400729474 /* StoryTableViewController.swift in Sources */,
 				0064CFB920287F9100729474 /* ViewController.swift in Sources */,
 				0064CFB720287F9100729474 /* AppDelegate.swift in Sources */,
-				0064CFDA202B34AF00729474 /* StoryTableViewCell.swift in Sources */,
+				0064CFDF202C5A9400729474 /* StoryTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
