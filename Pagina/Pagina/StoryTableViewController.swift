@@ -21,6 +21,7 @@ class StoryTableViewController: UITableViewController {
     
     var userid = "user"; //To be used if auth is implemented
     
+  
     
     var stories:[Story] = [];
     
@@ -30,6 +31,13 @@ class StoryTableViewController: UITableViewController {
         
         // Firebase dbs reference
         ref = Database.database().reference()
+        if Auth.auth().currentUser != nil {
+            print(Auth.auth().currentUser?.email)
+            userid = (Auth.auth().currentUser?.uid)!;
+        } else {
+            // No user is signed in.
+            // ...
+        }
         
         //getStories(storyArray:&stories, ref: ref, user: userid);
         ref.child("users").child(userid).child("stories").observeSingleEvent(of: DataEventType.value, with: { (snapshot) in

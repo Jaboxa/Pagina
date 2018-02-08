@@ -30,8 +30,8 @@ class ViewController: UIViewController {
                 self.warningTextLabel.isHidden = false
                 self.warningTextLabel.text = err.localizedDescription
             }else{
-                self.warningTextLabel.isHidden = false;
-                self.warningTextLabel.text = "unknown errror";
+                //self.warningTextLabel.isHidden = false;
+                //self.warningTextLabel.text = "unknown errror";
             }
     }
     }
@@ -43,7 +43,7 @@ class ViewController: UIViewController {
         warningTextLabel.isHidden = true
         warningTextLabel.lineBreakMode = .byWordWrapping
         warningTextLabel.numberOfLines = 3
-
+        
         }
     
 
