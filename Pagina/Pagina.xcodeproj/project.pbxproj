@@ -76,18 +76,18 @@
 			isa = PBXGroup;
 			children = (
 				0064CFB620287F9100729474 /* AppDelegate.swift */,
-				CE0927E7202C6AA8007EB62C /* ChapterTableViewController.swift */,
 				0064CFB820287F9100729474 /* ViewController.swift */,
 				CEDED2562029D8B7008CC7B4 /* CreateAccountViewController.swift */,
 				0064CFDD202C5A9400729474 /* StoryTableViewCell.swift */,
-				CE0927E9202C6AFC007EB62C /* ChapterTableViewCell.swift */,
 				0064CFDC202C5A9300729474 /* StoryTableViewController.swift */,
+				CE0927E9202C6AFC007EB62C /* ChapterTableViewCell.swift */,
+				CE0927E7202C6AA8007EB62C /* ChapterTableViewController.swift */,
+				CE0927E5202C693D007EB62C /* StoryEditViewController.swift */,
 				0064CFBA20287F9100729474 /* Main.storyboard */,
 				0064CFBD20287F9100729474 /* Assets.xcassets */,
 				0064CFBF20287F9100729474 /* LaunchScreen.storyboard */,
 				0064CFC220287F9100729474 /* Info.plist */,
 				0064CFC82028815800729474 /* GoogleService-Info.plist */,
-				CE0927E5202C693D007EB62C /* StoryEditViewController.swift */,
 			);
 			path = Pagina;
 			sourceTree = "<group>";

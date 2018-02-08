@@ -48,14 +48,14 @@
                     <navigationItem key="navigationItem" title="Pagina" id="Vfi-o7-AqX"/>
                     <connections>
                         <outlet property="storyTableView" destination="8rY-oe-3zh" id="t8L-xl-Dbn"/>
-                        <segue destination="U6G-gW-zBQ" kind="show" id="RWi-T3-4ut"/>
+                        <segue destination="U6G-gW-zBQ" kind="show" identifier="chapterTableSegue" id="RWi-T3-4ut"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hFv-b7-yLC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-1431" y="286"/>
         </scene>
-        <!--Chapter Table View Controller-->
+        <!--Title-->
         <scene sceneID="iGb-wo-035">
             <objects>
                 <tableViewController id="U6G-gW-zBQ" customClass="ChapterTableViewController" customModule="Pagina" customModuleProvider="target" sceneMemberID="viewController">
@@ -90,7 +90,10 @@
                             <outlet property="delegate" destination="U6G-gW-zBQ" id="G74-oz-5wt"/>
                         </connections>
                     </tableView>
+                    <navigationItem key="navigationItem" title="Title" id="8Og-zZ-R2W"/>
                     <connections>
+                        <outlet property="chapterNavbarTitle" destination="8Og-zZ-R2W" id="1sZ-Pl-Qy7"/>
+                        <outlet property="chapterTableView" destination="3o3-VX-ZOv" id="xKn-wP-77Z"/>
                         <segue destination="YS2-jm-nUl" kind="show" identifier="StoryEditSegue" id="QW2-om-xlS"/>
                     </connections>
                 </tableViewController>
@@ -98,7 +101,7 @@
             </objects>
             <point key="canvasLocation" x="-580" y="285.60719640179911"/>
         </scene>
-        <!--Story Edit View Controller-->
+        <!--Title-->
         <scene sceneID="8pN-Yz-sQV">
             <objects>
                 <viewController id="YS2-jm-nUl" customClass="StoryEditViewController" customModule="Pagina" customModuleProvider="target" sceneMemberID="viewController">
@@ -123,10 +126,15 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="NmJ-hM-GQd"/>
                     </view>
+                    <navigationItem key="navigationItem" title="Title" id="CYB-oR-Aif"/>
+                    <connections>
+                        <outlet property="navbarTitle" destination="CYB-oR-Aif" id="VIf-6R-8v1"/>
+                        <outlet property="storyEditTextView" destination="fMY-dx-wif" id="hLO-7Y-F07"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vF0-BB-AD7" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="293.60000000000002" y="32.833583208395808"/>
+            <point key="canvasLocation" x="231" y="286"/>
         </scene>
         <!--Login-->
         <scene sceneID="oXL-ly-rzR">

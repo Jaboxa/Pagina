@@ -10,9 +10,17 @@ import UIKit
 
 class StoryEditViewController: UIViewController {
 
+    var currentChapter:ChapterTableViewController.Chapter = ChapterTableViewController.Chapter();
+    
+    @IBOutlet weak var navbarTitle: UINavigationItem!
+    
+    @IBOutlet weak var storyEditTextView: UITextView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        navbarTitle.title = currentChapter.title;
+        storyEditTextView.text = currentChapter.content;
         // Do any additional setup after loading the view.
     }
 

@@ -11,8 +11,42 @@ import Firebase
 
 class ChapterTableViewController: UITableViewController {
 
+    var ref:DatabaseReference!;
+    var currentStory:StoryTableViewController.Story = StoryTableViewController.Story();
+    var userid:String = "user";
+    
+    @IBOutlet weak var chapterNavbarTitle: UINavigationItem!
+    @IBOutlet var chapterTableView: UITableView!
+    struct Chapter {
+        var id:String = "";
+        var title:String = "";
+        var content:String = "";
+    }
+    
+    var chapters:[Chapter] = [];
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        ref = Database.database().reference();
+        
+        chapterNavbarTitle.title = currentStory.title;
+        
+        ref.child("users").child(userid).child("stories").child(currentStory.id).child("chapters").observeSingleEvent(of: DataEventType.value, with: { (snapshot) in
+            print(self.currentStory.id);
+            for child in snapshot.children.allObjects as! [DataSnapshot]{
+                let value = child.value as? NSDictionary;
+                var chapter = Chapter();
+                chapter.title = value?["name"] as? String ?? "";
+                print(chapter.title);
+                chapter.id = child.key;
+                chapter.content = value?["text"] as? String ?? "";
+                self.chapters.append(chapter);
+                self.chapterTableView.reloadData();
+            }
+        }) { (error) in
+            print(error.localizedDescription)
+        }
+        
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -30,23 +64,21 @@ class ChapterTableViewController: UITableViewController {
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 0
+        return 1
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 0
+        return chapters.count;
     }
 
-    /*
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
-
-        // Configure the cell...
-
-        return cell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "ChapterCell", for: indexPath) as! ChapterTableViewCell;
+        cell.ChapterTitleLabel?.text = chapters[indexPath.row].title;
+        return cell;
     }
-    */
+ 
 
     /*
     // Override to support conditional editing of the table view.
@@ -82,15 +114,22 @@ class ChapterTableViewController: UITableViewController {
         return true
     }
     */
-
-    /*
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        performSegue(withIdentifier: "StoryEditSegue", sender: indexPath.row)
+    }
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+        if segue.identifier == "StoryEditSegue" {
+            if let storyEdit = segue.destination as? StoryEditViewController {
+                if let i = sender as? Int { //row/cell i is tapped...
+                    storyEdit.currentChapter = chapters[i];
+                }
+            }
+        }
     }
-    */
+ 
 
 }
