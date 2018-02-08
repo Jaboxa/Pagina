@@ -16,6 +16,8 @@ class StoryEditViewController: UIViewController {
     
     @IBOutlet weak var storyEditTextView: UITextView!
     
+    @IBOutlet weak var inspireScrollView: UIScrollView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
