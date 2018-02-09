@@ -41,6 +41,7 @@ class StoryEditViewController: UIViewController {
         saveTextTimer.invalidate();
         print("one last time!");
         saveText();
+        currentChapter.content = currentText;
     }
 
     override func didReceiveMemoryWarning() {
