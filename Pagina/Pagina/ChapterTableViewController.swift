@@ -21,6 +21,7 @@ class ChapterTableViewController: UITableViewController {
         var id:String = "";
         var title:String = "";
         var content:String = "";
+        var storyid = "";
     }
     
     var chapters:[Chapter] = [];
@@ -40,6 +41,7 @@ class ChapterTableViewController: UITableViewController {
                 print(chapter.title);
                 chapter.id = child.key;
                 chapter.content = value?["text"] as? String ?? "";
+                chapter.storyid = self.currentStory.id;
                 self.chapters.append(chapter);
                 self.chapterTableView.reloadData();
             }
