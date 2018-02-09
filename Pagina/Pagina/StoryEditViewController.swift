@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Firebase
 
 class StoryEditViewController: UIViewController {
 
@@ -16,12 +17,24 @@ class StoryEditViewController: UIViewController {
     
     @IBOutlet weak var storyEditTextView: UITextView!
     
+    var saveTextTimer: Timer!
+    var ref:DatabaseReference!
+    var userid = "user"
+    var currentText = "";
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        ref = Database.database().reference();
         navbarTitle.title = currentChapter.title;
         storyEditTextView.text = currentChapter.content;
-        // Do any additional setup after loading the view.
+        currentText = storyEditTextView.text;
+        saveTextTimer = Timer.scheduledTimer(timeInterval: 10.0, target: self, selector: #selector(saveText), userInfo: nil, repeats: true)
+    }
+    override func viewWillDisappear(_ animated:Bool){
+        super.viewWillDisappear(true)
+        saveTextTimer.invalidate();
+        saveText();
     }
 
     override func didReceiveMemoryWarning() {
@@ -29,6 +42,13 @@ class StoryEditViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    @objc
+    func saveText(){
+        if storyEditTextView.text != currentText{
+        self.ref.child("users").child(userid).child("stories").child(currentChapter.storyid).child("chapters").child(currentChapter.id).updateChildValues(["text": self.storyEditTextView.text]);
+            currentText = storyEditTextView.text;
+        }
+    }
 
     /*
     // MARK: - Navigation
