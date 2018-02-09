@@ -25,36 +25,54 @@ class ChapterTableViewController: UITableViewController {
     }
     
     var chapters:[Chapter] = [];
+    
+        let alert = UIAlertController(title: "Create new chapter", message: "Enter a title for the chapter", preferredStyle: .alert)
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         ref = Database.database().reference();
         
         chapterNavbarTitle.title = currentStory.title;
+        if let user = Auth.auth().currentUser {
+            userid = user.uid;
+            newChapterAlertPreperation();
+            fetchChapters();
+        } else {
+            // No user is signed in.
+            // ...
+        }
+    }
+    
+    func newChapterAlertPreperation(){
+        alert.addTextField { (textField) in
+            textField.text = "The Man With Two Faces";
+        }
+        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { [weak alert] (_) in
+            let textField = alert!.textFields![0] // Force unwrapping because we know it exists.
+            self.ref.child("users").child(self.userid).child("stories").child(self.currentStory.id).child("chapters").childByAutoId().setValue(["name": textField.text]);
+            self.fetchChapters();
+        }))
         
-        ref.child("users").child(userid).child("stories").child(currentStory.id).child("chapters").observeSingleEvent(of: DataEventType.value, with: { (snapshot) in
-            print(self.currentStory.id);
+        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil ));
+    }
+    
+    func fetchChapters(){
+        chapters.removeAll(keepingCapacity: false); ref.child("users").child(userid).child("stories").child(currentStory.id).child("chapters").observeSingleEvent(of: DataEventType.value, with: { (snapshot) in
             for child in snapshot.children.allObjects as! [DataSnapshot]{
                 let value = child.value as? NSDictionary;
                 var chapter = Chapter();
                 chapter.title = value?["name"] as? String ?? "";
-                print(chapter.title);
                 chapter.id = child.key;
                 chapter.content = value?["text"] as? String ?? "";
                 chapter.storyid = self.currentStory.id;
                 self.chapters.append(chapter);
-                self.chapterTableView.reloadData();
             }
+            
+            self.chapterTableView.reloadData();
         }) { (error) in
             print(error.localizedDescription)
         }
-        
-
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
 
     override func didReceiveMemoryWarning() {
@@ -64,21 +82,20 @@ class ChapterTableViewController: UITableViewController {
 
     // MARK: - Table view data source
 
-    override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 1
-    }
-
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return chapters.count;
+        return chapters.count + 1;
     }
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "ChapterCell", for: indexPath) as! ChapterTableViewCell;
-        cell.ChapterTitleLabel?.text = chapters[indexPath.row].title;
-        return cell;
+        if indexPath.row < chapters.count{
+            let cell = tableView.dequeueReusableCell(withIdentifier: "ChapterCell", for: indexPath) as! ChapterTableViewCell;
+            cell.ChapterTitleLabel?.text = chapters[indexPath.row].title;
+            return cell;
+        }else{
+            let cell = tableView.dequeueReusableCell(withIdentifier: "addChapterCell", for: indexPath) as! AddTableViewCell;
+            return cell;
+        }
     }
  
 
@@ -117,7 +134,11 @@ class ChapterTableViewController: UITableViewController {
     }
     */
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        performSegue(withIdentifier: "StoryEditSegue", sender: indexPath.row)
+        if indexPath.row < chapters.count{
+            performSegue(withIdentifier: "StoryEditSegue", sender: indexPath.row)
+        }else{
+            self.present(alert, animated: true, completion: nil);
+        }
     }
     
     // MARK: - Navigation

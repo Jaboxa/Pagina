@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -38,6 +39,29 @@
                                 <connections>
                                     <outlet property="titleLabel" destination="DDb-fn-k5D" id="Z8n-4o-0EW"/>
                                 </connections>
+                            </tableViewCell>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="addStoryCell" id="dUD-v8-5yk" customClass="AddTableViewCell" customModule="Pagina" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="72" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="dUD-v8-5yk" id="o8a-x7-Mec">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Os-nt-GLc">
+                                            <rect key="frame" x="16" y="11" width="343" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstAttribute="bottomMargin" secondItem="5Os-nt-GLc" secondAttribute="bottom" constant="1" id="KOq-fy-lML"/>
+                                        <constraint firstItem="5Os-nt-GLc" firstAttribute="leading" secondItem="o8a-x7-Mec" secondAttribute="leadingMargin" id="NWR-uB-eHr"/>
+                                        <constraint firstItem="5Os-nt-GLc" firstAttribute="top" secondItem="o8a-x7-Mec" secondAttribute="topMargin" id="RCl-Qa-ZUH"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="5Os-nt-GLc" secondAttribute="trailing" id="aHs-Dm-3f5"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -83,6 +107,29 @@
                                 <connections>
                                     <outlet property="ChapterTitleLabel" destination="IFc-hI-HWH" id="AYq-4a-nwK"/>
                                 </connections>
+                            </tableViewCell>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="addChapterCell" id="OES-8S-gbk" customClass="AddTableViewCell" customModule="Pagina" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="72" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="OES-8S-gbk" id="mGR-oX-0P0">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="n2c-Mp-HLG">
+                                            <rect key="frame" x="16" y="11" width="343" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstAttribute="bottomMargin" secondItem="n2c-Mp-HLG" secondAttribute="bottom" constant="1" id="i3b-Yb-E4I"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="n2c-Mp-HLG" secondAttribute="trailing" id="w8F-Hl-nlO"/>
+                                        <constraint firstItem="n2c-Mp-HLG" firstAttribute="top" secondItem="mGR-oX-0P0" secondAttribute="topMargin" id="xFs-pP-2Ps"/>
+                                        <constraint firstItem="n2c-Mp-HLG" firstAttribute="leading" secondItem="mGR-oX-0P0" secondAttribute="leadingMargin" id="yWG-Bh-o1V"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </tableViewCell>
                         </prototypes>
                         <connections>

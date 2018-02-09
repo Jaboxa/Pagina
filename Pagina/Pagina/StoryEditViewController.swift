@@ -24,7 +24,12 @@ class StoryEditViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        if let user = Auth.auth().currentUser {
+            userid = user.uid;
+        } else {
+            // No user is signed in.
+            // ...
+        }
         ref = Database.database().reference();
         navbarTitle.title = currentChapter.title;
         storyEditTextView.text = currentChapter.content;
@@ -34,6 +39,7 @@ class StoryEditViewController: UIViewController {
     override func viewWillDisappear(_ animated:Bool){
         super.viewWillDisappear(true)
         saveTextTimer.invalidate();
+        print("one last time!");
         saveText();
     }
 
@@ -44,9 +50,11 @@ class StoryEditViewController: UIViewController {
     
     @objc
     func saveText(){
+        print("saving....");
         if storyEditTextView.text != currentText{
         self.ref.child("users").child(userid).child("stories").child(currentChapter.storyid).child("chapters").child(currentChapter.id).updateChildValues(["text": self.storyEditTextView.text]);
             currentText = storyEditTextView.text;
+            print("saved!");
         }
     }
 
