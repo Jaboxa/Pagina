@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -39,21 +40,69 @@
                                     <outlet property="titleLabel" destination="DDb-fn-k5D" id="Z8n-4o-0EW"/>
                                 </connections>
                             </tableViewCell>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="addStoryCell" id="dUD-v8-5yk" customClass="AddTableViewCell" customModule="Pagina" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="72" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="dUD-v8-5yk" id="o8a-x7-Mec">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Os-nt-GLc">
+                                            <rect key="frame" x="16" y="11" width="343" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstAttribute="bottomMargin" secondItem="5Os-nt-GLc" secondAttribute="bottom" constant="1" id="KOq-fy-lML"/>
+                                        <constraint firstItem="5Os-nt-GLc" firstAttribute="leading" secondItem="o8a-x7-Mec" secondAttribute="leadingMargin" id="NWR-uB-eHr"/>
+                                        <constraint firstItem="5Os-nt-GLc" firstAttribute="top" secondItem="o8a-x7-Mec" secondAttribute="topMargin" id="RCl-Qa-ZUH"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="5Os-nt-GLc" secondAttribute="trailing" id="aHs-Dm-3f5"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </tableViewCell>
                         </prototypes>
                         <connections>
                             <outlet property="dataSource" destination="EWj-Ph-TVh" id="Kl1-qn-Yml"/>
                             <outlet property="delegate" destination="EWj-Ph-TVh" id="4Fi-At-Lbu"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Pagina" id="Vfi-o7-AqX"/>
+                    <navigationItem key="navigationItem" title="Pagina" id="Vfi-o7-AqX">
+                        <barButtonItem key="leftBarButtonItem" title="Item" id="Ito-4S-1P8">
+                            <connections>
+                                <segue destination="Ur0-4v-Nv0" kind="show" id="3kA-rv-QmB"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="storyTableView" destination="8rY-oe-3zh" id="t8L-xl-Dbn"/>
+                        <outlet property="userSettingsNavButton" destination="Ito-4S-1P8" id="4RS-ND-8wf"/>
                         <segue destination="U6G-gW-zBQ" kind="show" identifier="chapterTableSegue" id="RWi-T3-4ut"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hFv-b7-yLC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-1431" y="286"/>
+        </scene>
+        <!--Settings-->
+        <scene sceneID="J5Z-vE-YC9">
+            <objects>
+                <viewController id="Ur0-4v-Nv0" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="iZu-Ll-EIe">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <viewLayoutGuide key="safeArea" id="Z79-Jb-Pnt"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Settings" id="XYH-bD-UWz">
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="JNg-QJ-jBF"/>
+                    </navigationItem>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Qbf-kb-tUq" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1431" y="1037"/>
         </scene>
         <!--Title-->
         <scene sceneID="iGb-wo-035">
@@ -83,6 +132,29 @@
                                 <connections>
                                     <outlet property="ChapterTitleLabel" destination="IFc-hI-HWH" id="AYq-4a-nwK"/>
                                 </connections>
+                            </tableViewCell>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="addChapterCell" id="OES-8S-gbk" customClass="AddTableViewCell" customModule="Pagina" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="72" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="OES-8S-gbk" id="mGR-oX-0P0">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="n2c-Mp-HLG">
+                                            <rect key="frame" x="16" y="11" width="343" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstAttribute="bottomMargin" secondItem="n2c-Mp-HLG" secondAttribute="bottom" constant="1" id="i3b-Yb-E4I"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="n2c-Mp-HLG" secondAttribute="trailing" id="w8F-Hl-nlO"/>
+                                        <constraint firstItem="n2c-Mp-HLG" firstAttribute="top" secondItem="mGR-oX-0P0" secondAttribute="topMargin" id="xFs-pP-2Ps"/>
+                                        <constraint firstItem="n2c-Mp-HLG" firstAttribute="leading" secondItem="mGR-oX-0P0" secondAttribute="leadingMargin" id="yWG-Bh-o1V"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -116,6 +188,13 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YQA-Fr-0KK">
+                                <rect key="frame" x="201" y="445" width="158" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
@@ -129,12 +208,13 @@
                     <navigationItem key="navigationItem" title="Title" id="CYB-oR-Aif"/>
                     <connections>
                         <outlet property="navbarTitle" destination="CYB-oR-Aif" id="VIf-6R-8v1"/>
+                        <outlet property="savingStatusLabel" destination="YQA-Fr-0KK" id="tji-TK-TN0"/>
                         <outlet property="storyEditTextView" destination="fMY-dx-wif" id="hLO-7Y-F07"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vF0-BB-AD7" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="231" y="286"/>
+            <point key="canvasLocation" x="229.59999999999999" y="285.60719640179911"/>
         </scene>
         <!--Login-->
         <scene sceneID="oXL-ly-rzR">

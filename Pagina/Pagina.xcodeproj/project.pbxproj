@@ -16,6 +16,7 @@
 		0064CFC92028815800729474 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0064CFC82028815800729474 /* GoogleService-Info.plist */; };
 		0064CFDE202C5A9400729474 /* StoryTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0064CFDC202C5A9300729474 /* StoryTableViewController.swift */; };
 		0064CFDF202C5A9400729474 /* StoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0064CFDD202C5A9400729474 /* StoryTableViewCell.swift */; };
+		0064CFE5202DCE2400729474 /* AddTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0064CFE4202DCE2400729474 /* AddTableViewCell.swift */; };
 		CE0927E6202C693D007EB62C /* StoryEditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0927E5202C693D007EB62C /* StoryEditViewController.swift */; };
 		CE0927E8202C6AA8007EB62C /* ChapterTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0927E7202C6AA8007EB62C /* ChapterTableViewController.swift */; };
 		CE0927EA202C6AFC007EB62C /* ChapterTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0927E9202C6AFC007EB62C /* ChapterTableViewCell.swift */; };
@@ -33,6 +34,7 @@
 		0064CFC82028815800729474 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		0064CFDC202C5A9300729474 /* StoryTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoryTableViewController.swift; sourceTree = "<group>"; };
 		0064CFDD202C5A9400729474 /* StoryTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoryTableViewCell.swift; sourceTree = "<group>"; };
+		0064CFE4202DCE2400729474 /* AddTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTableViewCell.swift; sourceTree = "<group>"; };
 		3A38A726B53E05453205AEEB /* Pods-Pagina.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Pagina.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Pagina/Pods-Pagina.debug.xcconfig"; sourceTree = "<group>"; };
 		972F3314908C4CF37D3864DA /* Pods_Pagina.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Pagina.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		AB41F3B2A275C179F57C9683 /* Pods-Pagina.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Pagina.release.xcconfig"; path = "Pods/Target Support Files/Pods-Pagina/Pods-Pagina.release.xcconfig"; sourceTree = "<group>"; };
@@ -83,6 +85,7 @@
 				CE0927E9202C6AFC007EB62C /* ChapterTableViewCell.swift */,
 				CE0927E7202C6AA8007EB62C /* ChapterTableViewController.swift */,
 				CE0927E5202C693D007EB62C /* StoryEditViewController.swift */,
+				0064CFE4202DCE2400729474 /* AddTableViewCell.swift */,
 				0064CFBA20287F9100729474 /* Main.storyboard */,
 				0064CFBD20287F9100729474 /* Assets.xcassets */,
 				0064CFBF20287F9100729474 /* LaunchScreen.storyboard */,
@@ -245,6 +248,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0064CFE5202DCE2400729474 /* AddTableViewCell.swift in Sources */,
 				CEDED2572029D8B7008CC7B4 /* CreateAccountViewController.swift in Sources */,
 				0064CFDE202C5A9400729474 /* StoryTableViewController.swift in Sources */,
 				0064CFB920287F9100729474 /* ViewController.swift in Sources */,
