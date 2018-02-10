@@ -69,15 +69,40 @@
                             <outlet property="delegate" destination="EWj-Ph-TVh" id="4Fi-At-Lbu"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Pagina" id="Vfi-o7-AqX"/>
+                    <navigationItem key="navigationItem" title="Pagina" id="Vfi-o7-AqX">
+                        <barButtonItem key="leftBarButtonItem" title="Item" id="Ito-4S-1P8">
+                            <connections>
+                                <segue destination="Ur0-4v-Nv0" kind="show" id="3kA-rv-QmB"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="storyTableView" destination="8rY-oe-3zh" id="t8L-xl-Dbn"/>
+                        <outlet property="userSettingsNavButton" destination="Ito-4S-1P8" id="4RS-ND-8wf"/>
                         <segue destination="U6G-gW-zBQ" kind="show" identifier="chapterTableSegue" id="RWi-T3-4ut"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hFv-b7-yLC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-1431" y="286"/>
+        </scene>
+        <!--Settings-->
+        <scene sceneID="J5Z-vE-YC9">
+            <objects>
+                <viewController id="Ur0-4v-Nv0" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="iZu-Ll-EIe">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <viewLayoutGuide key="safeArea" id="Z79-Jb-Pnt"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Settings" id="XYH-bD-UWz">
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="JNg-QJ-jBF"/>
+                    </navigationItem>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Qbf-kb-tUq" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1431" y="1037"/>
         </scene>
         <!--Title-->
         <scene sceneID="iGb-wo-035">
@@ -163,6 +188,13 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YQA-Fr-0KK">
+                                <rect key="frame" x="201" y="445" width="158" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
@@ -176,12 +208,13 @@
                     <navigationItem key="navigationItem" title="Title" id="CYB-oR-Aif"/>
                     <connections>
                         <outlet property="navbarTitle" destination="CYB-oR-Aif" id="VIf-6R-8v1"/>
+                        <outlet property="savingStatusLabel" destination="YQA-Fr-0KK" id="tji-TK-TN0"/>
                         <outlet property="storyEditTextView" destination="fMY-dx-wif" id="hLO-7Y-F07"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vF0-BB-AD7" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="231" y="286"/>
+            <point key="canvasLocation" x="229.59999999999999" y="285.60719640179911"/>
         </scene>
         <!--Login-->
         <scene sceneID="oXL-ly-rzR">

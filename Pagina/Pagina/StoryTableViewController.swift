@@ -14,6 +14,8 @@ class StoryTableViewController: UITableViewController {
     var ref: DatabaseReference!
     @IBOutlet var storyTableView: UITableView!
     
+    @IBOutlet weak var userSettingsNavButton: UIBarButtonItem!
+    
     struct Story{
         var id = "";
         var title = "No title";
@@ -33,6 +35,11 @@ class StoryTableViewController: UITableViewController {
         
         if let user = Auth.auth().currentUser {
             userid = user.uid;
+            if let username = user.displayName {
+                userSettingsNavButton.title = username;
+            } else {
+                userSettingsNavButton.title = "settings";
+            }
             newStoryAlertPreperation();
             fetchStories();
         } else {
@@ -83,6 +90,12 @@ class StoryTableViewController: UITableViewController {
         return stories.count + 1
     }
 
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            self.ref.child("users").child(userid).child("stories").child(self.stories[indexPath.row].id).removeValue();
+            self.fetchStories();
+        }
+    }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if indexPath.row < stories.count{
