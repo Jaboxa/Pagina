@@ -116,28 +116,55 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="d65-3A-uV6">
-                                <rect key="frame" x="0.0" y="474" width="375" height="193"/>
-                                <color key="backgroundColor" red="1" green="0.57637232540000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                            </scrollView>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="TyE-DN-Xco">
+                                <rect key="frame" x="0.0" y="482" width="375" height="185"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="r7E-dl-ro2">
+                                    <size key="itemSize" width="50" height="50"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="cell" id="tga-ee-AmU" customClass="inspirationsCollectionViewCell" customModule="Pagina" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
+                                            <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yfy-Bh-n4l">
+                                                    <rect key="frame" x="4" y="15" width="42" height="21"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </view>
+                                        <connections>
+                                            <outlet property="myLabel" destination="yfy-Bh-n4l" id="bdA-bR-saW"/>
+                                        </connections>
+                                    </collectionViewCell>
+                                </cells>
+                                <connections>
+                                    <outlet property="dataSource" destination="YS2-jm-nUl" id="5HU-vg-Vba"/>
+                                    <outlet property="delegate" destination="YS2-jm-nUl" id="3Mj-OZ-hAj"/>
+                                </connections>
+                            </collectionView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="NmJ-hM-GQd" firstAttribute="bottom" secondItem="fMY-dx-wif" secondAttribute="bottom" constant="193" id="3Hc-y6-of9"/>
-                            <constraint firstItem="d65-3A-uV6" firstAttribute="top" secondItem="fMY-dx-wif" secondAttribute="bottom" id="LfV-Jl-Duy"/>
-                            <constraint firstItem="d65-3A-uV6" firstAttribute="trailing" secondItem="NmJ-hM-GQd" secondAttribute="trailing" id="TXn-CA-fkE"/>
                             <constraint firstItem="fMY-dx-wif" firstAttribute="top" secondItem="NmJ-hM-GQd" secondAttribute="top" id="WLi-a3-ekS"/>
-                            <constraint firstItem="d65-3A-uV6" firstAttribute="leading" secondItem="NmJ-hM-GQd" secondAttribute="leading" id="bVg-36-xLX"/>
                             <constraint firstItem="fMY-dx-wif" firstAttribute="leading" secondItem="NmJ-hM-GQd" secondAttribute="leading" id="fnR-9U-a9W"/>
-                            <constraint firstItem="d65-3A-uV6" firstAttribute="bottom" secondItem="NmJ-hM-GQd" secondAttribute="bottom" id="m02-Jg-yob"/>
                             <constraint firstItem="fMY-dx-wif" firstAttribute="trailing" secondItem="NmJ-hM-GQd" secondAttribute="trailing" id="yto-Mz-n3p"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="NmJ-hM-GQd"/>
                     </view>
                     <navigationItem key="navigationItem" title="Title" id="CYB-oR-Aif"/>
                     <connections>
-                        <outlet property="InspireScrollView" destination="d65-3A-uV6" id="CAT-yS-osB"/>
-                        <outlet property="inspireScrollView" destination="d65-3A-uV6" id="bSR-dH-G1o"/>
                         <outlet property="navbarTitle" destination="CYB-oR-Aif" id="VIf-6R-8v1"/>
                         <outlet property="storyEditTextView" destination="fMY-dx-wif" id="hLO-7Y-F07"/>
                     </connections>

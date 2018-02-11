@@ -19,6 +19,7 @@
 		CE0927E6202C693D007EB62C /* StoryEditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0927E5202C693D007EB62C /* StoryEditViewController.swift */; };
 		CE0927E8202C6AA8007EB62C /* ChapterTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0927E7202C6AA8007EB62C /* ChapterTableViewController.swift */; };
 		CE0927EA202C6AFC007EB62C /* ChapterTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0927E9202C6AFC007EB62C /* ChapterTableViewCell.swift */; };
+		CE98569720305901009FBAC8 /* inspirationsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE98569620305901009FBAC8 /* inspirationsCollectionViewCell.swift */; };
 		CEDED2572029D8B7008CC7B4 /* CreateAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEDED2562029D8B7008CC7B4 /* CreateAccountViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -39,6 +40,7 @@
 		CE0927E5202C693D007EB62C /* StoryEditViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryEditViewController.swift; sourceTree = "<group>"; };
 		CE0927E7202C6AA8007EB62C /* ChapterTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChapterTableViewController.swift; sourceTree = "<group>"; };
 		CE0927E9202C6AFC007EB62C /* ChapterTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChapterTableViewCell.swift; sourceTree = "<group>"; };
+		CE98569620305901009FBAC8 /* inspirationsCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = inspirationsCollectionViewCell.swift; sourceTree = "<group>"; };
 		CEDED2562029D8B7008CC7B4 /* CreateAccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAccountViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -88,6 +90,7 @@
 				0064CFBF20287F9100729474 /* LaunchScreen.storyboard */,
 				0064CFC220287F9100729474 /* Info.plist */,
 				0064CFC82028815800729474 /* GoogleService-Info.plist */,
+				CE98569620305901009FBAC8 /* inspirationsCollectionViewCell.swift */,
 			);
 			path = Pagina;
 			sourceTree = "<group>";
@@ -253,6 +256,7 @@
 				CE0927E6202C693D007EB62C /* StoryEditViewController.swift in Sources */,
 				0064CFDF202C5A9400729474 /* StoryTableViewCell.swift in Sources */,
 				CE0927EA202C6AFC007EB62C /* ChapterTableViewCell.swift in Sources */,
+				CE98569720305901009FBAC8 /* inspirationsCollectionViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
