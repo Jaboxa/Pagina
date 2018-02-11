@@ -331,11 +331,72 @@
                         <outlet property="navbarTitle" destination="CYB-oR-Aif" id="VIf-6R-8v1"/>
                         <outlet property="savingStatusLabel" destination="YQA-Fr-0KK" id="tji-TK-TN0"/>
                         <outlet property="storyEditTextView" destination="fMY-dx-wif" id="hLO-7Y-F07"/>
+                        <segue destination="r37-Ft-wwC" kind="showDetail" identifier="showImageInspirationSegue" id="eDW-UT-sUe"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vF0-BB-AD7" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="229.59999999999999" y="285.60719640179911"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="1Y1-IL-hYi">
+            <objects>
+                <viewController id="r37-Ft-wwC" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="zol-jN-q9Y">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="cat" translatesAutoresizingMaskIntoConstraints="NO" id="6d0-pD-hDp">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <button contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ohx-2Y-Nmh">
+                                <rect key="frame" x="133" y="617" width="109" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <inset key="titleEdgeInsets" minX="2" minY="2" maxX="0.0" maxY="0.0"/>
+                                <state key="normal" title="Delete Image">
+                                    <color key="titleColor" red="0.84875124690000003" green="0.11540778729999999" blue="0.075756318870000006" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <viewLayoutGuide key="safeArea" id="LkL-Go-pmc"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="F8n-Vw-960" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-159" y="1173"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="1n1-OG-vwm">
+            <objects>
+                <viewController id="c0P-1U-GCn" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="SP3-tr-cL7">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <viewLayoutGuide key="safeArea" id="sf0-gA-8MI"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="1Wf-cV-RYy" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="528" y="1175"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="KET-5I-PTA">
+            <objects>
+                <viewController id="iJq-JK-uXF" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="yyq-ts-p4e">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <viewLayoutGuide key="safeArea" id="pkC-Fa-8WU"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="mlx-wj-FGe" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1200" y="1172"/>
         </scene>
         <!--Add Inspiration View Controller-->
         <scene sceneID="Pt7-Mv-bFV">
@@ -562,6 +623,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="cat" width="330" height="208"/>
         <image name="plus" width="626" height="626"/>
     </resources>
 </document>
