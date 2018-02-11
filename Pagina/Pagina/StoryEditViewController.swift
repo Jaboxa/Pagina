@@ -35,6 +35,7 @@ class StoryEditViewController: UIViewController, UICollectionViewDataSource, UIC
         if inspirations[indexPath.item].type == "image"{
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "imageInspirationCell", for: indexPath) as! ImageInspirationCollectionViewCell
             cell.image.image = #imageLiteral(resourceName: "cat")
+            cell.image.contentMode = UIViewContentMode.scaleAspectFill
             
             return cell
         }
@@ -86,19 +87,14 @@ class StoryEditViewController: UIViewController, UICollectionViewDataSource, UIC
         super.viewDidLoad()
         
         //inspirations
-        for i in 0..<15{
+        for i in 0..<8{
             var insp = Inspiration();
             if i % 2 == 0{
                 insp.type = "image";
-            }
-            inspirations.append(insp);
-        }
-        
-        for i in 0..<15{
-            var insp = Inspiration();
-            if i % 3 == 0{
+            }else{
                 insp.type = "text";
             }
+    
             inspirations.append(insp);
         }
         

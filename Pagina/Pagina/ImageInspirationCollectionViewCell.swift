@@ -11,4 +11,9 @@ import UIKit
 class ImageInspirationCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var image: UIImageView!
     
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        image.sizeToFit();
+    }
+    
 }
