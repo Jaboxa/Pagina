@@ -17,6 +17,9 @@
 		0064CFDE202C5A9400729474 /* StoryTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0064CFDC202C5A9300729474 /* StoryTableViewController.swift */; };
 		0064CFDF202C5A9400729474 /* StoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0064CFDD202C5A9400729474 /* StoryTableViewCell.swift */; };
 		0064CFE5202DCE2400729474 /* AddTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0064CFE4202DCE2400729474 /* AddTableViewCell.swift */; };
+		CE0757C12031CA1900CAB9EB /* AddImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0757C02031CA1900CAB9EB /* AddImageViewController.swift */; };
+		CE0757C32031CB5800CAB9EB /* AddMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0757C22031CB5800CAB9EB /* AddMapViewController.swift */; };
+		CE0757C52031CF4400CAB9EB /* AddTextInspirationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0757C42031CF4400CAB9EB /* AddTextInspirationViewController.swift */; };
 		CE0927E6202C693D007EB62C /* StoryEditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0927E5202C693D007EB62C /* StoryEditViewController.swift */; };
 		CE0927E8202C6AA8007EB62C /* ChapterTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0927E7202C6AA8007EB62C /* ChapterTableViewController.swift */; };
 		CE0927EA202C6AFC007EB62C /* ChapterTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0927E9202C6AFC007EB62C /* ChapterTableViewCell.swift */; };
@@ -43,6 +46,9 @@
 		3A38A726B53E05453205AEEB /* Pods-Pagina.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Pagina.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Pagina/Pods-Pagina.debug.xcconfig"; sourceTree = "<group>"; };
 		972F3314908C4CF37D3864DA /* Pods_Pagina.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Pagina.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		AB41F3B2A275C179F57C9683 /* Pods-Pagina.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Pagina.release.xcconfig"; path = "Pods/Target Support Files/Pods-Pagina/Pods-Pagina.release.xcconfig"; sourceTree = "<group>"; };
+		CE0757C02031CA1900CAB9EB /* AddImageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddImageViewController.swift; sourceTree = "<group>"; };
+		CE0757C22031CB5800CAB9EB /* AddMapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddMapViewController.swift; sourceTree = "<group>"; };
+		CE0757C42031CF4400CAB9EB /* AddTextInspirationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTextInspirationViewController.swift; sourceTree = "<group>"; };
 		CE0927E5202C693D007EB62C /* StoryEditViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryEditViewController.swift; sourceTree = "<group>"; };
 		CE0927E7202C6AA8007EB62C /* ChapterTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChapterTableViewController.swift; sourceTree = "<group>"; };
 		CE0927E9202C6AFC007EB62C /* ChapterTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChapterTableViewCell.swift; sourceTree = "<group>"; };
@@ -88,6 +94,8 @@
 			isa = PBXGroup;
 			children = (
 				0064CFB620287F9100729474 /* AppDelegate.swift */,
+				CE0757C42031CF4400CAB9EB /* AddTextInspirationViewController.swift */,
+				CE0757C02031CA1900CAB9EB /* AddImageViewController.swift */,
 				CE98569E20308943009FBAC8 /* AddInspirationViewController.swift */,
 				CE98569A203077CA009FBAC8 /* textCollectionViewCell.swift */,
 				0064CFB820287F9100729474 /* ViewController.swift */,
@@ -106,6 +114,7 @@
 				CE98569620305901009FBAC8 /* inspirationsCollectionViewCell.swift */,
 				CE98569820307203009FBAC8 /* ImageInspirationCollectionViewCell.swift */,
 				CE98569C20307BCE009FBAC8 /* AddInspirationCollectionViewCell.swift */,
+				CE0757C22031CB5800CAB9EB /* AddMapViewController.swift */,
 			);
 			path = Pagina;
 			sourceTree = "<group>";
@@ -267,12 +276,15 @@
 				CEDED2572029D8B7008CC7B4 /* CreateAccountViewController.swift in Sources */,
 				CE98569D20307BCF009FBAC8 /* AddInspirationCollectionViewCell.swift in Sources */,
 				CE98569F20308943009FBAC8 /* AddInspirationViewController.swift in Sources */,
+				CE0757C52031CF4400CAB9EB /* AddTextInspirationViewController.swift in Sources */,
 				0064CFDE202C5A9400729474 /* StoryTableViewController.swift in Sources */,
 				0064CFB920287F9100729474 /* ViewController.swift in Sources */,
 				0064CFB720287F9100729474 /* AppDelegate.swift in Sources */,
 				CE0927E8202C6AA8007EB62C /* ChapterTableViewController.swift in Sources */,
+				CE0757C12031CA1900CAB9EB /* AddImageViewController.swift in Sources */,
 				CE0927E6202C693D007EB62C /* StoryEditViewController.swift in Sources */,
 				0064CFDF202C5A9400729474 /* StoryTableViewCell.swift in Sources */,
+				CE0757C32031CB5800CAB9EB /* AddMapViewController.swift in Sources */,
 				CE0927EA202C6AFC007EB62C /* ChapterTableViewCell.swift in Sources */,
 				CE98569720305901009FBAC8 /* inspirationsCollectionViewCell.swift in Sources */,
 				CE98569920307203009FBAC8 /* ImageInspirationCollectionViewCell.swift in Sources */,
