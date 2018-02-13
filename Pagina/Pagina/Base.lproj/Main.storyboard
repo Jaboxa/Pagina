@@ -70,39 +70,20 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Pagina" id="Vfi-o7-AqX">
-                        <barButtonItem key="leftBarButtonItem" title="Item" id="Ito-4S-1P8">
+                        <barButtonItem key="leftBarButtonItem" title="Log Out" id="Ito-4S-1P8">
                             <connections>
-                                <segue destination="Ur0-4v-Nv0" kind="show" id="3kA-rv-QmB"/>
+                                <action selector="LogOut:" destination="EWj-Ph-TVh" id="fRi-fr-anZ"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="storyTableView" destination="8rY-oe-3zh" id="t8L-xl-Dbn"/>
-                        <outlet property="userSettingsNavButton" destination="Ito-4S-1P8" id="4RS-ND-8wf"/>
                         <segue destination="U6G-gW-zBQ" kind="show" identifier="chapterTableSegue" id="RWi-T3-4ut"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hFv-b7-yLC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-1431" y="286"/>
-        </scene>
-        <!--Settings-->
-        <scene sceneID="J5Z-vE-YC9">
-            <objects>
-                <viewController id="Ur0-4v-Nv0" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="iZu-Ll-EIe">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <viewLayoutGuide key="safeArea" id="Z79-Jb-Pnt"/>
-                    </view>
-                    <navigationItem key="navigationItem" title="Settings" id="XYH-bD-UWz">
-                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="JNg-QJ-jBF"/>
-                    </navigationItem>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Qbf-kb-tUq" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-1431.2" y="1036.7316341829087"/>
         </scene>
         <!--Title-->
         <scene sceneID="iGb-wo-035">
