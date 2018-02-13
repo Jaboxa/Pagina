@@ -14,7 +14,11 @@ class StoryTableViewController: UITableViewController {
     var ref: DatabaseReference!
     @IBOutlet var storyTableView: UITableView!
     
-    @IBOutlet weak var userSettingsNavButton: UIBarButtonItem!
+    @IBAction func LogOut(_ sender: Any) {
+        try! Auth.auth().signOut();
+        self.dismiss(animated: true, completion: nil)
+    }
+    
     
     struct Story{
         var id = "";
@@ -35,11 +39,6 @@ class StoryTableViewController: UITableViewController {
         
         if let user = Auth.auth().currentUser {
             userid = user.uid;
-            if let username = user.displayName {
-                userSettingsNavButton.title = username;
-            } else {
-                userSettingsNavButton.title = "settings";
-            }
             newStoryAlertPreperation();
             fetchStories();
         } else {
