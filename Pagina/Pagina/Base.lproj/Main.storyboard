@@ -540,20 +540,46 @@
             </objects>
             <point key="canvasLocation" x="2759" y="118"/>
         </scene>
-        <!--Add Map View Controller-->
+        <!--Inspiring Location-->
         <scene sceneID="LwI-W3-3sw">
             <objects>
                 <viewController id="uTS-iw-wb5" customClass="AddMapViewController" customModule="Pagina" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Hia-4a-kYV">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" showsUserLocation="YES" showsScale="YES" translatesAutoresizingMaskIntoConstraints="NO" id="poU-Cy-CQL">
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                            </mapView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="poU-Cy-CQL" firstAttribute="leading" secondItem="Hia-4a-kYV" secondAttribute="leading" id="1Zb-y9-I6Z"/>
+                            <constraint firstAttribute="trailing" secondItem="poU-Cy-CQL" secondAttribute="trailing" id="6iR-bz-9Bp"/>
+                            <constraint firstItem="poU-Cy-CQL" firstAttribute="bottom" secondItem="PKm-hk-oBs" secondAttribute="bottom" id="Ayw-Hh-1Qe"/>
+                            <constraint firstItem="poU-Cy-CQL" firstAttribute="top" secondItem="PKm-hk-oBs" secondAttribute="top" id="CdA-FM-6Nb"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="PKm-hk-oBs"/>
                     </view>
+                    <navigationItem key="navigationItem" title="Inspiring Location" id="VgX-p5-c2O">
+                        <barButtonItem key="rightBarButtonItem" title="Save" id="8b4-1F-7Ml"/>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="addLocationMapView" destination="poU-Cy-CQL" id="hfq-Xc-nVG"/>
+                        <outlet property="searchDisplayController" destination="Hbu-M7-vEQ" id="iHB-gi-00m"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nQV-6L-jxQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <searchDisplayController id="Hbu-M7-vEQ">
+                    <connections>
+                        <outlet property="delegate" destination="uTS-iw-wb5" id="unr-39-nD0"/>
+                        <outlet property="searchContentsController" destination="uTS-iw-wb5" id="R6D-O0-7su"/>
+                        <outlet property="searchResultsDataSource" destination="uTS-iw-wb5" id="1i1-4N-H6l"/>
+                        <outlet property="searchResultsDelegate" destination="uTS-iw-wb5" id="he5-Nm-HXJ"/>
+                    </connections>
+                </searchDisplayController>
             </objects>
-            <point key="canvasLocation" x="2058" y="798"/>
+            <point key="canvasLocation" x="2056.8000000000002" y="797.45127436281871"/>
         </scene>
         <!--Login-->
         <scene sceneID="oXL-ly-rzR">
