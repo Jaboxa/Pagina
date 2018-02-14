@@ -398,6 +398,9 @@
                     <navigationItem key="navigationItem" title="Inspiring Location" id="teU-sv-Cft">
                         <barButtonItem key="rightBarButtonItem" systemItem="trash" id="jZZ-DK-cha"/>
                     </navigationItem>
+                    <connections>
+                        <outlet property="zoomedMapView" destination="D9A-re-cih" id="nos-s5-agv"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1Wf-cV-RYy" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

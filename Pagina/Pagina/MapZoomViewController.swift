@@ -7,13 +7,20 @@
 //
 
 import UIKit
+import MapKit
+import CoreLocation
 
-class MapZoomViewController: UIViewController {
+class MapZoomViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDelegate {
 
+    @IBOutlet weak var zoomedMapView: MKMapView!
+    
+    var locationManager:CLLocationManager!;
+    var currentLocationLong: Double = 0.0;
+    var currentLocationLat: Double = 0.0;
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        setMap(long: currentLocationLong, lat: currentLocationLat);
     }
 
     override func didReceiveMemoryWarning() {
@@ -22,14 +29,12 @@ class MapZoomViewController: UIViewController {
     }
     
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    func setMap(long: Double, lat: Double){
+        let place = MKPointAnnotation();
+        place.coordinate.longitude = long;
+        place.coordinate.latitude = lat;
+        zoomedMapView.addAnnotation(place);
+        
     }
-    */
 
 }
