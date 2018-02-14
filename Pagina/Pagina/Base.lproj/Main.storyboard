@@ -510,7 +510,7 @@
             </objects>
             <point key="canvasLocation" x="1927" y="-394"/>
         </scene>
-        <!--Add Text Inspiration View Controller-->
+        <!--Add Inspiring Text-->
         <scene sceneID="L2G-xi-TZX">
             <objects>
                 <viewController id="6Y6-kQ-gF3" customClass="AddTextInspirationViewController" customModule="Pagina" customModuleProvider="target" sceneMemberID="viewController">
@@ -518,49 +518,31 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="EOM-II-MVG">
-                                <rect key="frame" x="50" y="125" width="275" height="394"/>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="Lorem..." textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="EOM-II-MVG">
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Skriv din inspirationstext här" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YTZ-PF-fFJ">
-                                <rect key="frame" x="50" y="96" width="275" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ApB-ND-9be">
-                                <rect key="frame" x="98" y="567" width="172" height="36"/>
-                                <color key="backgroundColor" red="0.96397796079999998" green="0.98785370589999999" blue="0.45250008629999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                <state key="normal" title="Lägg till i inspiration">
-                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </state>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <constraints>
-                            <constraint firstItem="EOM-II-MVG" firstAttribute="leading" secondItem="GMv-CV-584" secondAttribute="leading" constant="50" id="3r0-3R-q5h"/>
-                            <constraint firstItem="GMv-CV-584" firstAttribute="trailing" secondItem="ApB-ND-9be" secondAttribute="trailing" constant="105" id="4Cm-81-qYy"/>
-                            <constraint firstItem="GMv-CV-584" firstAttribute="bottom" secondItem="ApB-ND-9be" secondAttribute="bottom" constant="64" id="GIj-yo-40z"/>
-                            <constraint firstItem="EOM-II-MVG" firstAttribute="top" secondItem="YTZ-PF-fFJ" secondAttribute="bottom" constant="8" id="Xar-bL-hh2"/>
-                            <constraint firstItem="EOM-II-MVG" firstAttribute="top" secondItem="YTZ-PF-fFJ" secondAttribute="bottom" constant="8" id="cvU-Ah-9H1"/>
-                            <constraint firstItem="YTZ-PF-fFJ" firstAttribute="top" secondItem="GMv-CV-584" secondAttribute="top" constant="32" id="fqV-PN-jsv"/>
-                            <constraint firstItem="YTZ-PF-fFJ" firstAttribute="leading" secondItem="GMv-CV-584" secondAttribute="leading" constant="50" id="g4f-wY-Tr9"/>
-                            <constraint firstItem="GMv-CV-584" firstAttribute="trailing" secondItem="YTZ-PF-fFJ" secondAttribute="trailing" constant="50" id="gzZ-zX-Xii"/>
-                            <constraint firstItem="ApB-ND-9be" firstAttribute="top" secondItem="EOM-II-MVG" secondAttribute="bottom" constant="48" id="lWN-lt-xHD"/>
-                            <constraint firstItem="GMv-CV-584" firstAttribute="trailing" secondItem="EOM-II-MVG" secondAttribute="trailing" constant="50" id="p6f-VF-1sp"/>
-                            <constraint firstItem="ApB-ND-9be" firstAttribute="leading" secondItem="GMv-CV-584" secondAttribute="leading" constant="98" id="pVU-fF-nts"/>
-                            <constraint firstItem="GMv-CV-584" firstAttribute="bottom" secondItem="ApB-ND-9be" secondAttribute="bottom" constant="64" id="xWe-g3-CfL"/>
-                        </constraints>
                         <viewLayoutGuide key="safeArea" id="GMv-CV-584"/>
                     </view>
+                    <navigationItem key="navigationItem" title="Add Inspiring Text" id="OUa-iN-Pfk">
+                        <barButtonItem key="rightBarButtonItem" title="Save" id="xNU-tY-leE">
+                            <connections>
+                                <action selector="saveInpirationText:" destination="6Y6-kQ-gF3" id="2ip-Om-6V1"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="inspirationTextView" destination="EOM-II-MVG" id="ppT-Nm-xod"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Bg3-IO-lel" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2759" y="118"/>
+            <point key="canvasLocation" x="2757.5999999999999" y="117.39130434782609"/>
         </scene>
         <!--Inspiring Location-->
         <scene sceneID="LwI-W3-3sw">
@@ -584,7 +566,11 @@
                         <viewLayoutGuide key="safeArea" id="PKm-hk-oBs"/>
                     </view>
                     <navigationItem key="navigationItem" title="Inspiring Location" id="VgX-p5-c2O">
-                        <barButtonItem key="rightBarButtonItem" title="Save" id="8b4-1F-7Ml"/>
+                        <barButtonItem key="rightBarButtonItem" title="Save" id="8b4-1F-7Ml">
+                            <connections>
+                                <action selector="saveLocationNavbarButton:" destination="uTS-iw-wb5" id="Pu4-rq-8be"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="addLocationMapView" destination="poU-Cy-CQL" id="hfq-Xc-nVG"/>

@@ -18,8 +18,8 @@ class AddMapViewController: UIViewController, CLLocationManagerDelegate, MKMapVi
     @IBAction func saveLocationNavbarButton(_ sender: Any) {
         if let user = Auth.auth().currentUser{
             let ref = Database.database().reference();
-        ref.child("users").child(user.uid).child("stories").child(currentChapter.storyid).child("chapters").child(currentChapter.id).child("inspiration").childByAutoId().updateChildValues(["type" : "map"]);
-            ref.child("users").child(user.uid).child("stories").child(currentChapter.storyid).child("chapters").child(currentChapter.id).child("inspiration").childByAutoId().updateChildValues(["lat" : currentLocation.coordinate.latitude, "long": currentLocation.coordinate.longitude]);
+        ref.child("users").child(user.uid).child("stories").child(currentChapter.storyid).child("chapters").child(currentChapter.id).child("inspirations").childByAutoId().updateChildValues(["type" : "map", "lat" : currentLocation.coordinate.latitude, "long": currentLocation.coordinate.longitude]);
+            navigationController?.popViewController(animated: true)
         }
         
 
@@ -60,8 +60,6 @@ class AddMapViewController: UIViewController, CLLocationManagerDelegate, MKMapVi
         if distance > 100 {
             currentLocation = newLocation;
         }
-                print("user latitude = \(currentLocation.coordinate.latitude)")
-                print("user longitude = \(currentLocation .coordinate.longitude)")
     }
     
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
