@@ -34,7 +34,8 @@ class StoryEditViewController: UIViewController, UICollectionViewDataSource, UIC
         }
         if inspirations[indexPath.item].type == "image"{
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "imageInspirationCell", for: indexPath) as! ImageInspirationCollectionViewCell
-            cell.image.image = #imageLiteral(resourceName: "cat")
+            //cell.image.image = #imageLiteral(resourceName: "cat")
+        
             cell.image.contentMode = UIViewContentMode.scaleAspectFill
             
             return cell
