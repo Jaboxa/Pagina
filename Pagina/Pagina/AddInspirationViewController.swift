@@ -8,7 +8,11 @@
 
 import UIKit
 
-class AddInspirationViewController: UIViewController {
+class AddInspirationViewController: UIViewController{
+
+
+    
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
