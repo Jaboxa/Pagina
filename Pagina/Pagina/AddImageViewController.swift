@@ -15,14 +15,15 @@ class AddImageViewController: UIViewController,UIImagePickerControllerDelegate, 
     
     @IBOutlet weak var cameraImageView: UIImageView!
     
-    let imgstorage = Storage.storage().reference()
-    let data = Data()
     
+    let data = Data()
     var imgref: DatabaseReference!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         imgref = Database.database().reference()
+        
+
     
     }
     
@@ -37,40 +38,44 @@ class AddImageViewController: UIViewController,UIImagePickerControllerDelegate, 
     }
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
-        cameraImageView.image = info[UIImagePickerControllerOriginalImage] as? UIImage
+        cameraImageView.image =  info[UIImagePickerControllerOriginalImage] as? UIImage
+        
+        
+        
         dismiss(animated:true, completion: nil)
     }
     
     @IBAction func savePicture(_ sender: Any) {
-        if let img =  cameraImageView.image {
-            UIImageWriteToSavedPhotosAlbum( img , nil, nil, nil)
-        }
-    
+        
+//        if let img =  cameraImageView.image {
+//            UIImageWriteToSavedPhotosAlbum( img , nil, nil, nil)
+        
         
         if let user = Auth.auth().currentUser{
-            imgref.child("users").child(user.uid).child("stories").child(currentChapter.storyid).child("chapters").child(currentChapter.id).child("inspirations").childByAutoId().updateChildValues(["type" : "image"]);
+            let ref = Database.database().reference();
+            ref.child("users").child(user.uid).child("stories").child(currentChapter.storyid).child("chapters").child(currentChapter.id).child("inspirations").childByAutoId().updateChildValues(["type" : "image"]);
+        
+            if let image = cameraImageView.image, let jpegData = UIImageJPEGRepresentation(image, 0.7){
                 
+                let imgName = "inspirationimage.jpg"
+                
+                
+                let imgstorage = Storage.storage().reference()
+                let imgRef = imgstorage.child(imgName)
+                
+                let metadata = StorageMetadata()
+                metadata.contentType = "image/jpeg"
+                
+                imgRef.putData(jpegData, metadata: metadata){(metadata, error) in
+                    guard metadata != nil else {
+                        print(error)
+                        return
                     }
-        
-        
-        
-        
+                    print(metadata)
+                }
+        }
+        }
     }
-          
-//
-////            imgref.child("image").childByAutoId()
-//
-//            let refKey = imgref.key
-//            var userid = "user";
-//            if let user = Auth.auth().currentUser{
-//                userid = user.id;
-//            }
-//            imgref.child("users").child(userid).child("stories").
-//            if let imageData = UIImageJPEGRepresentation(img, 0.6){
-////                imgstorage.child("images")
-//                let newimgref = imgstorage.child(refKey)
-//
-//                newimgref.putData(imageData)
             
     @IBAction func openLibrary(_ sender: Any) {
         

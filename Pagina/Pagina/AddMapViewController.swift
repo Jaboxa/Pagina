@@ -21,8 +21,7 @@ class AddMapViewController: UIViewController, CLLocationManagerDelegate, MKMapVi
         ref.child("users").child(user.uid).child("stories").child(currentChapter.storyid).child("chapters").child(currentChapter.id).child("inspirations").childByAutoId().updateChildValues(["type" : "map", "lat" : currentLocation.coordinate.latitude, "long": currentLocation.coordinate.longitude]);
             navigationController?.popViewController(animated: true)
         }
-        
-
+    
     }
     var currentChapter:ChapterTableViewController.Chapter = ChapterTableViewController.Chapter();
     var locationManager:CLLocationManager!;
