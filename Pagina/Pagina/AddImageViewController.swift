@@ -7,9 +7,21 @@
 //
 
 import UIKit
+import Firebase
 
 class AddImageViewController: UIViewController,UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     @IBOutlet weak var cameraImageView: UIImageView!
+    
+    let imgstorage = Storage.storage().reference()
+    let data = Data()
+    
+    var imgref: DatabaseReference!
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        imgref = Database.database().reference()
+    
+    }
     
     @IBAction func takePicture(_ sender: Any) {
         if UIImagePickerController.isSourceTypeAvailable(.camera){
@@ -26,28 +38,29 @@ class AddImageViewController: UIViewController,UIImagePickerControllerDelegate, 
         dismiss(animated:true, completion: nil)
     }
     
-    
     @IBAction func savePicture(_ sender: Any) {
         if let img =  cameraImageView.image {
-                      UIImageWriteToSavedPhotosAlbum( img , nil, nil, nil)
-            
-            cameraImageView.image = nil
-            
-            
-            //det här är fel. Det ska sparas i storage i firebase
-            //och visas i den sista slotten i collectionview
-            //visa den i arrayen. spara den till arrayen
-            }
+            UIImageWriteToSavedPhotosAlbum( img , nil, nil, nil)
+        }
     }
-    
+          
+//
+////            imgref.child("image").childByAutoId()
+//
+//            let refKey = imgref.key
+//            var userid = "user";
+//            if let user = Auth.auth().currentUser{
+//                userid = user.id;
+//            }
+//            imgref.child("users").child(userid).child("stories").
+//            if let imageData = UIImageJPEGRepresentation(img, 0.6){
+////                imgstorage.child("images")
+//                let newimgref = imgstorage.child(refKey)
+//
+//                newimgref.putData(imageData)
+            
     @IBAction func openLibrary(_ sender: Any) {
-    }
-
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        
     }
 
     override func didReceiveMemoryWarning() {

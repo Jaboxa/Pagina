@@ -11,6 +11,9 @@ import Firebase
 
 class StoryEditViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout{
     
+    let storage = Storage.storage()
+    
+    
     var items = ["0","1","2","3","4","5","6","7","8","9","10","11","12","13","14","15","16","17","18","19","20"]
     
     var inspirations:[Inspiration] = [];
@@ -86,6 +89,49 @@ class StoryEditViewController: UIViewController, UICollectionViewDataSource, UIC
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let storageRef = storage.reference()
+        
+        
+        
+//        // Create a child reference
+//        // imagesRef now points to "images"
+//        let imagesRef = storageRef.child("images")
+//
+//        // Child references can also take paths delimited by '/'
+//        // spaceRef now points to "images/space.jpg"
+//        // imagesRef still points to "images"
+//        var spaceRef = storageRef.child("images/space.jpg")
+//
+//        // This is equivalent to creating the full reference
+//        let storagePath = "\(your_firebase_storage_bucket)/images/space.jpg"
+//        spaceRef = storage.reference(forURL: storagePath)
+        
+        
+        
+        //full example
+        
+        // Points to the root reference
+//        let storageRef = Storage.storage().reference()
+//        
+//        // Points to "images"
+//        let imagesRef = storageRef.child("images")
+//        
+//        // Points to "images/space.jpg"
+//        // Note that you can use variables to create child values
+//        let fileName = "space.jpg"
+//        let spaceRef = imagesRef.child(fileName)
+//        
+//        // File path is "images/space.jpg"
+//        let path = spaceRef.fullPath;
+//        
+//        // File name is "space.jpg"
+//        let name = spaceRef.name;
+//        
+//        // Points to "images"
+//        let images = spaceRef.parent()
+        
+//
         
         //inspirations
         for i in 0..<8{
