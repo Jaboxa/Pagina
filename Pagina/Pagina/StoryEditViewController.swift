@@ -11,15 +11,24 @@ import Firebase
 
 class StoryEditViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout{
     
-    var items = ["0","1","2","3","4","5","6","7","8","9","10","11","12","13","14","15","16","17","18","19","20"]
-    
     var inspirations:[Inspiration] = [];
     
     struct Inspiration{
-        var type:String = "";
+        var type:String = ""; //"image", "map", "text"
+        var id:String = "";
+        
+        
+        //Image
         var imageurl:String = "";
-        var location:String = "";
-        var storyText:String = "";
+        
+        //Map
+        var long:Double = 0.0;
+        var lat:Double = 0.0;
+        
+        //Text
+        var text:String = "";
+        
+        
     }
 
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -42,7 +51,14 @@ class StoryEditViewController: UIViewController, UICollectionViewDataSource, UIC
         }
         if inspirations[indexPath.item].type == "text"{
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "textInspirationCell", for: indexPath) as! textCollectionViewCell
-            cell.inspirationTextView.text = "Blablabla"
+            cell.inspirationTextView.text = inspirations[indexPath.item].text;
+            return cell
+        }
+        if inspirations[indexPath.item].type == "map"{
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "mapInspirationCell", for: indexPath) as! MapCollectionViewCell;
+            print("map");
+            
+            cell.setMap(long: inspirations[indexPath.item].long, lat: inspirations[indexPath.item].lat);
             return cell
         }
         
@@ -51,8 +67,6 @@ class StoryEditViewController: UIViewController, UICollectionViewDataSource, UIC
         return cell
         
     }
-    
-    
     
     func collectionView(_ collectionView: UICollectionView,
                         layout collectionViewLayout: UICollectionViewLayout,
@@ -78,6 +92,9 @@ class StoryEditViewController: UIViewController, UICollectionViewDataSource, UIC
     @IBOutlet weak var savingStatusLabel: UILabel!
     @IBOutlet weak var storyEditTextView: UITextView!
 
+    @IBOutlet weak var inspirationCollectionView: UICollectionView!
+    
+    
     var saveTextTimer: Timer!
     var ref:DatabaseReference!
     var userid = "user"
@@ -86,31 +103,46 @@ class StoryEditViewController: UIViewController, UICollectionViewDataSource, UIC
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        //inspirations
-        for i in 0..<8{
-            var insp = Inspiration();
-            if i % 2 == 0{
-                insp.type = "image";
-            }else{
-                insp.type = "text";
-            }
-    
-            inspirations.append(insp);
-        }
-        
         if let user = Auth.auth().currentUser {
             userid = user.uid;
+            print(userid);
+            
         } else {
             // No user is signed in.
             // ...
         }
         ref = Database.database().reference();
+        fetchInspirations();
         navbarTitle.title = currentChapter.title;
         storyEditTextView.text = currentChapter.content;
         currentText = storyEditTextView.text;
         saveTextTimer = Timer.scheduledTimer(timeInterval: 10.0, target: self, selector: #selector(saveText), userInfo: nil, repeats: true)
         savingStatusLabel.text = "";
+    }
+    
+    
+    func fetchInspirations(){
+        inspirations.removeAll(keepingCapacity: false);
+        ref.child("users").child(userid).child("stories").child(currentChapter.storyid).child("chapters").child(currentChapter.id).child("inspirations").observeSingleEvent(of: DataEventType.value, with: { (snapshot) in
+            for child in snapshot.children.allObjects as! [DataSnapshot]{
+                let value = child.value as? NSDictionary;
+                var inspiration = Inspiration();
+                inspiration.type = value?["type"] as? String ?? "";
+                inspiration.id = child.key;
+                if inspiration.type == "text"{
+                    inspiration.text = value?["text"] as? String ?? "";
+                }else if inspiration.type == "map"{
+                    inspiration.long = value?["long"] as? Double ?? 0.0;
+                    inspiration.lat = value?["lat"] as? Double ?? 0.0;
+                }
+                
+                self.inspirations.append(inspiration);
+            }
+            self.inspirationCollectionView.reloadData();
+            
+        }) { (error) in
+            print(error.localizedDescription)
+        }
     }
     override func viewWillDisappear(_ animated:Bool){
         super.viewWillDisappear(true)
@@ -137,8 +169,6 @@ class StoryEditViewController: UIViewController, UICollectionViewDataSource, UIC
 
     
     // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "addInspirationSegue" {
             if let inspiration = segue.destination as? AddInspirationViewController {

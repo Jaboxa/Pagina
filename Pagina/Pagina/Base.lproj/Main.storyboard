@@ -226,6 +226,28 @@
                                             <outlet property="image" destination="pOu-2n-FUS" id="PbC-4X-8PI"/>
                                         </connections>
                                     </collectionViewCell>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="mapInspirationCell" id="3Ne-uJ-Eab" customClass="MapCollectionViewCell" customModule="Pagina" customModuleProvider="target">
+                                        <rect key="frame" x="600" y="22.5" width="140" height="140"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
+                                            <rect key="frame" x="0.0" y="0.0" width="140" height="140"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" mapType="standard" zoomEnabled="NO" scrollEnabled="NO" rotateEnabled="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GRJ-9D-POS">
+                                                    <rect key="frame" x="0.0" y="6" width="140" height="135"/>
+                                                </mapView>
+                                            </subviews>
+                                        </view>
+                                        <constraints>
+                                            <constraint firstAttribute="trailing" secondItem="GRJ-9D-POS" secondAttribute="trailing" id="MRp-3t-gUu"/>
+                                            <constraint firstItem="GRJ-9D-POS" firstAttribute="top" secondItem="3Ne-uJ-Eab" secondAttribute="topMargin" constant="6" id="Uk0-fA-zqP"/>
+                                            <constraint firstItem="GRJ-9D-POS" firstAttribute="leading" secondItem="3Ne-uJ-Eab" secondAttribute="leading" id="XPs-Nm-9Hg"/>
+                                            <constraint firstAttribute="bottomMargin" secondItem="GRJ-9D-POS" secondAttribute="bottom" constant="-1" id="fvd-9j-qoL"/>
+                                        </constraints>
+                                        <connections>
+                                            <outlet property="inspirationMapView" destination="GRJ-9D-POS" id="nTi-I9-JkI"/>
+                                        </connections>
+                                    </collectionViewCell>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="textInspirationCell" id="br5-KN-eNz" customClass="textCollectionViewCell" customModule="Pagina" customModuleProvider="target">
                                         <rect key="frame" x="300" y="22.5" width="140" height="140"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -233,7 +255,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="140" height="140"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="lyZ-2V-b42">
+                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="lyZ-2V-b42">
                                                     <rect key="frame" x="0.0" y="0.0" width="70" height="70"/>
                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
@@ -309,10 +331,13 @@
                     </view>
                     <navigationItem key="navigationItem" title="Edit Text" id="CYB-oR-Aif"/>
                     <connections>
+                        <outlet property="inspirationCollectionView" destination="TyE-DN-Xco" id="4Qf-kY-QPB"/>
                         <outlet property="navbarTitle" destination="CYB-oR-Aif" id="VIf-6R-8v1"/>
                         <outlet property="savingStatusLabel" destination="YQA-Fr-0KK" id="tji-TK-TN0"/>
                         <outlet property="storyEditTextView" destination="fMY-dx-wif" id="hLO-7Y-F07"/>
                         <segue destination="r37-Ft-wwC" kind="showDetail" identifier="showImageInspirationSegue" id="eDW-UT-sUe"/>
+                        <segue destination="c0P-1U-GCn" kind="show" identifier="zoomMapSegue" id="Ns3-Gc-F4k"/>
+                        <segue destination="iJq-JK-uXF" kind="show" identifier="zoomTextSegue" id="9el-jy-NSh"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vF0-BB-AD7" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -349,35 +374,67 @@
             </objects>
             <point key="canvasLocation" x="-159" y="1173"/>
         </scene>
-        <!--View Controller-->
+        <!--Inspiring Location-->
         <scene sceneID="1n1-OG-vwm">
             <objects>
-                <viewController id="c0P-1U-GCn" sceneMemberID="viewController">
+                <viewController id="c0P-1U-GCn" customClass="MapZoomViewController" customModule="Pagina" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="SP3-tr-cL7">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="D9A-re-cih">
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                            </mapView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="D9A-re-cih" secondAttribute="trailing" id="3z9-XI-KDt"/>
+                            <constraint firstItem="D9A-re-cih" firstAttribute="leading" secondItem="SP3-tr-cL7" secondAttribute="leading" id="FxL-Nd-X36"/>
+                            <constraint firstItem="D9A-re-cih" firstAttribute="bottom" secondItem="sf0-gA-8MI" secondAttribute="bottom" id="RsR-kh-Adv"/>
+                            <constraint firstItem="D9A-re-cih" firstAttribute="top" secondItem="sf0-gA-8MI" secondAttribute="top" id="n8Y-gX-l34"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="sf0-gA-8MI"/>
                     </view>
+                    <navigationItem key="navigationItem" title="Inspiring Location" id="teU-sv-Cft">
+                        <barButtonItem key="rightBarButtonItem" systemItem="trash" id="jZZ-DK-cha"/>
+                    </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1Wf-cV-RYy" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="528" y="1175"/>
+            <point key="canvasLocation" x="527.20000000000005" y="1174.3628185907048"/>
         </scene>
-        <!--View Controller-->
+        <!--Inspiring Text-->
         <scene sceneID="KET-5I-PTA">
             <objects>
                 <viewController id="iJq-JK-uXF" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="yyq-ts-p4e">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="8Xm-C5-xEN">
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="8Xm-C5-xEN" firstAttribute="bottom" secondItem="pkC-Fa-8WU" secondAttribute="bottom" id="2DU-nE-Z98"/>
+                            <constraint firstItem="8Xm-C5-xEN" firstAttribute="top" secondItem="pkC-Fa-8WU" secondAttribute="top" id="MXJ-co-xCu"/>
+                            <constraint firstItem="8Xm-C5-xEN" firstAttribute="leading" secondItem="yyq-ts-p4e" secondAttribute="leading" id="kQs-Hb-mYv"/>
+                            <constraint firstAttribute="trailing" secondItem="8Xm-C5-xEN" secondAttribute="trailing" id="lc1-r2-QJG"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="pkC-Fa-8WU"/>
                     </view>
+                    <navigationItem key="navigationItem" title="Inspiring Text" id="vse-Ea-HVa">
+                        <barButtonItem key="rightBarButtonItem" systemItem="trash" id="qgr-Ip-HTO"/>
+                    </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mlx-wj-FGe" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1200" y="1172"/>
+            <point key="canvasLocation" x="1199.2" y="1171.6641679160421"/>
         </scene>
         <!--Add Inspiration View Controller-->
         <scene sceneID="Pt7-Mv-bFV">
