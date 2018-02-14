@@ -37,6 +37,10 @@ class AddInspirationViewController: UIViewController{
             if let inspiration = segue.destination as? AddTextInspirationViewController {
                 inspiration.currentChapter = currentChapter;
             }
+        }else if segue.identifier == "addImageSegue" {
+            if let inspiration = segue.destination as? AddImageViewController {
+                 inspiration.currentChapter = currentChapter;
+            }
         }
     }
  

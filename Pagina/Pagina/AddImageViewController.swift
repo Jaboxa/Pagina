@@ -10,6 +10,9 @@ import UIKit
 import Firebase
 
 class AddImageViewController: UIViewController,UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    
+    var currentChapter:ChapterTableViewController.Chapter = ChapterTableViewController.Chapter();
+    
     @IBOutlet weak var cameraImageView: UIImageView!
     
     let imgstorage = Storage.storage().reference()
@@ -42,6 +45,16 @@ class AddImageViewController: UIViewController,UIImagePickerControllerDelegate, 
         if let img =  cameraImageView.image {
             UIImageWriteToSavedPhotosAlbum( img , nil, nil, nil)
         }
+    
+        
+        if let user = Auth.auth().currentUser{
+            imgref.child("users").child(user.uid).child("stories").child(currentChapter.storyid).child("chapters").child(currentChapter.id).child("inspirations").childByAutoId().updateChildValues(["type" : "image"]);
+                
+                    }
+        
+        
+        
+        
     }
           
 //
