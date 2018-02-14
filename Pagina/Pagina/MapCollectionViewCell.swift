@@ -1,0 +1,25 @@
+//
+//  MapCollectionViewCell.swift
+//  Pagina
+//
+//  Created by Alice Darner on 2018-02-14.
+//  Copyright © 2018 dogbird. All rights reserved.
+//
+
+import UIKit
+import MapKit
+import CoreLocation
+
+class MapCollectionViewCell: UICollectionViewCell, CLLocationManagerDelegate, MKMapViewDelegate  {
+    
+    @IBOutlet weak var inspirationMapView: MKMapView!
+    
+    func setMap(long: Double, lat: Double){
+        let place = MKPointAnnotation();
+        place.coordinate.longitude = long;
+        place.coordinate.latitude = lat;
+        inspirationMapView.addAnnotation(place);
+        
+    }
+    
+}
