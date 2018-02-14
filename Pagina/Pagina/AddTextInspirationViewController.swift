@@ -7,9 +7,13 @@
 //
 
 import UIKit
+import Firebase
 
 class AddTextInspirationViewController: UIViewController {
 
+    @IBOutlet weak var inspirationTextView: UITextView!
+    var currentChapter:ChapterTableViewController.Chapter = ChapterTableViewController.Chapter();
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -20,16 +24,12 @@ class AddTextInspirationViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    @IBAction func saveInpirationText(_ sender: Any) {
+        if let user = Auth.auth().currentUser{
+            let ref = Database.database().reference();
+            ref.child("users").child(user.uid).child("stories").child(currentChapter.storyid).child("chapters").child(currentChapter.id).child("inspirations").childByAutoId().updateChildValues(["type" : "text", "text" : inspirationTextView.text]);
+            navigationController?.popViewController(animated: true)
+        }
     }
-    */
-
+    
 }
