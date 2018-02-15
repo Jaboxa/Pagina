@@ -258,7 +258,7 @@
                                                 </imageView>
                                             </subviews>
                                         </view>
-                                        <color key="backgroundColor" red="0.0" green="0.97680455450000003" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="backgroundColor" name="PaginaHeavy"/>
                                         <constraints>
                                             <constraint firstItem="pOu-2n-FUS" firstAttribute="leading" secondItem="Y09-NZ-NL1" secondAttribute="leading" id="4K0-Wm-aZO"/>
                                             <constraint firstItem="pOu-2n-FUS" firstAttribute="top" secondItem="Y09-NZ-NL1" secondAttribute="top" id="ech-Hy-MAT"/>
@@ -999,6 +999,9 @@
         <image name="plus" width="128" height="128"/>
         <namedColor name="PaginaBlack">
             <color red="0.22745098039215686" green="0.25098039215686274" blue="0.29411764705882354" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="PaginaHeavy">
+            <color red="0.6588235294117647" green="0.59607843137254901" blue="0.45490196078431372" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="PaginaHeavy">
             <color red="0.6588235294117647" green="0.59607843137254901" blue="0.45490196078431372" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

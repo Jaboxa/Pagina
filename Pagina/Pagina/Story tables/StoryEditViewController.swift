@@ -161,7 +161,6 @@ class StoryEditViewController: UIViewController, UICollectionViewDataSource, UIC
             
             if let image = inspirations[indexPath.item].image {
                 cell.image.image = image;
-                cell.image.contentMode = UIViewContentMode.scaleAspectFill;
             }
             
             
