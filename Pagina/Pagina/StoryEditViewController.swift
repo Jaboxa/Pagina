@@ -47,8 +47,11 @@ class StoryEditViewController: UIViewController, UICollectionViewDataSource, UIC
         if inspirations[indexPath.item].type == "image"{
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "imageInspirationCell", for: indexPath) as! ImageInspirationCollectionViewCell
             
-            cell.image.image = fetchImageFromStorage(url: inspirations[indexPath.item].imageUrl);
-            cell.image.contentMode = UIViewContentMode.scaleAspectFill;
+            if let image = inspirations[indexPath.item].image {
+                cell.image.image = image;
+                    cell.image.contentMode = UIViewContentMode.scaleAspectFill;
+            }
+            
             
             return cell
         }
@@ -146,6 +149,25 @@ class StoryEditViewController: UIViewController, UICollectionViewDataSource, UIC
                 
                 self.inspirations.append(inspiration);
             }
+            for i in 0..<self.inspirations.count{
+                if self.inspirations[i].type == "image"{
+                    let storagePath = self.inspirations[i].imageUrl;
+                        let imgRef = Storage.storage().reference(forURL: storagePath);
+                        var image:UIImage?
+                    
+                        // Download in memory with a maximum allowed size of 15MB (15 * 1024 * 1024 bytes)
+                        imgRef.getData(maxSize: 15 * 1024 * 1024) { data, error in
+                            if let error = error {
+                                print(error)
+                            } else {
+                                image = UIImage(data: data!) ?? nil;
+                                print("image fetched")
+                                self.inspirations[i].image = image;
+                                self.inspirationCollectionView.reloadData();
+                            }
+                        }
+                    }
+                }
             self.inspirationCollectionView.reloadData();
             
         }) { (error) in
@@ -153,25 +175,6 @@ class StoryEditViewController: UIViewController, UICollectionViewDataSource, UIC
         }
     }
     
-    func fetchImageFromStorage(url:String) -> UIImage?{
-        // Create a reference to the file you want to download
-        print("fetching image")
-        
-        let storagePath = url;
-        let imgRef = Storage.storage().reference(forURL: storagePath);
-        //let imgRef = storageRef.child(url)
-        var image:UIImage?
-        // Download in memory with a maximum allowed size of 1MB (1 * 1024 * 1024 bytes)
-        imgRef.getData(maxSize: 15 * 1024 * 1024) { data, error in
-            if let error = error {
-                print(error)
-            } else {
-                image = UIImage(data: data!) ?? nil;
-                print("image fetched")
-            }
-        }
-        return image;
-    }
     override func viewWillDisappear(_ animated:Bool){
         super.viewWillDisappear(true)
         saveTextTimer.invalidate();
