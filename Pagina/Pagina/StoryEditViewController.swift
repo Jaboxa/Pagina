@@ -87,7 +87,19 @@ class StoryEditViewController: UIViewController, UICollectionViewDataSource, UIC
 
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        print("blä")
+        
+        if indexPath.item >= inspirations.count {
+        //???
+        }
+        else if inspirations[indexPath.item].type == "image"{
+
+        }
+        else if inspirations[indexPath.item].type == "text"{
+            performSegue(withIdentifier: "zoomTextSegue", sender: indexPath.item)
+        }
+        else if inspirations[indexPath.item].type == "map"{
+            performSegue(withIdentifier: "zoomMapSegue", sender: indexPath.item)
+        }
     }
     
     var currentChapter:ChapterTableViewController.Chapter = ChapterTableViewController.Chapter();
@@ -204,6 +216,21 @@ class StoryEditViewController: UIViewController, UICollectionViewDataSource, UIC
         if segue.identifier == "addInspirationSegue" {
             if let inspiration = segue.destination as? AddInspirationViewController {
                 inspiration.currentChapter = currentChapter;
+            }
+        }else if segue.identifier == "zoomTextSegue"{
+            if let zoom = segue.destination as? TextZoomViewController {
+                if let i = sender as? Int {
+                    zoom.currentChapter = currentChapter;
+                    zoom.currentInspiration = inspirations[i];
+                }
+            }
+        }
+        else if segue.identifier == "zoomMapSegue"{
+            if let zoom = segue.destination as? MapZoomViewController {
+                if let i = sender as? Int {
+                    zoom.currentChapter = currentChapter;
+                    zoom.currentInspiration = inspirations[i];
+                }
             }
         }
     }

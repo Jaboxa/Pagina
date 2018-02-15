@@ -9,18 +9,20 @@
 import UIKit
 import MapKit
 import CoreLocation
+import Firebase
 
 class MapZoomViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDelegate {
 
     @IBOutlet weak var zoomedMapView: MKMapView!
     
     var locationManager:CLLocationManager!;
-    var currentLocationLong: Double = 0.0;
-    var currentLocationLat: Double = 0.0;
+    
+    var currentInspiration: StoryEditViewController.Inspiration = StoryEditViewController.Inspiration();
+    var currentChapter: ChapterTableViewController.Chapter = ChapterTableViewController.Chapter();
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setMap(long: currentLocationLong, lat: currentLocationLat);
+        setMap(long: currentInspiration.long, lat: currentInspiration.lat);
     }
 
     override func didReceiveMemoryWarning() {
@@ -36,5 +38,16 @@ class MapZoomViewController: UIViewController, CLLocationManagerDelegate, MKMapV
         zoomedMapView.addAnnotation(place);
         
     }
+    
+    @IBAction func deleteMap(_ sender: Any) {
+        let ref:DatabaseReference = Database.database().reference();
+        
+        if let user = Auth.auth().currentUser {
+            ref.child("users").child(user.uid).child("stories").child(self.currentChapter.storyid).child("chapters").child(self.currentChapter.id).child("inspirations").child(self.currentInspiration.id).removeValue();
+            navigationController?.popViewController(animated: true);
+        }
+        
+    }
+    
 
 }
