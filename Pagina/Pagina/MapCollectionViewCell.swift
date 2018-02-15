@@ -19,7 +19,7 @@ class MapCollectionViewCell: UICollectionViewCell, CLLocationManagerDelegate, MK
         place.coordinate.longitude = long;
         place.coordinate.latitude = lat;
         inspirationMapView.addAnnotation(place);
-        
+        inspirationMapView.showAnnotations(inspirationMapView.annotations, animated: true);
     }
     
 }

@@ -137,6 +137,19 @@ class StoryEditViewController: UIViewController, UICollectionViewDataSource, UIC
         storyEditTextView.text = currentChapter.content;
         currentText = storyEditTextView.text;
         saveTextTimer = Timer.scheduledTimer(timeInterval: 10.0, target: self, selector: #selector(saveText), userInfo: nil, repeats: true)
+        
+        //Looks for single or multiple taps.
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(self.dismissKeyboard))
+        
+        //Uncomment the line below if you want the tap not not interfere and cancel other interactions.
+        //tap.cancelsTouchesInView = false
+        
+        storyEditTextView.addGestureRecognizer(tap)
+    }
+    
+    @objc func dismissKeyboard() {
+        //Causes the view (or one of its embedded text fields) to resign the first responder status.
+        storyEditTextView.endEditing(true)
     }
     
     
