@@ -11,21 +11,31 @@ import Firebase
 
 class AddImageViewController: UIViewController,UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
-    var currentChapter:ChapterTableViewController.Chapter = ChapterTableViewController.Chapter();
-    
     @IBOutlet weak var cameraImageView: UIImageView!
+
+    
+    
     
     
     let data = Data()
     var imgref: DatabaseReference!
     
+    var currentChapter:ChapterTableViewController.Chapter = ChapterTableViewController.Chapter();
+    
+    
+    //Class
     override func viewDidLoad() {
         super.viewDidLoad()
         imgref = Database.database().reference()
-        
-
     
     }
+    
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
+    }
+    
+    //Camera
     
     @IBAction func takePicture(_ sender: Any) {
         if UIImagePickerController.isSourceTypeAvailable(.camera){
@@ -40,18 +50,7 @@ class AddImageViewController: UIViewController,UIImagePickerControllerDelegate, 
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
         cameraImageView.image =  info[UIImagePickerControllerOriginalImage] as? UIImage
         
-        
-        
         dismiss(animated:true, completion: nil)
-    }
-    
-    //For getting a semi-unique string as a name for the image file
-    func getDate() -> String{
-        let date = NSDate() // Get Todays Date
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "yyyyMMddHHmm"
-        let stringDate: String = dateFormatter.string(from: date as Date)
-        return stringDate
     }
     
     @IBAction func savePicture(_ sender: Any) {
@@ -85,12 +84,22 @@ class AddImageViewController: UIViewController,UIImagePickerControllerDelegate, 
     }
             
     @IBAction func openLibrary(_ sender: Any) {
-        
+        if UIImagePickerController.isSourceTypeAvailable(.savedPhotosAlbum){
+            let imagePicker = UIImagePickerController()
+            imagePicker.delegate = self
+            imagePicker.sourceType = .savedPhotosAlbum
+            imagePicker.allowsEditing = false
+            self.present(imagePicker, animated: true, completion: nil)
+        }
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    
+    //For getting a semi-unique string as a name for the image file
+    func getDate() -> String{
+        let date = NSDate() // Get Todays Date
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyyMMddHHmm"
+        let stringDate: String = dateFormatter.string(from: date as Date)
+        return stringDate
     }
 
 }

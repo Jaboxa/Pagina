@@ -30,7 +30,7 @@ class StoryEditViewController: UIViewController, UICollectionViewDataSource, UIC
         
         //Text
         var text:String = "";
-        
+
         
     }
     
