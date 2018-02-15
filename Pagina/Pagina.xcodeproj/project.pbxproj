@@ -10,6 +10,7 @@
 		000F5A8390153DB6F49E6B7F /* Pods_Pagina.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 972F3314908C4CF37D3864DA /* Pods_Pagina.framework */; };
 		002D865F20346F950065EA70 /* MapCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 002D865E20346F940065EA70 /* MapCollectionViewCell.swift */; };
 		002D866320347CE30065EA70 /* MapZoomViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 002D866220347CE30065EA70 /* MapZoomViewController.swift */; };
+		002D8665203578B00065EA70 /* TextZoomViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 002D8664203578B00065EA70 /* TextZoomViewController.swift */; };
 		0064CFB720287F9100729474 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0064CFB620287F9100729474 /* AppDelegate.swift */; };
 		0064CFB920287F9100729474 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0064CFB820287F9100729474 /* ViewController.swift */; };
 		0064CFBC20287F9100729474 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0064CFBA20287F9100729474 /* Main.storyboard */; };
@@ -36,6 +37,7 @@
 /* Begin PBXFileReference section */
 		002D865E20346F940065EA70 /* MapCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapCollectionViewCell.swift; sourceTree = "<group>"; };
 		002D866220347CE30065EA70 /* MapZoomViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapZoomViewController.swift; sourceTree = "<group>"; };
+		002D8664203578B00065EA70 /* TextZoomViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextZoomViewController.swift; sourceTree = "<group>"; };
 		0064CFB320287F9100729474 /* Pagina.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Pagina.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0064CFB620287F9100729474 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0064CFB820287F9100729474 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -121,6 +123,7 @@
 				CE0757C22031CB5800CAB9EB /* AddMapViewController.swift */,
 				002D865E20346F940065EA70 /* MapCollectionViewCell.swift */,
 				002D866220347CE30065EA70 /* MapZoomViewController.swift */,
+				002D8664203578B00065EA70 /* TextZoomViewController.swift */,
 			);
 			path = Pagina;
 			sourceTree = "<group>";
@@ -294,6 +297,7 @@
 				CE0757C32031CB5800CAB9EB /* AddMapViewController.swift in Sources */,
 				CE0927EA202C6AFC007EB62C /* ChapterTableViewCell.swift in Sources */,
 				CE98569720305901009FBAC8 /* inspirationsCollectionViewCell.swift in Sources */,
+				002D8665203578B00065EA70 /* TextZoomViewController.swift in Sources */,
 				CE98569920307203009FBAC8 /* ImageInspirationCollectionViewCell.swift in Sources */,
 				002D866320347CE30065EA70 /* MapZoomViewController.swift in Sources */,
 				CE98569B203077CA009FBAC8 /* textCollectionViewCell.swift in Sources */,

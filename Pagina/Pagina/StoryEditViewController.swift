@@ -86,9 +86,9 @@ class StoryEditViewController: UIViewController, UICollectionViewDataSource, UIC
         if indexPath.item >= inspirations.count {
         //???
         }
-//        if inspirations[indexPath.item].type == "image"{
-//
-//        }
+        else if inspirations[indexPath.item].type == "image"{
+
+        }
         else if inspirations[indexPath.item].type == "text"{
             performSegue(withIdentifier: "zoomTextSegue", sender: indexPath.item)
         }
@@ -185,6 +185,21 @@ class StoryEditViewController: UIViewController, UICollectionViewDataSource, UIC
         if segue.identifier == "addInspirationSegue" {
             if let inspiration = segue.destination as? AddInspirationViewController {
                 inspiration.currentChapter = currentChapter;
+            }
+        }else if segue.identifier == "zoomTextSegue"{
+            if let zoom = segue.destination as? TextZoomViewController {
+                if let i = sender as? Int {
+                    zoom.currentChapter = currentChapter;
+                    zoom.currentInspiration = inspirations[i];
+                }
+            }
+        }
+        else if segue.identifier == "zoomMapSegue"{
+            if let zoom = segue.destination as? MapZoomViewController {
+                if let i = sender as? Int {
+                    zoom.currentChapter = currentChapter;
+                    zoom.currentInspiration = inspirations[i];
+                }
             }
         }
     }
