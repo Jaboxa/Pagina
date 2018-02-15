@@ -73,7 +73,7 @@ class AddImageViewController: UIViewController,UIImagePickerControllerDelegate, 
                         print(error ?? "unknown error")
                         return
                     }
-                    print(metadata ?? "some kind of metadata")
+                    print(metadata ?? "")
                     if let metadata = metadata, let url = metadata.downloadURL(){
                         ref.child("users").child(user.uid).child("stories").child(self.currentChapter.storyid).child("chapters").child(self.currentChapter.id).child("inspirations").childByAutoId().updateChildValues(["type" : "image", "url": url.absoluteString]);
                     }
@@ -91,16 +91,5 @@ class AddImageViewController: UIViewController,UIImagePickerControllerDelegate, 
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }

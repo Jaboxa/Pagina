@@ -25,7 +25,7 @@ class AddMapViewController: UIViewController, CLLocationManagerDelegate, MKMapVi
     }
     var currentChapter:ChapterTableViewController.Chapter = ChapterTableViewController.Chapter();
     var locationManager:CLLocationManager!;
-    var currentLocation: CLLocation = CLLocation(latitude: 0, longitude: 0);
+    var currentLocation: CLLocation = CLLocation(latitude: 0, longitude: 0); //Null Island :D
     
     override func viewDidLoad() {
         super.viewDidLoad()

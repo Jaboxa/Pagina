@@ -29,7 +29,7 @@
 		CE0927E8202C6AA8007EB62C /* ChapterTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0927E7202C6AA8007EB62C /* ChapterTableViewController.swift */; };
 		CE0927EA202C6AFC007EB62C /* ChapterTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0927E9202C6AFC007EB62C /* ChapterTableViewCell.swift */; };
 		CE1FBA0D203446DD00AE7F40 /* AddImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE1FBA0C203446DD00AE7F40 /* AddImageViewController.swift */; };
-		CE98569720305901009FBAC8 /* inspirationsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE98569620305901009FBAC8 /* inspirationsCollectionViewCell.swift */; };
+		CE98569720305901009FBAC8 /* ErrorInspirationCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE98569620305901009FBAC8 /* ErrorInspirationCollectionViewCell.swift */; };
 		CE98569920307203009FBAC8 /* ImageInspirationCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE98569820307203009FBAC8 /* ImageInspirationCollectionViewCell.swift */; };
 		CE98569B203077CA009FBAC8 /* TextInspirationCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE98569A203077CA009FBAC8 /* TextInspirationCollectionViewCell.swift */; };
 		CE98569D20307BCF009FBAC8 /* AddInspirationCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE98569C20307BCE009FBAC8 /* AddInspirationCollectionViewCell.swift */; };
@@ -68,7 +68,7 @@
 		CE0927E7202C6AA8007EB62C /* ChapterTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChapterTableViewController.swift; sourceTree = "<group>"; };
 		CE0927E9202C6AFC007EB62C /* ChapterTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChapterTableViewCell.swift; sourceTree = "<group>"; };
 		CE1FBA0C203446DD00AE7F40 /* AddImageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddImageViewController.swift; sourceTree = "<group>"; };
-		CE98569620305901009FBAC8 /* inspirationsCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = inspirationsCollectionViewCell.swift; sourceTree = "<group>"; };
+		CE98569620305901009FBAC8 /* ErrorInspirationCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorInspirationCollectionViewCell.swift; sourceTree = "<group>"; };
 		CE98569820307203009FBAC8 /* ImageInspirationCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageInspirationCollectionViewCell.swift; sourceTree = "<group>"; };
 		CE98569A203077CA009FBAC8 /* TextInspirationCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextInspirationCollectionViewCell.swift; sourceTree = "<group>"; };
 		CE98569C20307BCE009FBAC8 /* AddInspirationCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddInspirationCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -91,12 +91,10 @@
 		002D867220362E060065EA70 /* Story tables */ = {
 			isa = PBXGroup;
 			children = (
+				00C11F4D20363A1A00C7721B /* Story Cells */,
 				CE0927E5202C693D007EB62C /* StoryEditViewController.swift */,
 				0064CFDC202C5A9300729474 /* StoryTableViewController.swift */,
-				0064CFDD202C5A9400729474 /* StoryTableViewCell.swift */,
-				CE0927E9202C6AFC007EB62C /* ChapterTableViewCell.swift */,
 				CE0927E7202C6AA8007EB62C /* ChapterTableViewController.swift */,
-				0064CFE4202DCE2400729474 /* AddTableViewCell.swift */,
 			);
 			path = "Story tables";
 			sourceTree = "<group>";
@@ -181,12 +179,22 @@
 			isa = PBXGroup;
 			children = (
 				CE98569A203077CA009FBAC8 /* TextInspirationCollectionViewCell.swift */,
-				CE98569620305901009FBAC8 /* inspirationsCollectionViewCell.swift */,
+				CE98569620305901009FBAC8 /* ErrorInspirationCollectionViewCell.swift */,
 				CE98569820307203009FBAC8 /* ImageInspirationCollectionViewCell.swift */,
 				CE98569C20307BCE009FBAC8 /* AddInspirationCollectionViewCell.swift */,
 				002D865E20346F940065EA70 /* MapInspirationCollectionViewCell.swift */,
 			);
 			path = "Inspiration Cells";
+			sourceTree = "<group>";
+		};
+		00C11F4D20363A1A00C7721B /* Story Cells */ = {
+			isa = PBXGroup;
+			children = (
+				0064CFDD202C5A9400729474 /* StoryTableViewCell.swift */,
+				CE0927E9202C6AFC007EB62C /* ChapterTableViewCell.swift */,
+				0064CFE4202DCE2400729474 /* AddTableViewCell.swift */,
+			);
+			path = "Story Cells";
 			sourceTree = "<group>";
 		};
 		4F737E7DFBE29757E055061C /* Pods */ = {
@@ -361,7 +369,7 @@
 				0064CFDF202C5A9400729474 /* StoryTableViewCell.swift in Sources */,
 				CE0757C32031CB5800CAB9EB /* AddMapViewController.swift in Sources */,
 				CE0927EA202C6AFC007EB62C /* ChapterTableViewCell.swift in Sources */,
-				CE98569720305901009FBAC8 /* inspirationsCollectionViewCell.swift in Sources */,
+				CE98569720305901009FBAC8 /* ErrorInspirationCollectionViewCell.swift in Sources */,
 				CE07F0682035F0090011714D /* TextZoomViewController.swift in Sources */,
 				CE98569920307203009FBAC8 /* ImageInspirationCollectionViewCell.swift in Sources */,
 				002D866320347CE30065EA70 /* MapZoomViewController.swift in Sources */,

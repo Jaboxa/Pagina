@@ -13,7 +13,7 @@ class ChapterTableViewController: UITableViewController {
 
     var ref:DatabaseReference!;
     var currentStory:StoryTableViewController.Story = StoryTableViewController.Story();
-    var userid:String = "user";
+    var userid:String = "";
     
     @IBOutlet weak var chapterNavbarTitle: UINavigationItem!
     @IBOutlet var chapterTableView: UITableView!
@@ -40,7 +40,7 @@ class ChapterTableViewController: UITableViewController {
             fetchChapters();
         } else {
             // No user is signed in.
-            // ...
+            self.dismiss(animated: true, completion: nil);  // What are you doing here? Get out!
         }
     }
     
@@ -80,8 +80,6 @@ class ChapterTableViewController: UITableViewController {
         // Dispose of any resources that can be recreated.
     }
 
-    // MARK: - Table view data source
-
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return chapters.count + 1;
     }
@@ -116,20 +114,6 @@ class ChapterTableViewController: UITableViewController {
         
     }
 
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-
-    }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
-    }
-    */
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if indexPath.row < chapters.count{
             performSegue(withIdentifier: "StoryEditSegue", sender: indexPath.row)
@@ -138,9 +122,6 @@ class ChapterTableViewController: UITableViewController {
         }
     }
     
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "StoryEditSegue" {
             if let storyEdit = segue.destination as? StoryEditViewController {

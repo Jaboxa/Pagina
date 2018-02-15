@@ -24,7 +24,7 @@ class AddTextInspirationViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    @IBAction func saveInpirationText(_ sender: Any) {
+    @IBAction func saveInspirationText(_ sender: Any) {
         if let user = Auth.auth().currentUser{
             let ref = Database.database().reference();
             ref.child("users").child(user.uid).child("stories").child(currentChapter.storyid).child("chapters").child(currentChapter.id).child("inspirations").childByAutoId().updateChildValues(["type" : "text", "text" : inspirationTextView.text]);

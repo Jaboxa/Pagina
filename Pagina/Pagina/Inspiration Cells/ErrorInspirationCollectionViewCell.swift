@@ -8,7 +8,7 @@
 
 import UIKit
 
-class inspirationsCollectionViewCell: UICollectionViewCell {
+class ErrorInspirationCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var myLabel: UILabel!
     
 }

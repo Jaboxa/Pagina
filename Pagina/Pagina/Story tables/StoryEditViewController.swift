@@ -62,13 +62,12 @@ class StoryEditViewController: UIViewController, UICollectionViewDataSource, UIC
         }
         if inspirations[indexPath.item].type == "map"{
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "mapInspirationCell", for: indexPath) as! MapInspirationCollectionViewCell;
-            print("map");
             
             cell.setMap(long: inspirations[indexPath.item].long, lat: inspirations[indexPath.item].lat);
             return cell
         }
         
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! inspirationsCollectionViewCell
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! ErrorInspirationCollectionViewCell
         cell.myLabel.text = "x"
         return cell
         
@@ -77,7 +76,6 @@ class StoryEditViewController: UIViewController, UICollectionViewDataSource, UIC
     func collectionView(_ collectionView: UICollectionView,
                         layout collectionViewLayout: UICollectionViewLayout,
                         sizeForItemAt indexPath: IndexPath) -> CGSize {
-        print("UUUUUUSH");
         return CGSize(width: ((collectionView.bounds.size.width/3) - 5), height: collectionView.bounds.size.height);
     }
     
@@ -123,11 +121,9 @@ class StoryEditViewController: UIViewController, UICollectionViewDataSource, UIC
 
         if let user = Auth.auth().currentUser {
             userid = user.uid;
-            print(userid);
-            
         } else {
             // No user is signed in.
-            // ...
+            self.dismiss(animated: true, completion: nil);  // What are you doing here? Get out!
         }
         ref = Database.database().reference();
         storageRef = Storage.storage().reference();
@@ -138,18 +134,19 @@ class StoryEditViewController: UIViewController, UICollectionViewDataSource, UIC
         currentText = storyEditTextView.text;
         saveTextTimer = Timer.scheduledTimer(timeInterval: 10.0, target: self, selector: #selector(saveText), userInfo: nil, repeats: true)
         
-        //Looks for single or multiple taps.
+
+        //Recognize taps and hides keyboard
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(self.dismissKeyboard))
         
         //Uncomment the line below if you want the tap not not interfere and cancel other interactions.
         //tap.cancelsTouchesInView = false
         
+        
         storyEditTextView.addGestureRecognizer(tap)
     }
     
     @objc func dismissKeyboard() {
-        //Causes the view (or one of its embedded text fields) to resign the first responder status.
-        storyEditTextView.endEditing(true)
+        storyEditTextView.endEditing(true); // Hides Keyboard
     }
     
     
@@ -184,7 +181,6 @@ class StoryEditViewController: UIViewController, UICollectionViewDataSource, UIC
                                 print(error)
                             } else {
                                 image = UIImage(data: data!) ?? nil;
-                                print("image fetched")
                                 self.inspirations[i].image = image;
                                 self.inspirationCollectionView.reloadData();
                             }
@@ -201,7 +197,6 @@ class StoryEditViewController: UIViewController, UICollectionViewDataSource, UIC
     override func viewWillDisappear(_ animated:Bool){
         super.viewWillDisappear(true)
         saveTextTimer.invalidate();
-        print("one last time!");
         saveText();
         currentChapter.content = currentText;
     }
@@ -213,16 +208,13 @@ class StoryEditViewController: UIViewController, UICollectionViewDataSource, UIC
     
     @objc
     func saveText(){
-        //savingStatusLabel.text = "saving....";
         if storyEditTextView.text != currentText{
         self.ref.child("users").child(userid).child("stories").child(currentChapter.storyid).child("chapters").child(currentChapter.id).updateChildValues(["text": self.storyEditTextView.text]);
             currentText = storyEditTextView.text;
-            //savingStatusLabel.text = "saved!";
         }
     }
 
-    
-    // MARK: - Navigation
+
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "addInspirationSegue" {
             if let inspiration = segue.destination as? AddInspirationViewController {

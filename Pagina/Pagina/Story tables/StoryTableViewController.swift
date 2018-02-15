@@ -29,10 +29,10 @@ class StoryTableViewController: UITableViewController, UISearchBarDelegate {
         var title = "No title";
     }
     
-    var userid = "user"; //To be used if auth is implemented
+    var userid = "";
     
     var stories:[Story] = [];
-    var storyTitles:[String] = [];
+    var storyTitles:[String] = []; // For filtering searches
     var searchActive:Bool = false
     
     func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
@@ -58,7 +58,6 @@ class StoryTableViewController: UITableViewController, UISearchBarDelegate {
         filteredStories = storyTitles.filter ({ (text) -> Bool in
             let tmp: NSString = text as NSString
             let range = tmp.range(of: searchText, options: .caseInsensitive)
-            print("funkar?")
             return range.location != NSNotFound
             
         })
@@ -88,7 +87,7 @@ class StoryTableViewController: UITableViewController, UISearchBarDelegate {
             fetchStories();
         } else {
             // No user is signed in.
-            // ...
+            self.dismiss(animated: true, completion: nil);  // What are you doing here? Get out!
         }
     }
     
@@ -127,7 +126,7 @@ class StoryTableViewController: UITableViewController, UISearchBarDelegate {
         // Dispose of any resources that can be recreated.
     }
 
-    // MARK: - Table view data source
+    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if(searchActive) {
             return filteredStories.count
@@ -144,15 +143,12 @@ class StoryTableViewController: UITableViewController, UISearchBarDelegate {
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        print(searchActive)
         if searchActive {
             let cell = tableView.dequeueReusableCell(withIdentifier: "storyCell", for: indexPath) as! StoryTableViewCell;
-            //cell.titleLabel?.text = stories[indexPath.row].title;
             cell.titleLabel?.text = filteredStories[indexPath.row]
             return cell;
         }
         else if indexPath.row < stories.count{
-            print("does this happen?")
             let cell = tableView.dequeueReusableCell(withIdentifier: "storyCell", for: indexPath) as! StoryTableViewCell;
             cell.titleLabel?.text = stories[indexPath.row].title;
 
@@ -162,47 +158,7 @@ class StoryTableViewController: UITableViewController, UISearchBarDelegate {
             return cell
         }
     }
-    
-    // Override to support conditional editing of the table view.
-    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        if (indexPath.row < stories.count){
-            return true;
-        }else{
-            return false;
-        }
-        
-    }
-    override func numberOfSections(in tableView: UITableView) -> Int {
 
-        return 1;
-    }
-
-    /*
-    // Override to support editing the table view.
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            // Delete the row from the data source
-            tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
-    }
-    */
-
-    
-    // Override to support rearranging the table view.
-    override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-
-    }
- 
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
-    }
-    */
 
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if indexPath.row < stories.count{
@@ -212,9 +168,6 @@ class StoryTableViewController: UITableViewController, UISearchBarDelegate {
         }
     }
     
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "chapterTableSegue"{
             if let chapterTable = segue.destination as? ChapterTableViewController {
