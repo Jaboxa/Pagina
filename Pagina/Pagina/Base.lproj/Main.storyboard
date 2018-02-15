@@ -227,7 +227,7 @@
                                         </connections>
                                     </collectionViewCell>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="mapInspirationCell" id="3Ne-uJ-Eab" customClass="MapCollectionViewCell" customModule="Pagina" customModuleProvider="target">
-                                        <rect key="frame" x="600" y="22.5" width="140" height="140"/>
+                                        <rect key="frame" x="300" y="22.5" width="140" height="140"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
                                             <rect key="frame" x="0.0" y="0.0" width="140" height="140"/>
@@ -244,7 +244,7 @@
                                         </connections>
                                     </collectionViewCell>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="textInspirationCell" id="br5-KN-eNz" customClass="textCollectionViewCell" customModule="Pagina" customModuleProvider="target">
-                                        <rect key="frame" x="300" y="22.5" width="140" height="140"/>
+                                        <rect key="frame" x="450" y="22.5" width="140" height="140"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
                                             <rect key="frame" x="0.0" y="0.0" width="140" height="140"/>
@@ -266,7 +266,7 @@
                                         </connections>
                                     </collectionViewCell>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="addInspirationCell" id="dlB-NL-oOm" customClass="AddInspirationCollectionViewCell" customModule="Pagina" customModuleProvider="target">
-                                        <rect key="frame" x="450" y="22.5" width="140" height="140"/>
+                                        <rect key="frame" x="600" y="22.5" width="140" height="140"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
                                             <rect key="frame" x="0.0" y="0.0" width="140" height="140"/>
@@ -426,7 +426,11 @@
                         <viewLayoutGuide key="safeArea" id="pkC-Fa-8WU"/>
                     </view>
                     <navigationItem key="navigationItem" title="Inspiring Text" id="vse-Ea-HVa">
-                        <barButtonItem key="rightBarButtonItem" systemItem="trash" id="qgr-Ip-HTO"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="trash" id="qgr-Ip-HTO">
+                            <connections>
+                                <action selector="deleteTextButton:" destination="iJq-JK-uXF" id="r1b-IT-Epc"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="inspirationTextView" destination="8Xm-C5-xEN" id="1MQ-At-AkG"/>
