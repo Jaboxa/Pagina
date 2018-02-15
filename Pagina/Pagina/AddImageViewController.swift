@@ -45,6 +45,14 @@ class AddImageViewController: UIViewController,UIImagePickerControllerDelegate, 
         dismiss(animated:true, completion: nil)
     }
     
+    func getDate() -> String{
+        let date = NSDate() // Get Todays Date
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyyMMddHHmm"
+        let stringDate: String = dateFormatter.string(from: date as Date)
+        return stringDate
+    }
+    
     @IBAction func savePicture(_ sender: Any) {
         
 //        if let img =  cameraImageView.image {
@@ -52,26 +60,28 @@ class AddImageViewController: UIViewController,UIImagePickerControllerDelegate, 
         
         
         if let user = Auth.auth().currentUser{
-            let ref = Database.database().reference();
-            ref.child("users").child(user.uid).child("stories").child(currentChapter.storyid).child("chapters").child(currentChapter.id).child("inspirations").childByAutoId().updateChildValues(["type" : "image"]);
         
             if let image = cameraImageView.image, let jpegData = UIImageJPEGRepresentation(image, 0.7){
                 
-                let imgName = "inspirationimage.jpg"
                 
+                let ref = Database.database().reference();
+                let imgName = getDate() + ".jpg";
+                let storageRef = Storage.storage().reference();
                 
-                let imgstorage = Storage.storage().reference()
-                let imgRef = imgstorage.child(imgName)
+                let imgRef = storageRef.child("userimages").child(user.uid).child(imgName);
                 
                 let metadata = StorageMetadata()
                 metadata.contentType = "image/jpeg"
                 
                 imgRef.putData(jpegData, metadata: metadata){(metadata, error) in
                     guard metadata != nil else {
-                        print(error)
+                        print(error ?? "unknown error")
                         return
                     }
-                    print(metadata)
+                    print(metadata ?? "some kind of metadata")
+                    if let metadata = metadata, let url = metadata.downloadURL(){
+                        ref.child("users").child(user.uid).child("stories").child(self.currentChapter.storyid).child("chapters").child(self.currentChapter.id).child("inspirations").childByAutoId().updateChildValues(["type" : "image", "url": url.absoluteString]);
+                    }
                 }
         }
         }

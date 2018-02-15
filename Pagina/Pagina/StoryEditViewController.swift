@@ -11,17 +11,18 @@ import Firebase
 
 class StoryEditViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout{
     
-    let storage = Storage.storage()
+    var storageRef: StorageReference = StorageReference();
 
     var inspirations:[Inspiration] = [];
     
-    struct Inspiration{
+    struct Inspiration {
         var type:String = ""; //"image", "map", "text"
         var id:String = "";
         
         
         //Image
-        var imageurl:String = "";
+        var imageUrl:String = "";
+        var image: UIImage? = nil;
         
         //Map
         var long:Double = 0.0;
@@ -45,9 +46,9 @@ class StoryEditViewController: UIViewController, UICollectionViewDataSource, UIC
         }
         if inspirations[indexPath.item].type == "image"{
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "imageInspirationCell", for: indexPath) as! ImageInspirationCollectionViewCell
-            //cell.image.image = #imageLiteral(resourceName: "cat")
-        
-            cell.image.contentMode = UIViewContentMode.scaleAspectFill
+            
+            cell.image.image = fetchImageFromStorage(url: inspirations[indexPath.item].imageUrl);
+            cell.image.contentMode = UIViewContentMode.scaleAspectFill;
             
             return cell
         }
@@ -105,62 +106,6 @@ class StoryEditViewController: UIViewController, UICollectionViewDataSource, UIC
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        
-        let storageRef = storage.reference()
-        
-        
-        
-//        // Create a child reference
-//        // imagesRef now points to "images"
-//        let imagesRef = storageRef.child("images")
-//
-//        // Child references can also take paths delimited by '/'
-//        // spaceRef now points to "images/space.jpg"
-//        // imagesRef still points to "images"
-//        var spaceRef = storageRef.child("images/space.jpg")
-//
-//        // This is equivalent to creating the full reference
-//        let storagePath = "\(your_firebase_storage_bucket)/images/space.jpg"
-//        spaceRef = storage.reference(forURL: storagePath)
-        
-        
-        
-        //full example
-        
-        // Points to the root reference
-//        let storageRef = Storage.storage().reference()
-//        
-//        // Points to "images"
-//        let imagesRef = storageRef.child("images")
-//        
-//        // Points to "images/space.jpg"
-//        // Note that you can use variables to create child values
-//        let fileName = "space.jpg"
-//        let spaceRef = imagesRef.child(fileName)
-//        
-//        // File path is "images/space.jpg"
-//        let path = spaceRef.fullPath;
-//        
-//        // File name is "space.jpg"
-//        let name = spaceRef.name;
-//        
-//        // Points to "images"
-//        let images = spaceRef.parent()
-        
-//
-        
-        //inspirations
-        for i in 0..<8{
-            var insp = Inspiration();
-            if i % 2 == 0{
-                insp.type = "image";
-            }else{
-                insp.type = "text";
-            }
-    
-            inspirations.append(insp);
-        }
         
 
         if let user = Auth.auth().currentUser {
@@ -172,7 +117,15 @@ class StoryEditViewController: UIViewController, UICollectionViewDataSource, UIC
             // ...
         }
         ref = Database.database().reference();
+        storageRef = Storage.storage().reference();
         fetchInspirations();
+        
+         /*inspirations{
+            if i.type == "image"{
+                i.image = fetchImageFromStorage(i.imageUrl);
+            }
+        }*/
+        
         navbarTitle.title = currentChapter.title;
         storyEditTextView.text = currentChapter.content;
         currentText = storyEditTextView.text;
@@ -194,6 +147,8 @@ class StoryEditViewController: UIViewController, UICollectionViewDataSource, UIC
                 }else if inspiration.type == "map"{
                     inspiration.long = value?["long"] as? Double ?? 0.0;
                     inspiration.lat = value?["lat"] as? Double ?? 0.0;
+                }else if inspiration.type == "image"{
+                    inspiration.imageUrl = value?["url"] as? String ?? "";
                 }
                 
                 self.inspirations.append(inspiration);
@@ -203,6 +158,26 @@ class StoryEditViewController: UIViewController, UICollectionViewDataSource, UIC
         }) { (error) in
             print(error.localizedDescription)
         }
+    }
+    
+    func fetchImageFromStorage(url:String) -> UIImage?{
+        // Create a reference to the file you want to download
+        print("fetching image")
+        
+        let storagePath = url;
+        let imgRef = Storage.storage().reference(forURL: storagePath);
+        //let imgRef = storageRef.child(url)
+        var image:UIImage?
+        // Download in memory with a maximum allowed size of 1MB (1 * 1024 * 1024 bytes)
+        imgRef.getData(maxSize: 15 * 1024 * 1024) { data, error in
+            if let error = error {
+                print(error)
+            } else {
+                image = UIImage(data: data!) ?? nil;
+                print("image fetched")
+            }
+        }
+        return image;
     }
     override func viewWillDisappear(_ animated:Bool){
         super.viewWillDisappear(true)
