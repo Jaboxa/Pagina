@@ -11,6 +11,8 @@
 		002D865F20346F950065EA70 /* MapCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 002D865E20346F940065EA70 /* MapCollectionViewCell.swift */; };
 		002D866320347CE30065EA70 /* MapZoomViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 002D866220347CE30065EA70 /* MapZoomViewController.swift */; };
 		002D866A2035F2460065EA70 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 002D86682035F2460065EA70 /* Localizable.strings */; };
+		002D8670203602370065EA70 /* NixieOne.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 002D866F2036020C0065EA70 /* NixieOne.ttf */; };
+		002D86712036023B0065EA70 /* OLDSH___.TTF in Resources */ = {isa = PBXBuildFile; fileRef = 002D866E203601FC0065EA70 /* OLDSH___.TTF */; };
 		0064CFB720287F9100729474 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0064CFB620287F9100729474 /* AppDelegate.swift */; };
 		0064CFB920287F9100729474 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0064CFB820287F9100729474 /* ViewController.swift */; };
 		0064CFBC20287F9100729474 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0064CFBA20287F9100729474 /* Main.storyboard */; };
@@ -43,6 +45,8 @@
 		002D866B2035F35E0065EA70 /* sv */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = sv; path = sv.lproj/Main.strings; sourceTree = "<group>"; };
 		002D866C2035F35F0065EA70 /* sv */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = sv; path = sv.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		002D866D2035F35F0065EA70 /* sv */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = sv; path = sv.lproj/Localizable.strings; sourceTree = "<group>"; };
+		002D866E203601FC0065EA70 /* OLDSH___.TTF */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OLDSH___.TTF"; sourceTree = "<group>"; };
+		002D866F2036020C0065EA70 /* NixieOne.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = NixieOne.ttf; sourceTree = "<group>"; };
 		0064CFB320287F9100729474 /* Pagina.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Pagina.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0064CFB620287F9100729474 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0064CFB820287F9100729474 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -105,6 +109,8 @@
 		0064CFB520287F9100729474 /* Pagina */ = {
 			isa = PBXGroup;
 			children = (
+				002D866E203601FC0065EA70 /* OLDSH___.TTF */,
+				002D866F2036020C0065EA70 /* NixieOne.ttf */,
 				0064CFB620287F9100729474 /* AppDelegate.swift */,
 				CE0757C42031CF4400CAB9EB /* AddTextInspirationViewController.swift */,
 				CE98569E20308943009FBAC8 /* AddInspirationViewController.swift */,
@@ -216,6 +222,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				002D866A2035F2460065EA70 /* Localizable.strings in Resources */,
+				002D8670203602370065EA70 /* NixieOne.ttf in Resources */,
+				002D86712036023B0065EA70 /* OLDSH___.TTF in Resources */,
 				0064CFC120287F9100729474 /* LaunchScreen.storyboard in Resources */,
 				0064CFC92028815800729474 /* GoogleService-Info.plist in Resources */,
 				0064CFBE20287F9100729474 /* Assets.xcassets in Resources */,
