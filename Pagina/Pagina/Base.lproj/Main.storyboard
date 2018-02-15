@@ -683,9 +683,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="Lorem..." textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="EOM-II-MVG">
-                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Lorem..." textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="EOM-II-MVG">
+                                <rect key="frame" x="0.0" y="32" width="667" height="343"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="textColor" name="PaginaBlack"/>
                                 <fontDescription key="fontDescription" name="NixieOne" family="Nixie One" pointSize="19"/>
@@ -693,6 +692,12 @@
                             </textView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="EOM-II-MVG" firstAttribute="top" secondItem="GMv-CV-584" secondAttribute="top" id="Mdr-l2-cFa"/>
+                            <constraint firstAttribute="trailing" secondItem="EOM-II-MVG" secondAttribute="trailing" id="RNs-GH-pJE"/>
+                            <constraint firstItem="EOM-II-MVG" firstAttribute="bottom" secondItem="GMv-CV-584" secondAttribute="bottom" id="XWs-bj-vLU"/>
+                            <constraint firstItem="EOM-II-MVG" firstAttribute="leading" secondItem="OZj-XM-6ty" secondAttribute="leading" id="zDv-b1-G2D"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="GMv-CV-584"/>
                     </view>
                     <navigationItem key="navigationItem" title="Add Inspiring Text" id="OUa-iN-Pfk">
@@ -708,7 +713,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Bg3-IO-lel" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2757.5999999999999" y="117.39130434782609"/>
+            <point key="canvasLocation" x="2757.571214392804" y="116"/>
         </scene>
         <!--Inspiring Location-->
         <scene sceneID="LwI-W3-3sw">

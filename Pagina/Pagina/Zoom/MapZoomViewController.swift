@@ -37,6 +37,7 @@ class MapZoomViewController: UIViewController, CLLocationManagerDelegate, MKMapV
         place.coordinate.longitude = long;
         place.coordinate.latitude = lat;
         zoomedMapView.addAnnotation(place);
+        zoomedMapView.showAnnotations(zoomedMapView.annotations, animated: true);
         
     }
     
