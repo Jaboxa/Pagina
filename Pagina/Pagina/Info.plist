@@ -2,6 +2,13 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>UIAppFonts</key>
+	<array>
+		<string>OLDSH___.TTF</string>
+		<string>NixieOne.tff</string>
+	</array>
+	<key></key>
+	<string></string>
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<string>For adding your position for the inspirations</string>
 	<key>CFBundleDevelopmentRegion</key>

@@ -219,7 +219,7 @@ class StoryTableViewController: UITableViewController, UISearchBarDelegate {
         if segue.identifier == "chapterTableSegue"{
             if let chapterTable = segue.destination as? ChapterTableViewController {
                 if let i = sender as? Int { //row/cell i is tapped...
-                    if searchActive{
+                    if searchActive && filteredStories.count > 0{
                         chapterTable.currentStory = stories.filter{$0.title == filteredStories[i]}[0];
                     }else{
                         chapterTable.currentStory = stories[i];
