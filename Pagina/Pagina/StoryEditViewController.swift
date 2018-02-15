@@ -106,7 +106,6 @@ class StoryEditViewController: UIViewController, UICollectionViewDataSource, UIC
     
     @IBOutlet weak var navbarTitle: UINavigationItem!
     
-    @IBOutlet weak var savingStatusLabel: UILabel!
     @IBOutlet weak var storyEditTextView: UITextView!
 
     @IBOutlet weak var inspirationCollectionView: UICollectionView!
@@ -138,7 +137,6 @@ class StoryEditViewController: UIViewController, UICollectionViewDataSource, UIC
         storyEditTextView.text = currentChapter.content;
         currentText = storyEditTextView.text;
         saveTextTimer = Timer.scheduledTimer(timeInterval: 10.0, target: self, selector: #selector(saveText), userInfo: nil, repeats: true)
-        savingStatusLabel.text = "";
     }
     
     
@@ -202,11 +200,11 @@ class StoryEditViewController: UIViewController, UICollectionViewDataSource, UIC
     
     @objc
     func saveText(){
-        savingStatusLabel.text = "saving....";
+        //savingStatusLabel.text = "saving....";
         if storyEditTextView.text != currentText{
         self.ref.child("users").child(userid).child("stories").child(currentChapter.storyid).child("chapters").child(currentChapter.id).updateChildValues(["text": self.storyEditTextView.text]);
             currentText = storyEditTextView.text;
-            savingStatusLabel.text = "saved!";
+            //savingStatusLabel.text = "saved!";
         }
     }
 
