@@ -21,7 +21,7 @@
 		0064CFE5202DCE2400729474 /* AddTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0064CFE4202DCE2400729474 /* AddTableViewCell.swift */; };
 		CE0757C32031CB5800CAB9EB /* AddMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0757C22031CB5800CAB9EB /* AddMapViewController.swift */; };
 		CE0757C52031CF4400CAB9EB /* AddTextInspirationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0757C42031CF4400CAB9EB /* AddTextInspirationViewController.swift */; };
-		CE07F0662035D39D0011714D /* TextZoomViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE07F0652035D39D0011714D /* TextZoomViewController.swift */; };
+		CE07F0682035F0090011714D /* TextZoomViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE07F0672035F0090011714D /* TextZoomViewController.swift */; };
 		CE0927E6202C693D007EB62C /* StoryEditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0927E5202C693D007EB62C /* StoryEditViewController.swift */; };
 		CE0927E8202C6AA8007EB62C /* ChapterTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0927E7202C6AA8007EB62C /* ChapterTableViewController.swift */; };
 		CE0927EA202C6AFC007EB62C /* ChapterTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0927E9202C6AFC007EB62C /* ChapterTableViewCell.swift */; };
@@ -53,7 +53,7 @@
 		AB41F3B2A275C179F57C9683 /* Pods-Pagina.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Pagina.release.xcconfig"; path = "Pods/Target Support Files/Pods-Pagina/Pods-Pagina.release.xcconfig"; sourceTree = "<group>"; };
 		CE0757C22031CB5800CAB9EB /* AddMapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddMapViewController.swift; sourceTree = "<group>"; };
 		CE0757C42031CF4400CAB9EB /* AddTextInspirationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTextInspirationViewController.swift; sourceTree = "<group>"; };
-		CE07F0652035D39D0011714D /* TextZoomViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TextZoomViewController.swift; path = ../../../../../.Trash/TextZoomViewController.swift; sourceTree = "<group>"; };
+		CE07F0672035F0090011714D /* TextZoomViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextZoomViewController.swift; sourceTree = "<group>"; };
 		CE0927E5202C693D007EB62C /* StoryEditViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryEditViewController.swift; sourceTree = "<group>"; };
 		CE0927E7202C6AA8007EB62C /* ChapterTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChapterTableViewController.swift; sourceTree = "<group>"; };
 		CE0927E9202C6AFC007EB62C /* ChapterTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChapterTableViewCell.swift; sourceTree = "<group>"; };
@@ -118,12 +118,12 @@
 				0064CFC220287F9100729474 /* Info.plist */,
 				0064CFC82028815800729474 /* GoogleService-Info.plist */,
 				CE98569620305901009FBAC8 /* inspirationsCollectionViewCell.swift */,
+				CE07F0672035F0090011714D /* TextZoomViewController.swift */,
 				CE98569820307203009FBAC8 /* ImageInspirationCollectionViewCell.swift */,
 				CE98569C20307BCE009FBAC8 /* AddInspirationCollectionViewCell.swift */,
 				CE0757C22031CB5800CAB9EB /* AddMapViewController.swift */,
 				002D865E20346F940065EA70 /* MapCollectionViewCell.swift */,
 				002D866220347CE30065EA70 /* MapZoomViewController.swift */,
-				CE07F0652035D39D0011714D /* TextZoomViewController.swift */,
 			);
 			path = Pagina;
 			sourceTree = "<group>";
@@ -297,7 +297,7 @@
 				CE0757C32031CB5800CAB9EB /* AddMapViewController.swift in Sources */,
 				CE0927EA202C6AFC007EB62C /* ChapterTableViewCell.swift in Sources */,
 				CE98569720305901009FBAC8 /* inspirationsCollectionViewCell.swift in Sources */,
-				CE07F0662035D39D0011714D /* TextZoomViewController.swift in Sources */,
+				CE07F0682035F0090011714D /* TextZoomViewController.swift in Sources */,
 				CE98569920307203009FBAC8 /* ImageInspirationCollectionViewCell.swift in Sources */,
 				002D866320347CE30065EA70 /* MapZoomViewController.swift in Sources */,
 				CE98569B203077CA009FBAC8 /* textCollectionViewCell.swift in Sources */,
