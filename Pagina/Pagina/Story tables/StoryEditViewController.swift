@@ -137,10 +137,7 @@ class StoryEditViewController: UIViewController, UICollectionViewDataSource, UIC
 
         //Recognize taps and hides keyboard
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(self.dismissKeyboard))
-        
-        //Uncomment the line below if you want the tap not not interfere and cancel other interactions.
-        //tap.cancelsTouchesInView = false
-        
+        tap.cancelsTouchesInView = false
         
         storyEditTextView.addGestureRecognizer(tap)
     }
@@ -174,8 +171,6 @@ class StoryEditViewController: UIViewController, UICollectionViewDataSource, UIC
                     let storagePath = self.inspirations[i].imageUrl;
                         let imgRef = Storage.storage().reference(forURL: storagePath);
                         var image:UIImage?
-                    
-                        // Download in memory with a maximum allowed size of 15MB (15 * 1024 * 1024 bytes)
                         imgRef.getData(maxSize: 15 * 1024 * 1024) { data, error in
                             if let error = error {
                                 print(error)

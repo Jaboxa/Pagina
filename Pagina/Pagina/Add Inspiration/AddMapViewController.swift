@@ -14,19 +14,11 @@ import Firebase
 class AddMapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDelegate  {
 
     @IBOutlet weak var addLocationMapView: MKMapView!
-    
-    @IBAction func saveLocationNavbarButton(_ sender: Any) {
-        if let user = Auth.auth().currentUser{
-            let ref = Database.database().reference();
-        ref.child("users").child(user.uid).child("stories").child(currentChapter.storyid).child("chapters").child(currentChapter.id).child("inspirations").childByAutoId().updateChildValues(["type" : "map", "lat" : currentLocation.coordinate.latitude, "long": currentLocation.coordinate.longitude]);
-            navigationController?.popViewController(animated: true)
-        }
-    
-    }
     var currentChapter:ChapterTableViewController.Chapter = ChapterTableViewController.Chapter();
     var locationManager:CLLocationManager!;
     var currentLocation: CLLocation = CLLocation(latitude: 0, longitude: 0); //Null Island :D
-    
+
+    //Class
     override func viewDidLoad() {
         super.viewDidLoad()
         addLocationMapView.showsUserLocation = true
@@ -39,6 +31,16 @@ class AddMapViewController: UIViewController, CLLocationManagerDelegate, MKMapVi
         // Dispose of any resources that can be recreated.
     }
     
+    //Save
+    @IBAction func saveLocationNavbarButton(_ sender: Any) {
+        if let user = Auth.auth().currentUser{
+            let ref = Database.database().reference();
+            ref.child("users").child(user.uid).child("stories").child(currentChapter.storyid).child("chapters").child(currentChapter.id).child("inspirations").childByAutoId().updateChildValues(["type" : "map", "lat" : currentLocation.coordinate.latitude, "long": currentLocation.coordinate.longitude]); //Save coordinates to dbs
+            navigationController?.popViewController(animated: true) //Dismiss View
+        }
+        
+    }
+    
     // MAP
     func findMyLocation() {
         locationManager = CLLocationManager()
@@ -47,7 +49,7 @@ class AddMapViewController: UIViewController, CLLocationManagerDelegate, MKMapVi
         locationManager.requestWhenInUseAuthorization()
         
         if CLLocationManager.locationServicesEnabled() {
-            locationManager.startUpdatingLocation()
+            locationManager.startUpdatingLocation() // Get my location all the time :)
         }
     }
     

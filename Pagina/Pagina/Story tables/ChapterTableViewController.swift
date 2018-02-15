@@ -10,10 +10,6 @@ import UIKit
 import Firebase
 
 class ChapterTableViewController: UITableViewController {
-
-    var ref:DatabaseReference!;
-    var currentStory:StoryTableViewController.Story = StoryTableViewController.Story();
-    var userid:String = "";
     
     @IBOutlet weak var chapterNavbarTitle: UINavigationItem!
     @IBOutlet var chapterTableView: UITableView!
@@ -25,15 +21,21 @@ class ChapterTableViewController: UITableViewController {
     }
     
     var chapters:[Chapter] = [];
+    var ref:DatabaseReference!; // Firebase ref
+    var currentStory:StoryTableViewController.Story = StoryTableViewController.Story(); //contains id:s for firebase etc
+    var userid:String = "";
     
         let alert = UIAlertController(title: "Create new chapter", message: "Enter a title for the chapter", preferredStyle: .alert)
     
+    
+    // Class
     override func viewDidLoad() {
         super.viewDidLoad()
         
         ref = Database.database().reference();
         
-        chapterNavbarTitle.title = currentStory.title;
+        chapterNavbarTitle.title = currentStory.title; //Where are we? On Story...
+        
         if let user = Auth.auth().currentUser {
             userid = user.uid;
             newChapterAlertPreperation();
@@ -43,7 +45,12 @@ class ChapterTableViewController: UITableViewController {
             self.dismiss(animated: true, completion: nil);  // What are you doing here? Get out!
         }
     }
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
+    }
     
+    //Alert
     func newChapterAlertPreperation(){
         alert.addTextField { (textField) in
             textField.text = "The Man With Two Faces";
@@ -57,6 +64,8 @@ class ChapterTableViewController: UITableViewController {
         alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil ));
     }
     
+    
+    // Fetch from firebase dbs
     func fetchChapters(){
         chapters.removeAll(keepingCapacity: false); ref.child("users").child(userid).child("stories").child(currentStory.id).child("chapters").observeSingleEvent(of: DataEventType.value, with: { (snapshot) in
             for child in snapshot.children.allObjects as! [DataSnapshot]{
@@ -74,11 +83,8 @@ class ChapterTableViewController: UITableViewController {
             print(error.localizedDescription)
         }
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
+    
+    //Table
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return chapters.count + 1;
@@ -97,19 +103,18 @@ class ChapterTableViewController: UITableViewController {
     }
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-            ref.child("users").child(userid).child("stories").child(self.currentStory.id).child("chapters").child(self.chapters[indexPath.row].id).removeValue();
-            self.fetchChapters();
-            //self.chapterTableView.deleteRows(at: [indexPath], with: .fade);
+            ref.child("users").child(userid).child("stories").child(self.currentStory.id).child("chapters").child(self.chapters[indexPath.row].id).removeValue(); //remove from dbs
+            self.fetchChapters(); //reload
             
         }
     }
 
-    // Override to support conditional editing of the table view.
+    
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
         if (indexPath.row < chapters.count){
             return true;
         }else{
-            return false;
+            return false; //Add-button should not be removable :) 
         }
         
     }

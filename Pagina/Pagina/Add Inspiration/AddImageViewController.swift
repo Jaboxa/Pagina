@@ -45,6 +45,7 @@ class AddImageViewController: UIViewController,UIImagePickerControllerDelegate, 
         dismiss(animated:true, completion: nil)
     }
     
+    //For getting a semi-unique string as a name for the image file
     func getDate() -> String{
         let date = NSDate() // Get Todays Date
         let dateFormatter = DateFormatter()
