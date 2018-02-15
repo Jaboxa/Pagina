@@ -82,7 +82,19 @@ class StoryEditViewController: UIViewController, UICollectionViewDataSource, UIC
 
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        print("blä")
+        
+        if indexPath.item >= inspirations.count {
+        //???
+        }
+//        if inspirations[indexPath.item].type == "image"{
+//
+//        }
+        else if inspirations[indexPath.item].type == "text"{
+            performSegue(withIdentifier: "zoomTextSegue", sender: indexPath.item)
+        }
+        else if inspirations[indexPath.item].type == "map"{
+            performSegue(withIdentifier: "zoomMapSegue", sender: indexPath.item)
+        }
     }
     
     var currentChapter:ChapterTableViewController.Chapter = ChapterTableViewController.Chapter();

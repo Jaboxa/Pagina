@@ -255,8 +255,8 @@
                                             <rect key="frame" x="0.0" y="0.0" width="140" height="140"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="lyZ-2V-b42">
-                                                    <rect key="frame" x="0.0" y="0.0" width="70" height="70"/>
+                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lyZ-2V-b42">
+                                                    <rect key="frame" x="0.0" y="0.0" width="140" height="140"/>
                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -266,10 +266,10 @@
                                         </view>
                                         <color key="backgroundColor" red="1" green="0.57637232540000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
-                                            <constraint firstAttribute="trailingMargin" secondItem="lyZ-2V-b42" secondAttribute="trailing" constant="54" id="2L7-mw-stZ"/>
-                                            <constraint firstItem="lyZ-2V-b42" firstAttribute="top" secondItem="br5-KN-eNz" secondAttribute="top" id="2vl-S9-V7w"/>
-                                            <constraint firstAttribute="bottomMargin" secondItem="lyZ-2V-b42" secondAttribute="bottom" constant="70" id="DIH-8i-W5a"/>
-                                            <constraint firstItem="lyZ-2V-b42" firstAttribute="leading" secondItem="br5-KN-eNz" secondAttribute="leading" id="KJe-Oz-EKt"/>
+                                            <constraint firstAttribute="bottom" secondItem="lyZ-2V-b42" secondAttribute="bottom" id="0hN-l1-gnZ"/>
+                                            <constraint firstItem="lyZ-2V-b42" firstAttribute="top" secondItem="br5-KN-eNz" secondAttribute="top" id="KLK-YY-0jL"/>
+                                            <constraint firstItem="lyZ-2V-b42" firstAttribute="leading" secondItem="br5-KN-eNz" secondAttribute="leading" id="YeE-t6-GrY"/>
+                                            <constraint firstAttribute="trailing" secondItem="lyZ-2V-b42" secondAttribute="trailing" id="phX-ZO-VGs"/>
                                         </constraints>
                                         <connections>
                                             <outlet property="inspirationTextView" destination="lyZ-2V-b42" id="3Qi-1n-hme"/>
