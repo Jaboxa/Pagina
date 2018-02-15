@@ -54,11 +54,6 @@ class AddImageViewController: UIViewController,UIImagePickerControllerDelegate, 
     }
     
     @IBAction func savePicture(_ sender: Any) {
-        
-//        if let img =  cameraImageView.image {
-//            UIImageWriteToSavedPhotosAlbum( img , nil, nil, nil)
-        
-        
         if let user = Auth.auth().currentUser{
         
             if let image = cameraImageView.image, let jpegData = UIImageJPEGRepresentation(image, 0.7){
@@ -83,6 +78,7 @@ class AddImageViewController: UIViewController,UIImagePickerControllerDelegate, 
                         ref.child("users").child(user.uid).child("stories").child(self.currentChapter.storyid).child("chapters").child(self.currentChapter.id).child("inspirations").childByAutoId().updateChildValues(["type" : "image", "url": url.absoluteString]);
                     }
                 }
+                self.navigationController?.popViewController(animated: true);
         }
         }
     }
