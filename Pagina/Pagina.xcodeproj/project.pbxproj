@@ -10,6 +10,7 @@
 		000F5A8390153DB6F49E6B7F /* Pods_Pagina.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 972F3314908C4CF37D3864DA /* Pods_Pagina.framework */; };
 		002D865F20346F950065EA70 /* MapCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 002D865E20346F940065EA70 /* MapCollectionViewCell.swift */; };
 		002D866320347CE30065EA70 /* MapZoomViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 002D866220347CE30065EA70 /* MapZoomViewController.swift */; };
+		002D866A2035F2460065EA70 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 002D86682035F2460065EA70 /* Localizable.strings */; };
 		0064CFB720287F9100729474 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0064CFB620287F9100729474 /* AppDelegate.swift */; };
 		0064CFB920287F9100729474 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0064CFB820287F9100729474 /* ViewController.swift */; };
 		0064CFBC20287F9100729474 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0064CFBA20287F9100729474 /* Main.storyboard */; };
@@ -37,6 +38,11 @@
 /* Begin PBXFileReference section */
 		002D865E20346F940065EA70 /* MapCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapCollectionViewCell.swift; sourceTree = "<group>"; };
 		002D866220347CE30065EA70 /* MapZoomViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapZoomViewController.swift; sourceTree = "<group>"; };
+		002D86672035F1C30065EA70 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Main.strings; sourceTree = "<group>"; };
+		002D86692035F2460065EA70 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		002D866B2035F35E0065EA70 /* sv */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = sv; path = sv.lproj/Main.strings; sourceTree = "<group>"; };
+		002D866C2035F35F0065EA70 /* sv */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = sv; path = sv.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
+		002D866D2035F35F0065EA70 /* sv */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = sv; path = sv.lproj/Localizable.strings; sourceTree = "<group>"; };
 		0064CFB320287F9100729474 /* Pagina.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Pagina.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0064CFB620287F9100729474 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0064CFB820287F9100729474 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -124,6 +130,7 @@
 				CE0757C22031CB5800CAB9EB /* AddMapViewController.swift */,
 				002D865E20346F940065EA70 /* MapCollectionViewCell.swift */,
 				002D866220347CE30065EA70 /* MapZoomViewController.swift */,
+				002D86682035F2460065EA70 /* Localizable.strings */,
 			);
 			path = Pagina;
 			sourceTree = "<group>";
@@ -191,6 +198,7 @@
 			knownRegions = (
 				en,
 				Base,
+				sv,
 			);
 			mainGroup = 0064CFAA20287F9100729474;
 			productRefGroup = 0064CFB420287F9100729474 /* Products */;
@@ -207,6 +215,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				002D866A2035F2460065EA70 /* Localizable.strings in Resources */,
 				0064CFC120287F9100729474 /* LaunchScreen.storyboard in Resources */,
 				0064CFC92028815800729474 /* GoogleService-Info.plist in Resources */,
 				0064CFBE20287F9100729474 /* Assets.xcassets in Resources */,
@@ -307,10 +316,21 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
+		002D86682035F2460065EA70 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				002D86692035F2460065EA70 /* en */,
+				002D866D2035F35F0065EA70 /* sv */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
 		0064CFBA20287F9100729474 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				0064CFBB20287F9100729474 /* Base */,
+				002D86672035F1C30065EA70 /* en */,
+				002D866B2035F35E0065EA70 /* sv */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -319,6 +339,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				0064CFC020287F9100729474 /* Base */,
+				002D866C2035F35F0065EA70 /* sv */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
@@ -330,6 +351,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -387,6 +409,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
