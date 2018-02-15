@@ -53,7 +53,7 @@ class ChapterTableViewController: UITableViewController {
     //Alert
     func newChapterAlertPreperation(){
         alert.addTextField { (textField) in
-            textField.text = "The Man With Two Faces";
+            textField.text = "";
         }
         alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { [weak alert] (_) in
             let textField = alert!.textFields![0] // Force unwrapping because we know it exists.

@@ -21,7 +21,7 @@ class AddMapViewController: UIViewController, CLLocationManagerDelegate, MKMapVi
     //Class
     override func viewDidLoad() {
         super.viewDidLoad()
-        addLocationMapView.showsUserLocation = true
+        addLocationMapView.showsUserLocation = true 
         
         findMyLocation();
     }
