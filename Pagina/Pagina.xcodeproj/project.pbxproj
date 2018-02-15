@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		000F5A8390153DB6F49E6B7F /* Pods_Pagina.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 972F3314908C4CF37D3864DA /* Pods_Pagina.framework */; };
-		002D865F20346F950065EA70 /* MapCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 002D865E20346F940065EA70 /* MapCollectionViewCell.swift */; };
+		002D865F20346F950065EA70 /* MapInspirationCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 002D865E20346F940065EA70 /* MapInspirationCollectionViewCell.swift */; };
 		002D866320347CE30065EA70 /* MapZoomViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 002D866220347CE30065EA70 /* MapZoomViewController.swift */; };
 		002D866A2035F2460065EA70 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 002D86682035F2460065EA70 /* Localizable.strings */; };
 		002D8670203602370065EA70 /* NixieOne.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 002D866F2036020C0065EA70 /* NixieOne.ttf */; };
@@ -38,7 +38,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		002D865E20346F940065EA70 /* MapCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapCollectionViewCell.swift; sourceTree = "<group>"; };
+		002D865E20346F940065EA70 /* MapInspirationCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapInspirationCollectionViewCell.swift; sourceTree = "<group>"; };
 		002D866220347CE30065EA70 /* MapZoomViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapZoomViewController.swift; sourceTree = "<group>"; };
 		002D86672035F1C30065EA70 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Main.strings; sourceTree = "<group>"; };
 		002D86692035F2460065EA70 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -184,7 +184,7 @@
 				CE98569620305901009FBAC8 /* inspirationsCollectionViewCell.swift */,
 				CE98569820307203009FBAC8 /* ImageInspirationCollectionViewCell.swift */,
 				CE98569C20307BCE009FBAC8 /* AddInspirationCollectionViewCell.swift */,
-				002D865E20346F940065EA70 /* MapCollectionViewCell.swift */,
+				002D865E20346F940065EA70 /* MapInspirationCollectionViewCell.swift */,
 			);
 			path = "Inspiration Cells";
 			sourceTree = "<group>";
@@ -355,7 +355,7 @@
 				0064CFDE202C5A9400729474 /* StoryTableViewController.swift in Sources */,
 				0064CFB920287F9100729474 /* LoginViewController.swift in Sources */,
 				0064CFB720287F9100729474 /* AppDelegate.swift in Sources */,
-				002D865F20346F950065EA70 /* MapCollectionViewCell.swift in Sources */,
+				002D865F20346F950065EA70 /* MapInspirationCollectionViewCell.swift in Sources */,
 				CE0927E8202C6AA8007EB62C /* ChapterTableViewController.swift in Sources */,
 				CE0927E6202C693D007EB62C /* StoryEditViewController.swift in Sources */,
 				0064CFDF202C5A9400729474 /* StoryTableViewCell.swift in Sources */,

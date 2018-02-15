@@ -23,6 +23,7 @@ class MapZoomViewController: UIViewController, CLLocationManagerDelegate, MKMapV
     override func viewDidLoad() {
         super.viewDidLoad()
         setMap(long: currentInspiration.long, lat: currentInspiration.lat);
+        zoomedMapView.showAnnotations(zoomedMapView.annotations, animated: true);
     }
 
     override func didReceiveMemoryWarning() {

@@ -10,7 +10,7 @@ import UIKit
 import MapKit
 import CoreLocation
 
-class MapCollectionViewCell: UICollectionViewCell, CLLocationManagerDelegate, MKMapViewDelegate  {
+class MapInspirationCollectionViewCell: UICollectionViewCell, CLLocationManagerDelegate, MKMapViewDelegate  {
     
     @IBOutlet weak var inspirationMapView: MKMapView!
     
@@ -19,7 +19,7 @@ class MapCollectionViewCell: UICollectionViewCell, CLLocationManagerDelegate, MK
         place.coordinate.longitude = long;
         place.coordinate.latitude = lat;
         inspirationMapView.addAnnotation(place);
-        
+        inspirationMapView.showAnnotations(inspirationMapView.annotations, animated: true);
     }
     
 }

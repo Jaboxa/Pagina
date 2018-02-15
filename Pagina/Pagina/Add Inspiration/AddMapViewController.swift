@@ -30,10 +30,8 @@ class AddMapViewController: UIViewController, CLLocationManagerDelegate, MKMapVi
     override func viewDidLoad() {
         super.viewDidLoad()
         addLocationMapView.showsUserLocation = true
-        currentLocation = CLLocation(latitude: 59.3474678, longitude: 18.1109555)
         
         findMyLocation();
-        // Do any additional setup after loading the view.
     }
 
     override func didReceiveMemoryWarning() {

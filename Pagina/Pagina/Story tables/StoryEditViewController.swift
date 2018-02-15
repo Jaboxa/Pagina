@@ -61,7 +61,7 @@ class StoryEditViewController: UIViewController, UICollectionViewDataSource, UIC
             return cell
         }
         if inspirations[indexPath.item].type == "map"{
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "mapInspirationCell", for: indexPath) as! MapCollectionViewCell;
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "mapInspirationCell", for: indexPath) as! MapInspirationCollectionViewCell;
             print("map");
             
             cell.setMap(long: inspirations[indexPath.item].long, lat: inspirations[indexPath.item].lat);

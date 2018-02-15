@@ -269,7 +269,7 @@
                                             <outlet property="image" destination="pOu-2n-FUS" id="PbC-4X-8PI"/>
                                         </connections>
                                     </collectionViewCell>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="mapInspirationCell" id="3Ne-uJ-Eab" customClass="MapCollectionViewCell" customModule="Pagina" customModuleProvider="target">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="mapInspirationCell" id="3Ne-uJ-Eab" customClass="MapInspirationCollectionViewCell" customModule="Pagina" customModuleProvider="target">
                                         <rect key="frame" x="300" y="5" width="140" height="140"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
