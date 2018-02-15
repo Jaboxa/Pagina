@@ -8,7 +8,7 @@
 
 import UIKit
 
-class textCollectionViewCell: UICollectionViewCell {
+class TextInspirationCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var inspirationTextView: UITextView!
     
 }

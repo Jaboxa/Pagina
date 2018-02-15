@@ -28,7 +28,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <searchBar key="tableHeaderView" contentMode="redraw" searchBarStyle="minimal" id="r3t-pv-RfM">
+                        <searchBar key="tableHeaderView" contentMode="redraw" misplaced="YES" searchBarStyle="minimal" id="r3t-pv-RfM">
                             <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                             <color key="backgroundColor" name="PaginaLight"/>
@@ -291,7 +291,7 @@
                                             <outlet property="inspirationMapView" destination="GRJ-9D-POS" id="nTi-I9-JkI"/>
                                         </connections>
                                     </collectionViewCell>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="textInspirationCell" id="br5-KN-eNz" customClass="textCollectionViewCell" customModule="Pagina" customModuleProvider="target">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="textInspirationCell" id="br5-KN-eNz" customClass="TextInspirationCollectionViewCell" customModule="Pagina" customModuleProvider="target">
                                         <rect key="frame" x="450" y="5" width="140" height="140"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
@@ -320,7 +320,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="plus" translatesAutoresizingMaskIntoConstraints="NO" id="7IT-DB-yKr">
-                                                    <rect key="frame" x="27" y="43" width="86" height="54"/>
+                                                    <rect key="frame" x="35" y="55" width="70" height="30"/>
                                                 </imageView>
                                             </subviews>
                                         </view>
@@ -756,7 +756,7 @@
         <!--Login-->
         <scene sceneID="oXL-ly-rzR">
             <objects>
-                <viewController id="Kfv-cf-FWX" customClass="ViewController" customModule="Pagina" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="Kfv-cf-FWX" customClass="LoginViewController" customModule="Pagina" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="mVY-xY-oXa">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -989,7 +989,7 @@
     </scenes>
     <resources>
         <image name="cat" width="330" height="208"/>
-        <image name="plus" width="626" height="626"/>
+        <image name="plus" width="128" height="128"/>
         <namedColor name="PaginaBlack">
             <color red="0.22745098039215686" green="0.25098039215686274" blue="0.29411764705882354" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

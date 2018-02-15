@@ -9,7 +9,7 @@
 import UIKit
 import Firebase
 
-class ViewController: UIViewController {
+class LoginViewController: UIViewController {
     
     @IBOutlet weak var emailLabel: UILabel!
     @IBOutlet weak var emailTextField: UITextField!
@@ -29,9 +29,6 @@ class ViewController: UIViewController {
             if let err = error {
                 self.warningTextLabel.isHidden = false
                 self.warningTextLabel.text = err.localizedDescription
-            }else{
-                //self.warningTextLabel.isHidden = false;
-                //self.warningTextLabel.text = "unknown errror";
             }
     }
     }

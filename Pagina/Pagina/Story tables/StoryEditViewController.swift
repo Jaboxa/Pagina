@@ -56,7 +56,7 @@ class StoryEditViewController: UIViewController, UICollectionViewDataSource, UIC
             return cell
         }
         if inspirations[indexPath.item].type == "text"{
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "textInspirationCell", for: indexPath) as! textCollectionViewCell
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "textInspirationCell", for: indexPath) as! TextInspirationCollectionViewCell
             cell.inspirationTextView.text = inspirations[indexPath.item].text;
             return cell
         }
