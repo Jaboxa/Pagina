@@ -79,7 +79,6 @@ class StoryEditViewController: UIViewController, UICollectionViewDataSource, UIC
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-        //var minimumLineSpacing: CGFloat { get set }
         return CGFloat(5);
     }
 
@@ -119,12 +118,6 @@ class StoryEditViewController: UIViewController, UICollectionViewDataSource, UIC
         ref = Database.database().reference();
         storageRef = Storage.storage().reference();
         fetchInspirations();
-        
-         /*inspirations{
-            if i.type == "image"{
-                i.image = fetchImageFromStorage(i.imageUrl);
-            }
-        }*/
         
         navbarTitle.title = currentChapter.title;
         storyEditTextView.text = currentChapter.content;
