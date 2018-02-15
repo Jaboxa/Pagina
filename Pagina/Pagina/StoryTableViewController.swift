@@ -9,8 +9,12 @@
 import UIKit
 import Firebase
 
-class StoryTableViewController: UITableViewController {
-
+class StoryTableViewController: UITableViewController, UISearchBarDelegate {
+    
+    @IBOutlet weak var searchBar: UISearchBar!
+    
+  
+    
     var ref: DatabaseReference!
     @IBOutlet var storyTableView: UITableView!
     
@@ -28,12 +32,53 @@ class StoryTableViewController: UITableViewController {
     var userid = "user"; //To be used if auth is implemented
     
     var stories:[Story] = [];
+    var storyTitles:[String] = [];
+    var searchActive:Bool = false
+    
+    func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
+        searchActive = true;
+    }
+    
+    func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
+        searchActive = false;
+    }
+    
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        searchActive = false;
+    }
+    
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        searchActive = false;
+    }
+    
+    var filteredStories:[String] = []
+    
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        
+        filteredStories = storyTitles.filter ({ (text) -> Bool in
+            let tmp: NSString = text as NSString
+            let range = tmp.range(of: searchText, options: .caseInsensitive)
+            print("funkar?")
+            return range.location != NSNotFound
+            
+        })
+        
+        if(filteredStories.count == 0){
+            searchActive = false;
+        } else {
+            searchActive = true;
+        }
+        self.storyTableView.reloadData()
+    }
     
     let alert = UIAlertController(title: "Create new story", message: "Enter a title for the story", preferredStyle: .alert)
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        storyTableView.delegate = self
+        storyTableView.dataSource = self
+        searchBar.delegate = self
         // Firebase dbs reference
         ref = Database.database().reference()
         
@@ -45,9 +90,6 @@ class StoryTableViewController: UITableViewController {
             // No user is signed in.
             // ...
         }
-        
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        self.navigationItem.rightBarButtonItem = self.editButtonItem //??
     }
     
     func newStoryAlertPreperation(){
@@ -72,6 +114,7 @@ class StoryTableViewController: UITableViewController {
                 story.title = value?["name"] as? String ?? "";
                 story.id = child.key;
                 self.stories.append(story);
+                self.storyTitles.append(story.title);
             }
             self.storyTableView.reloadData();
         }) { (error) in
@@ -86,6 +129,10 @@ class StoryTableViewController: UITableViewController {
 
     // MARK: - Table view data source
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if(searchActive) {
+            return filteredStories.count
+        }
+        
         return stories.count + 1
     }
 
@@ -97,9 +144,18 @@ class StoryTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if indexPath.row < stories.count{
+        print(searchActive)
+        if searchActive {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "storyCell", for: indexPath) as! StoryTableViewCell;
+            //cell.titleLabel?.text = stories[indexPath.row].title;
+            cell.titleLabel?.text = filteredStories[indexPath.row]
+            return cell;
+        }
+        else if indexPath.row < stories.count{
+            print("does this happen?")
             let cell = tableView.dequeueReusableCell(withIdentifier: "storyCell", for: indexPath) as! StoryTableViewCell;
             cell.titleLabel?.text = stories[indexPath.row].title;
+
             return cell
         }else{
             let cell = tableView.dequeueReusableCell(withIdentifier: "addStoryCell", for: indexPath) as! AddTableViewCell;
@@ -115,6 +171,10 @@ class StoryTableViewController: UITableViewController {
             return false;
         }
         
+    }
+    override func numberOfSections(in tableView: UITableView) -> Int {
+
+        return 1;
     }
 
     /*
@@ -159,7 +219,12 @@ class StoryTableViewController: UITableViewController {
         if segue.identifier == "chapterTableSegue"{
             if let chapterTable = segue.destination as? ChapterTableViewController {
                 if let i = sender as? Int { //row/cell i is tapped...
-                    chapterTable.currentStory = stories[i];
+                    if searchActive{
+                        chapterTable.currentStory = stories.filter{$0.title == filteredStories[i]}[0];
+                    }else{
+                        chapterTable.currentStory = stories[i];
+                    }
+                    
                 }
             }
         }
