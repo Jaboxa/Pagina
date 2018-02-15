@@ -11,15 +11,18 @@ import Firebase
 
 class StoryEditViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout{
     
+    var storageRef: StorageReference = StorageReference();
+
     var inspirations:[Inspiration] = [];
     
-    struct Inspiration{
+    struct Inspiration {
         var type:String = ""; //"image", "map", "text"
         var id:String = "";
         
         
         //Image
-        var imageurl:String = "";
+        var imageUrl:String = "";
+        var image: UIImage? = nil;
         
         //Map
         var long:Double = 0.0;
@@ -43,9 +46,12 @@ class StoryEditViewController: UIViewController, UICollectionViewDataSource, UIC
         }
         if inspirations[indexPath.item].type == "image"{
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "imageInspirationCell", for: indexPath) as! ImageInspirationCollectionViewCell
-            //cell.image.image = #imageLiteral(resourceName: "cat")
-        
-            cell.image.contentMode = UIViewContentMode.scaleAspectFill
+            
+            if let image = inspirations[indexPath.item].image {
+                cell.image.image = image;
+                    cell.image.contentMode = UIViewContentMode.scaleAspectFill;
+            }
+            
             
             return cell
         }
@@ -76,7 +82,6 @@ class StoryEditViewController: UIViewController, UICollectionViewDataSource, UIC
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-        //var minimumLineSpacing: CGFloat { get set }
         return CGFloat(5);
     }
 
@@ -103,6 +108,8 @@ class StoryEditViewController: UIViewController, UICollectionViewDataSource, UIC
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+
         if let user = Auth.auth().currentUser {
             userid = user.uid;
             print(userid);
@@ -112,7 +119,9 @@ class StoryEditViewController: UIViewController, UICollectionViewDataSource, UIC
             // ...
         }
         ref = Database.database().reference();
+        storageRef = Storage.storage().reference();
         fetchInspirations();
+        
         navbarTitle.title = currentChapter.title;
         storyEditTextView.text = currentChapter.content;
         currentText = storyEditTextView.text;
@@ -134,16 +143,38 @@ class StoryEditViewController: UIViewController, UICollectionViewDataSource, UIC
                 }else if inspiration.type == "map"{
                     inspiration.long = value?["long"] as? Double ?? 0.0;
                     inspiration.lat = value?["lat"] as? Double ?? 0.0;
+                }else if inspiration.type == "image"{
+                    inspiration.imageUrl = value?["url"] as? String ?? "";
                 }
                 
                 self.inspirations.append(inspiration);
             }
+            for i in 0..<self.inspirations.count{
+                if self.inspirations[i].type == "image"{
+                    let storagePath = self.inspirations[i].imageUrl;
+                        let imgRef = Storage.storage().reference(forURL: storagePath);
+                        var image:UIImage?
+                    
+                        // Download in memory with a maximum allowed size of 15MB (15 * 1024 * 1024 bytes)
+                        imgRef.getData(maxSize: 15 * 1024 * 1024) { data, error in
+                            if let error = error {
+                                print(error)
+                            } else {
+                                image = UIImage(data: data!) ?? nil;
+                                print("image fetched")
+                                self.inspirations[i].image = image;
+                                self.inspirationCollectionView.reloadData();
+                            }
+                        }
+                    }
+                }
             self.inspirationCollectionView.reloadData();
             
         }) { (error) in
             print(error.localizedDescription)
         }
     }
+    
     override func viewWillDisappear(_ animated:Bool){
         super.viewWillDisappear(true)
         saveTextTimer.invalidate();
