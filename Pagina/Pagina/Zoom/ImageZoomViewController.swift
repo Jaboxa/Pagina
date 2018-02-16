@@ -34,6 +34,7 @@ class ImageZoomViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         imageView.image = currentInspiration.image;
+        print(currentInspiration.imageUrl)
     }
     
     override func didReceiveMemoryWarning() {

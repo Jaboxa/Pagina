@@ -221,7 +221,7 @@
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="cell" id="tga-ee-AmU" customClass="ErrorInspirationCollectionViewCell" customModule="Pagina" customModuleProvider="target">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="center" reuseIdentifier="cell" id="tga-ee-AmU" customClass="ErrorInspirationCollectionViewCell" customModule="Pagina" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="5" width="140" height="140"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
@@ -276,7 +276,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="140" height="140"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" zoomEnabled="NO" scrollEnabled="NO" rotateEnabled="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GRJ-9D-POS">
+                                                <mapView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" mapType="standard" zoomEnabled="NO" scrollEnabled="NO" rotateEnabled="NO" pitchEnabled="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GRJ-9D-POS">
                                                     <rect key="frame" x="0.0" y="0.0" width="140" height="140"/>
                                                 </mapView>
                                             </subviews>
@@ -417,7 +417,7 @@
                         <outlet property="inspirationCollectionView" destination="TyE-DN-Xco" id="4Qf-kY-QPB"/>
                         <outlet property="navbarTitle" destination="CYB-oR-Aif" id="VIf-6R-8v1"/>
                         <outlet property="storyEditTextView" destination="fMY-dx-wif" id="hLO-7Y-F07"/>
-                        <segue destination="r37-Ft-wwC" kind="show" identifier="zoomImageSegue" action="showDetailViewController:sender:" id="eDW-UT-sUe"/>
+                        <segue destination="r37-Ft-wwC" kind="show" identifier="zoomImageSegue" id="eDW-UT-sUe"/>
                         <segue destination="c0P-1U-GCn" kind="show" identifier="zoomMapSegue" id="Ns3-Gc-F4k"/>
                         <segue destination="iJq-JK-uXF" kind="show" identifier="zoomTextSegue" id="9el-jy-NSh"/>
                     </connections>
@@ -1000,9 +1000,6 @@
         <image name="plus" width="128" height="128"/>
         <namedColor name="PaginaBlack">
             <color red="0.22745098039215686" green="0.25098039215686274" blue="0.29411764705882354" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
-        <namedColor name="PaginaHeavy">
-            <color red="0.6588235294117647" green="0.59607843137254901" blue="0.45490196078431372" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="PaginaHeavy">
             <color red="0.6588235294117647" green="0.59607843137254901" blue="0.45490196078431372" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

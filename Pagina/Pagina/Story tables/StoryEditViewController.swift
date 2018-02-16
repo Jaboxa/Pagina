@@ -162,8 +162,6 @@ class StoryEditViewController: UIViewController, UICollectionViewDataSource, UIC
             if let image = inspirations[indexPath.item].image {
                 cell.image.image = image;
             }
-            
-            
             return cell
         }
         if inspirations[indexPath.item].type == "text"{
@@ -234,7 +232,7 @@ class StoryEditViewController: UIViewController, UICollectionViewDataSource, UIC
                 }
             }
         }else if segue.identifier == "zoomImageSegue"{
-            if let zoom = segue.destination as? MapZoomViewController {
+            if let zoom = segue.destination as? ImageZoomViewController {
                 if let i = sender as? Int {
                     zoom.currentChapter = currentChapter;
                     zoom.currentInspiration = inspirations[i];
