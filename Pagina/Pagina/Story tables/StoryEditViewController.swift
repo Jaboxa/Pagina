@@ -103,8 +103,8 @@ class StoryEditViewController: UIViewController, UICollectionViewDataSource, UIC
     
     //Fetch from dbs
     func fetchInspirations(){
-        inspirations.removeAll(keepingCapacity: false);
-        ref.child("users").child(userid).child("stories").child(currentChapter.storyid).child("chapters").child(currentChapter.id).child("inspirations").observeSingleEvent(of: DataEventType.value, with: { (snapshot) in
+        ref.child("users").child(userid).child("stories").child(currentChapter.storyid).child("chapters").child(currentChapter.id).child("inspirations").observe(DataEventType.value, with: { (snapshot) in
+            self.inspirations.removeAll(keepingCapacity: false);
             for child in snapshot.children.allObjects as! [DataSnapshot]{
                 let value = child.value as? NSDictionary;
                 var inspiration = Inspiration();
@@ -202,7 +202,7 @@ class StoryEditViewController: UIViewController, UICollectionViewDataSource, UIC
             //???
         }
         else if inspirations[indexPath.item].type == "image"{
-            
+            performSegue(withIdentifier: "zoomImageSegue", sender: indexPath.item)
         }
         else if inspirations[indexPath.item].type == "text"{
             performSegue(withIdentifier: "zoomTextSegue", sender: indexPath.item)
@@ -227,8 +227,14 @@ class StoryEditViewController: UIViewController, UICollectionViewDataSource, UIC
                     zoom.currentInspiration = inspirations[i];
                 }
             }
-        }
-        else if segue.identifier == "zoomMapSegue"{
+        }else if segue.identifier == "zoomMapSegue"{
+            if let zoom = segue.destination as? MapZoomViewController {
+                if let i = sender as? Int {
+                    zoom.currentChapter = currentChapter;
+                    zoom.currentInspiration = inspirations[i];
+                }
+            }
+        }else if segue.identifier == "zoomImageSegue"{
             if let zoom = segue.destination as? MapZoomViewController {
                 if let i = sender as? Int {
                     zoom.currentChapter = currentChapter;

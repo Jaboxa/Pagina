@@ -417,7 +417,7 @@
                         <outlet property="inspirationCollectionView" destination="TyE-DN-Xco" id="4Qf-kY-QPB"/>
                         <outlet property="navbarTitle" destination="CYB-oR-Aif" id="VIf-6R-8v1"/>
                         <outlet property="storyEditTextView" destination="fMY-dx-wif" id="hLO-7Y-F07"/>
-                        <segue destination="r37-Ft-wwC" kind="showDetail" identifier="showImageInspirationSegue" id="eDW-UT-sUe"/>
+                        <segue destination="r37-Ft-wwC" kind="show" identifier="zoomImageSegue" action="showDetailViewController:sender:" id="eDW-UT-sUe"/>
                         <segue destination="c0P-1U-GCn" kind="show" identifier="zoomMapSegue" id="Ns3-Gc-F4k"/>
                         <segue destination="iJq-JK-uXF" kind="show" identifier="zoomTextSegue" id="9el-jy-NSh"/>
                     </connections>
@@ -426,10 +426,10 @@
             </objects>
             <point key="canvasLocation" x="-1005" y="-1566"/>
         </scene>
-        <!--View Controller-->
+        <!--Inspiring Image-->
         <scene sceneID="1Y1-IL-hYi">
             <objects>
-                <viewController id="r37-Ft-wwC" sceneMemberID="viewController">
+                <viewController id="r37-Ft-wwC" customClass="ImageZoomViewController" customModule="Pagina" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="zol-jN-q9Y">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -438,19 +438,20 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <button contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ohx-2Y-Nmh">
-                                <rect key="frame" x="133" y="617" width="109" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <inset key="titleEdgeInsets" minX="2" minY="2" maxX="0.0" maxY="0.0"/>
-                                <state key="normal" title="Delete Image">
-                                    <color key="titleColor" red="0.84875124690000003" green="0.11540778729999999" blue="0.075756318870000006" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                </state>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <viewLayoutGuide key="safeArea" id="LkL-Go-pmc"/>
                     </view>
+                    <navigationItem key="navigationItem" title="Inspiring Image" id="khY-zR-T5q">
+                        <barButtonItem key="rightBarButtonItem" systemItem="trash" id="ohI-0k-FRU">
+                            <connections>
+                                <action selector="deleteImageButton:" destination="r37-Ft-wwC" id="V65-7J-BPY"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="imageView" destination="6d0-pD-hDp" id="HyU-Pa-6so"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="F8n-Vw-960" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

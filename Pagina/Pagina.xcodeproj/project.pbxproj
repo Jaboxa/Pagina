@@ -22,6 +22,7 @@
 		0064CFDE202C5A9400729474 /* StoryTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0064CFDC202C5A9300729474 /* StoryTableViewController.swift */; };
 		0064CFDF202C5A9400729474 /* StoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0064CFDD202C5A9400729474 /* StoryTableViewCell.swift */; };
 		0064CFE5202DCE2400729474 /* AddTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0064CFE4202DCE2400729474 /* AddTableViewCell.swift */; };
+		00C11F4F2036576100C7721B /* ImageZoomViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00C11F4E2036576100C7721B /* ImageZoomViewController.swift */; };
 		CE0757C32031CB5800CAB9EB /* AddMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0757C22031CB5800CAB9EB /* AddMapViewController.swift */; };
 		CE0757C52031CF4400CAB9EB /* AddTextInspirationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0757C42031CF4400CAB9EB /* AddTextInspirationViewController.swift */; };
 		CE07F0682035F0090011714D /* TextZoomViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE07F0672035F0090011714D /* TextZoomViewController.swift */; };
@@ -58,6 +59,7 @@
 		0064CFDC202C5A9300729474 /* StoryTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoryTableViewController.swift; sourceTree = "<group>"; };
 		0064CFDD202C5A9400729474 /* StoryTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoryTableViewCell.swift; sourceTree = "<group>"; };
 		0064CFE4202DCE2400729474 /* AddTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTableViewCell.swift; sourceTree = "<group>"; };
+		00C11F4E2036576100C7721B /* ImageZoomViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageZoomViewController.swift; sourceTree = "<group>"; };
 		3A38A726B53E05453205AEEB /* Pods-Pagina.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Pagina.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Pagina/Pods-Pagina.debug.xcconfig"; sourceTree = "<group>"; };
 		972F3314908C4CF37D3864DA /* Pods_Pagina.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Pagina.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		AB41F3B2A275C179F57C9683 /* Pods-Pagina.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Pagina.release.xcconfig"; path = "Pods/Target Support Files/Pods-Pagina/Pods-Pagina.release.xcconfig"; sourceTree = "<group>"; };
@@ -122,6 +124,7 @@
 			children = (
 				CE07F0672035F0090011714D /* TextZoomViewController.swift */,
 				002D866220347CE30065EA70 /* MapZoomViewController.swift */,
+				00C11F4E2036576100C7721B /* ImageZoomViewController.swift */,
 			);
 			path = Zoom;
 			sourceTree = "<group>";
@@ -363,6 +366,7 @@
 				0064CFDE202C5A9400729474 /* StoryTableViewController.swift in Sources */,
 				0064CFB920287F9100729474 /* LoginViewController.swift in Sources */,
 				0064CFB720287F9100729474 /* AppDelegate.swift in Sources */,
+				00C11F4F2036576100C7721B /* ImageZoomViewController.swift in Sources */,
 				002D865F20346F950065EA70 /* MapInspirationCollectionViewCell.swift in Sources */,
 				CE0927E8202C6AA8007EB62C /* ChapterTableViewController.swift in Sources */,
 				CE0927E6202C693D007EB62C /* StoryEditViewController.swift in Sources */,
