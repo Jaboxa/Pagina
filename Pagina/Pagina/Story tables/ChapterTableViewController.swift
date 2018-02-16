@@ -25,12 +25,17 @@ class ChapterTableViewController: UITableViewController {
     var currentStory:StoryTableViewController.Story = StoryTableViewController.Story(); //contains id:s for firebase etc
     var userid:String = "";
     
-        let alert = UIAlertController(title: "Create new chapter", message: "Enter a title for the chapter", preferredStyle: .alert)
+        let alert = UIAlertController(title: "", message: "", preferredStyle: .alert)
+    
+    // :)
+    var storyNameExemples: [String] = ["Hamlet", "Harry Potter", "Lord of the rings", "Inferno", "The Illiad", "Carrie"];
+    var randomStoryNameIndex: Int = 0;
     
     
     // Class
     override func viewDidLoad() {
         super.viewDidLoad()
+        randomStoryNameIndex = Int(arc4random_uniform(UInt32(storyNameExemples.count)))
         
         ref = Database.database().reference();
         
@@ -52,8 +57,11 @@ class ChapterTableViewController: UITableViewController {
     
     //Alert
     func newChapterAlertPreperation(){
+        alert.title = String(format: NSLocalizedString("Create new chapter", comment: ""));
+        alert.message = String(format: NSLocalizedString("Why not call it...?", comment: ""));
+        
         alert.addTextField { (textField) in
-            textField.text = "";
+            textField.text = self.storyNameExemples[self.randomStoryNameIndex];
         }
         alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { [weak alert] (_) in
             let textField = alert!.textFields![0] // Force unwrapping because we know it exists.
@@ -87,7 +95,7 @@ class ChapterTableViewController: UITableViewController {
     //Table
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return chapters.count + 1;
+        return chapters.count + 1; // +1 for cell with add
     }
 
     
@@ -123,6 +131,11 @@ class ChapterTableViewController: UITableViewController {
         if indexPath.row < chapters.count{
             performSegue(withIdentifier: "StoryEditSegue", sender: indexPath.row)
         }else{
+            if let txtfs = alert.textFields, alert.textFields!.count > 0{
+                let textField = txtfs[0]
+                randomStoryNameIndex = Int(arc4random_uniform(UInt32(storyNameExemples.count)))
+                textField.text = storyNameExemples[randomStoryNameIndex];
+            }
             self.present(alert, animated: true, completion: nil);
         }
     }

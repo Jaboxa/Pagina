@@ -11,4 +11,5 @@ import UIKit
 class ErrorInspirationCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var myLabel: UILabel!
     
+    // Something went wrong, show something!
 }

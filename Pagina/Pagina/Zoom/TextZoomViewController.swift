@@ -29,8 +29,9 @@ class TextZoomViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        //set text
         inspirationTextView.text = currentInspiration.text;
-        // Do any additional setup after loading the view.
     }
 
     override func didReceiveMemoryWarning() {

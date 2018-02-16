@@ -18,6 +18,8 @@ class MapInspirationCollectionViewCell: UICollectionViewCell, CLLocationManagerD
         let place = MKPointAnnotation();
         place.coordinate.longitude = long;
         place.coordinate.latitude = lat;
+        
+        //Add annotation and zoom in on the annotation
         inspirationMapView.addAnnotation(place);
         inspirationMapView.showAnnotations(inspirationMapView.annotations, animated: true);
     }

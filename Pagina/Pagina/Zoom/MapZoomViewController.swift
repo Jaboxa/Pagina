@@ -22,7 +22,11 @@ class MapZoomViewController: UIViewController, CLLocationManagerDelegate, MKMapV
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        //Place location annotation on map
         setMap(long: currentInspiration.long, lat: currentInspiration.lat);
+        
+        //Zoom in on the location
         zoomedMapView.showAnnotations(zoomedMapView.annotations, animated: true);
     }
 
@@ -43,8 +47,8 @@ class MapZoomViewController: UIViewController, CLLocationManagerDelegate, MKMapV
     
     @IBAction func deleteMap(_ sender: Any) {
         let ref:DatabaseReference = Database.database().reference();
-        
         if let user = Auth.auth().currentUser {
+            //remove location and dissmiss view
             ref.child("users").child(user.uid).child("stories").child(self.currentChapter.storyid).child("chapters").child(self.currentChapter.id).child("inspirations").child(self.currentInspiration.id).removeValue();
             navigationController?.popViewController(animated: true);
         }

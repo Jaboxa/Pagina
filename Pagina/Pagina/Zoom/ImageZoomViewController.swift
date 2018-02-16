@@ -17,14 +17,19 @@ class ImageZoomViewController: UIViewController {
     var currentChapter: ChapterTableViewController.Chapter = ChapterTableViewController.Chapter();
     
     @IBAction func deleteImageButton(_ sender: Any) {
+        //get reference of image from storage
         let ref:DatabaseReference = Database.database().reference();
         let imgRef = Storage.storage().reference(forURL: currentInspiration.imageUrl)
         if let user = Auth.auth().currentUser {
+            //delete the image
             imgRef.delete { error in
                 if let error = error {
                     print(error);
                 } else {
-                ref.child("users").child(user.uid).child("stories").child(self.currentChapter.storyid).child("chapters").child(self.currentChapter.id).child("inspirations").child(self.currentInspiration.id).removeValue();
+                
+                   // when delete succeeds, remove from dbs
+                    ref.child("users").child(user.uid).child("stories").child(self.currentChapter.storyid).child("chapters").child(self.currentChapter.id).child("inspirations").child(self.currentInspiration.id).removeValue();
+                    // dissmiss view
                     self.navigationController?.popViewController(animated: true);
                 }
             }
@@ -33,8 +38,9 @@ class ImageZoomViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        //Set image
         imageView.image = currentInspiration.image;
-        print(currentInspiration.imageUrl)
     }
     
     override func didReceiveMemoryWarning() {

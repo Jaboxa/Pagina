@@ -30,7 +30,6 @@ class StoryEditViewController: UIViewController, UICollectionViewDataSource, UIC
         
         //Text
         var text:String = "";
-
         
     }
     
@@ -101,6 +100,7 @@ class StoryEditViewController: UIViewController, UICollectionViewDataSource, UIC
         }
     }
     
+    
     //Fetch from dbs
     func fetchInspirations(){
         ref.child("users").child(userid).child("stories").child(currentChapter.storyid).child("chapters").child(currentChapter.id).child("inspirations").observe(DataEventType.value, with: { (snapshot) in
@@ -110,6 +110,7 @@ class StoryEditViewController: UIViewController, UICollectionViewDataSource, UIC
                 var inspiration = Inspiration();
                 inspiration.type = value?["type"] as? String ?? "";
                 inspiration.id = child.key;
+                
                 if inspiration.type == "text"{
                     inspiration.text = value?["text"] as? String ?? "";
                 }else if inspiration.type == "map"{
@@ -121,6 +122,8 @@ class StoryEditViewController: UIViewController, UICollectionViewDataSource, UIC
                 
                 self.inspirations.append(inspiration);
             }
+            
+            //fetch all images from storage
             for i in 0..<self.inspirations.count{
                 if self.inspirations[i].type == "image"{
                     let storagePath = self.inspirations[i].imageUrl;
@@ -147,7 +150,7 @@ class StoryEditViewController: UIViewController, UICollectionViewDataSource, UIC
     // Collection/Inspirations (Yes, we should have used a container view /similar for this)
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return inspirations.count + 1
+        return inspirations.count + 1 // +1 for add
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {

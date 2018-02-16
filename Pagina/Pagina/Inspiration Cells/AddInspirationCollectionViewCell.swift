@@ -9,5 +9,5 @@
 import UIKit
 
 class AddInspirationCollectionViewCell: UICollectionViewCell {
-    
+    //This is only for typing the cell in StoryEditViewController -> Collection View
 }

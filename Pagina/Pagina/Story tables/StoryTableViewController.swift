@@ -21,9 +21,13 @@ class StoryTableViewController: UITableViewController, UISearchBarDelegate {
     }
     
     var userid = "";
-    let alert = UIAlertController(title: "Create new story", message: "Enter a title for the story", preferredStyle: .alert)
+    let alert = UIAlertController(title: "", message: "", preferredStyle: .alert)
     
     var ref: DatabaseReference! //Firabase ref
+    
+    // :)
+    var storyNameExemples: [String] = ["1984", "Don Quixote", "Emma", "Brave New World", "The Time Machine", "Enders Game"];
+    var randomStoryNameIndex: Int = 0;
     
     var stories:[Story] = [];
     var storyTitles:[String] = []; // For filtering searches
@@ -56,6 +60,7 @@ class StoryTableViewController: UITableViewController, UISearchBarDelegate {
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         
+        //could not get this type of filtering to work with a struct array
         filteredStories = storyTitles.filter ({ (text) -> Bool in
             let tmp: NSString = text as NSString
             let range = tmp.range(of: searchText, options: .caseInsensitive)
@@ -68,14 +73,14 @@ class StoryTableViewController: UITableViewController, UISearchBarDelegate {
         } else {
             searchActive = true;
         }
-        self.storyTableView.reloadData()
+        self.storyTableView.reloadData();
     }
     
 
     // Class
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        randomStoryNameIndex = Int(arc4random_uniform(UInt32(storyNameExemples.count)))
         // Firebase dbs reference
         ref = Database.database().reference()
         
@@ -97,8 +102,11 @@ class StoryTableViewController: UITableViewController, UISearchBarDelegate {
     
     // Alert
     func newStoryAlertPreperation(){
+        alert.title = String(format: NSLocalizedString("Create new story", comment: ""));
+        alert.message = String(format: NSLocalizedString("Why not call it...?", comment: ""));
+        
         alert.addTextField { (textField) in
-            textField.text = "Don Quixote";
+            textField.text = self.storyNameExemples[self.randomStoryNameIndex];
         }
         alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { [weak alert] (_) in
             let textField = alert!.textFields![0] // Force unwrapping because we know it exists.
@@ -159,6 +167,8 @@ class StoryTableViewController: UITableViewController, UISearchBarDelegate {
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        // if searching, no add cell should be shown.
+        // if searching, only the filtered stories should be shown
         if searchActive {
             let cell = tableView.dequeueReusableCell(withIdentifier: "storyCell", for: indexPath) as! StoryTableViewCell;
             cell.titleLabel?.text = filteredStories[indexPath.row]
@@ -180,6 +190,11 @@ class StoryTableViewController: UITableViewController, UISearchBarDelegate {
         if indexPath.row < stories.count{
             performSegue(withIdentifier: "chapterTableSegue", sender: indexPath.row);
         }else{
+            if let txtfs = alert.textFields, alert.textFields!.count > 0{
+                let textField = txtfs[0]
+                randomStoryNameIndex = Int(arc4random_uniform(UInt32(storyNameExemples.count)))
+                textField.text = storyNameExemples[randomStoryNameIndex];
+            }
             self.present(alert, animated: true, completion: nil); // Add new story
         }
     }
