@@ -14,6 +14,7 @@ class ImageInspirationCollectionViewCell: UICollectionViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         image.sizeToFit();
+        image.contentMode = UIViewContentMode.scaleAspectFill;
     }
     
 }
