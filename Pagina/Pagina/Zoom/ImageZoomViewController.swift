@@ -17,11 +17,17 @@ class ImageZoomViewController: UIViewController {
     var currentChapter: ChapterTableViewController.Chapter = ChapterTableViewController.Chapter();
     
     @IBAction func deleteImageButton(_ sender: Any) {
-        let ref:DatabaseReference = Database.database().reference()
-        
+        let ref:DatabaseReference = Database.database().reference();
+        let imgRef = Storage.storage().reference(forURL: currentInspiration.imageUrl)
         if let user = Auth.auth().currentUser {
-            ref.child("users").child(user.uid).child("stories").child(self.currentChapter.storyid).child("chapters").child(self.currentChapter.id).child("inspirations").child(self.currentInspiration.id).removeValue();
-            navigationController?.popViewController(animated: true);
+            imgRef.delete { error in
+                if let error = error {
+                    print(error);
+                } else {
+                ref.child("users").child(user.uid).child("stories").child(self.currentChapter.storyid).child("chapters").child(self.currentChapter.id).child("inspirations").child(self.currentInspiration.id).removeValue();
+                    self.navigationController?.popViewController(animated: true);
+                }
+            }
         }
     }
     
